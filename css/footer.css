@@ -1,6 +1,6 @@
 /* ALRÍO · pie y lightbox */
 /* footer */
-.al-footer { padding: 90px var(--pad) 44px; background: var(--ink); color: rgba(244,238,224,.6); }
+.al-footer { padding: 90px var(--pad) 44px; background: var(--ink); color: rgba(244,238,224,.6); border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
 .al-footer-top {
   max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto; gap: 80px;
   align-items: start; padding-bottom: 60px; border-bottom: 1px solid rgba(244,238,224,.14);

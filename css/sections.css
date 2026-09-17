@@ -1,8 +1,9 @@
 /* ALRÍO · secciones 01 a 08 */
 /* ── SECTIONS ──────────────────────────────────── */
-.al-sec { padding: 140px var(--pad); }
+.al-sec { padding: 140px var(--pad); position: relative; z-index: 1; border-radius: var(--radius); overflow: hidden; }
 .al-sec-dark { background: var(--ink); color: var(--bone); }
 .al-sec-green { background: var(--green); color: var(--bone); }
+#proyecto { z-index: 2; margin-top: -36px; background: var(--bone); border-radius: var(--radius) var(--radius) 0 0; }
 .al-wrap { max-width: 1440px; margin: 0 auto; }
 .al-eyebrow { display: none; }
 
@@ -41,7 +42,7 @@
 .al-stats > div { display: flex; flex-direction: column; gap: 12px; padding: 44px 32px 44px 0; background: var(--bone); }
 .al-stats > div + div { padding-left: 40px; }
 .al-stat-n { font-size: clamp(38px, 3.6vw, 60px); line-height: 1; color: var(--green); font-weight: 300; }
-mas legibles .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height: 1.15; }
+.al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height: 1.15; }
 .al-stat-l { font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(41,41,41,.55); }
 .al-sec-dark .al-stats { background: rgba(244,238,224,.18); border-color: rgba(244,238,224,.18); }
 .al-sec-dark .al-stats > div { background: var(--ink); }
@@ -49,8 +50,9 @@ mas legibles .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height:
 .al-sec-dark .al-stat-l { color: rgba(244,238,224,.55); letter-spacing: .22em; font-size: 13px; }
 
 /* full-bleed image band */
-.al-bleed { position: relative; height: 78vh; min-height: 480px; overflow: hidden; }
-.al-bleed img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.al-bleed { position: relative; height: 78vh; min-height: 480px; overflow: hidden; border-radius: var(--radius); margin: 16px; z-index: 1; }
+.al-bleed img, .al-bleed video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.al-bleed-video { pointer-events: none; }
 .al-bleed-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(41,41,41,.14), rgba(41,41,41,.42)); }
 .al-bleed p {
   position: absolute; left: var(--pad); bottom: 46px; margin: 0; max-width: 420px;
@@ -61,7 +63,7 @@ mas legibles .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height:
 .al-arch { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: center; }
 .al-arch-img { position: relative; }
 .al-arch-img .al-frame { display: none; }
-.al-arch-img img { position: relative; display: block; width: 100%; height: auto; }
+.al-arch-img img { position: relative; display: block; width: 100%; height: auto; border-radius: 20px; }
 .al-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 8px; background: rgba(244,238,224,.16); }
 .al-specs > div { padding: 26px; background: var(--green); }
 .al-specs > div:first-child { padding-left: 0; }
@@ -69,7 +71,7 @@ mas legibles .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height:
 .al-spec-v { display: block; margin-top: 10px; font-size: 15px; color: var(--sand); }
 
 /* ubicación */
-.al-mapwrap { position: relative; overflow: hidden; margin-top: 64px; }
+.al-mapwrap { position: relative; overflow: hidden; margin-top: 64px; border-radius: 20px; }
 .al-mapwrap img { display: block; width: 100%; height: auto; }
 .al-index {
   display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; margin-top: 1px;
@@ -83,7 +85,7 @@ mas legibles .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height:
 /* entorno */
 .al-lifestyle { display: flex; gap: 24px; padding: 0 var(--pad) 26px; }
 .al-lifestyle figure { flex: 0 0 42vw; min-width: 320px; margin: 0; scroll-snap-align: start; }
-.al-lifestyle .al-shot { position: relative; height: 60vh; min-height: 400px; overflow: hidden; }
+.al-lifestyle .al-shot { position: relative; height: 60vh; min-height: 400px; overflow: hidden; border-radius: 20px; }
 .al-lifestyle img { width: 100%; height: 100%; object-fit: cover; }
 .al-lifestyle figcaption {
   margin-top: 16px; font-size: 13px; letter-spacing: .18em;
@@ -98,7 +100,7 @@ mas legibles .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height:
 .al-tour { margin-top: 28px; }
 .al-tour-frame {
   position: relative; width: 100%; height: min(78vh, 760px); min-height: 480px;
-  overflow: hidden; background: var(--green);
+  overflow: hidden; background: var(--green); border-radius: 20px;
 }
 .al-tour-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
@@ -109,7 +111,7 @@ mas legibles .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height:
 
 /* galería */
 .al-gal { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
-.al-gal button { padding: 0; border: 0; background: none; cursor: pointer; overflow: hidden; }
+.al-gal button { padding: 0; border: 0; background: none; cursor: pointer; overflow: hidden; border-radius: 18px; }
 .al-gal button img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .al-gal .al-g-main { grid-column: span 7; height: 620px; }
 .al-gal .al-g-stack { grid-column: span 5; display: grid; gap: 24px; }
@@ -139,8 +141,9 @@ mas legibles .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height:
 .al-consent span { font-size: 16px; line-height: 1.65; color: rgba(41,41,41,.78); }
 .al-submit-row { grid-column: span 2; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
 .al-submit {
-  padding: 18px 48px; border: 0; background: var(--green); color: var(--bone);
-  font-size: 15px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; cursor: pointer;
+  padding: 12px 32px; border: 0; background: var(--green); color: var(--bone);
+  font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; cursor: pointer;
+  border-radius: var(--btn-radius);
   transition: background .4s ease;
 }
 .al-submit:hover { background: var(--ink); }

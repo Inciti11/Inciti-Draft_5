@@ -15,6 +15,8 @@
   --pad: 56px;
   --font-body: "Josefin Sans", "Helvetica Neue", Arial, sans-serif;
   --font-title: "Abramo", Georgia, serif;
+  --radius: 28px;
+  --btn-radius: 999px;
 }
 
 * { box-sizing: border-box; }

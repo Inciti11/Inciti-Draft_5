@@ -1,6 +1,6 @@
 /* ALRÍO · portada */
 /* ── HERO ──────────────────────────────────────── */
-.al-hero { position: relative; min-height: 100svh; overflow: hidden; background: var(--ink); }
+.al-hero { position: relative; min-height: 100svh; overflow: hidden; background: var(--ink); border-radius: 0 0 var(--radius) var(--radius); }
 .al-hero > img {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: 50% 42%;
@@ -31,16 +31,18 @@
 }
 .al-btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
 .al-btn {
-  display: inline-block; padding: 18px 44px; background: var(--sand); color: var(--ink);
-  font-size: 13px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  display: inline-block; padding: 12px 28px; background: var(--sand); color: var(--ink);
+  font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  border-radius: var(--btn-radius);
   transition: background .4s ease, color .4s ease;
 }
 .al-btn:hover { background: var(--bone); color: var(--ink); }
 .al-btn-ghost { background: transparent; border: 1px solid rgba(244,238,224,.45); color: var(--bone); }
 .al-btn-ghost:hover { background: rgba(244,238,224,.12); color: var(--bone); }
 .al-btn-outline {
-  display: inline-block; padding: 16px 38px; border: 1px solid rgba(226,207,176,.5);
-  color: var(--sand); font-size: 15px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  display: inline-block; padding: 12px 26px; border: 1px solid rgba(226,207,176,.5);
+  color: var(--sand); font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  border-radius: var(--btn-radius);
   transition: background .4s ease, color .4s ease;
 }
 .al-btn-outline:hover { background: var(--sand); color: var(--ink); }
