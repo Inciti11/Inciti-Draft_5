@@ -2,17 +2,58 @@
 (function () {
   'use strict';
 
-  /* Reveal al hacer scroll */
-  var targets = document.querySelectorAll('[data-reveal]');
+  /* Textos: salen del difuminado al entrar y al bajar */
+  var textSel = [
+    'h1', 'h2', 'h3', 'p',
+    '.al-eyebrow', '.al-kicker', '.al-h2', '.al-h3', '.al-p',
+    '.al-stat-n', '.al-stat-l', '.al-index-n', '.al-index-t',
+    'figcaption', '.al-note',
+    '.al-consent span', '.al-form .al-k',
+    '.al-cta > *',
+    '.al-by span', '.al-footer-legal span'
+  ].join(',');
+  var skipUnblur = function (el) {
+    return el.closest('.al-hero') || el.closest('.al-nav') || el.closest('.al-drawer');
+  };
+  var markUnblur = function (root, startDelay) {
+    var delay = startDelay || 0;
+    root.querySelectorAll(textSel).forEach(function (el, i) {
+      if (skipUnblur(el)) return;
+      el.classList.add('al-unblur');
+      el.style.transitionDelay = (delay + i * 0.12) + 's';
+    });
+  };
+  var showUnblur = function (root) {
+    root.querySelectorAll('.al-unblur').forEach(function (el) { el.classList.add('is-in'); });
+  };
+
+  document.querySelectorAll('[data-reveal]').forEach(function (el) { markUnblur(el, 0.08); });
+  document.querySelectorAll(textSel).forEach(function (el) {
+    if (el.closest('[data-reveal]') || skipUnblur(el)) return;
+    el.classList.add('al-unblur');
+  });
+
+  var revealEls = [];
+  document.querySelectorAll('[data-reveal]').forEach(function (el) { revealEls.push(el); });
+  document.querySelectorAll('.al-unblur').forEach(function (el) {
+    if (!el.closest('[data-reveal]')) revealEls.push(el);
+  });
+
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        showUnblur(e.target);
+        io.unobserve(e.target);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-    targets.forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
   } else {
-    targets.forEach(function (el) { el.classList.add('is-in'); });
+    revealEls.forEach(function (el) {
+      el.classList.add('is-in');
+      showUnblur(el);
+    });
   }
 
   /* Nav sólida al pasar la portada */
