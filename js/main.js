@@ -31,7 +31,12 @@
   var setDrawer = function (open) {
     if (!drawer) return;
     drawer.classList.toggle('is-open', open);
-    if (burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (burger) {
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Menú');
+    }
+    if (nav) nav.classList.toggle('is-menu', open);
     document.body.style.overflow = open ? 'hidden' : '';
   };
   if (burger) burger.addEventListener('click', function () { setDrawer(!drawer.classList.contains('is-open')); });
