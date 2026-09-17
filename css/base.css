@@ -120,8 +120,31 @@ a.al-btn-outline.al-unblur {
 
 /* no hover zoom — las fotos se abren al hacer clic */
 
-/* horizontal scrollers */
-.al-hscroll { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
-.al-hscroll::-webkit-scrollbar { height: 2px; }
-.al-hscroll::-webkit-scrollbar-thumb { background: rgba(41,41,41,.25); }
-.al-hscroll::-webkit-scrollbar-track { background: rgba(41,41,41,.07); }
+/* horizontal scrollers — scrollbar propio */
+.al-hscroll {
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+.al-hscroll::-webkit-scrollbar { display: none; height: 0; }
+.al-scroll-line {
+  position: relative;
+  height: 10px;
+  margin: 16px var(--pad) 8px;
+  background: rgba(60, 77, 69, .14);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.al-scroll-line span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #3C4D45;
+  border-radius: inherit;
+  cursor: grab;
+}
+.al-scroll-line.is-grabbing,
+.al-scroll-line.is-grabbing span { cursor: grabbing; }

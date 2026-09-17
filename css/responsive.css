@@ -27,16 +27,66 @@
 }
 @media (max-width: 680px) {
   :root { --radius: 20px; --pad: 22px; }
-  .al-hero-in { padding: 110px var(--pad) 72px; }
-  .al-hero-body { gap: 20px; }
+  .al-hero-in { padding: 96px var(--pad) 28px; }
+  .al-hero-body {
+    gap: 14px;
+    max-width: 100%;
+    justify-content: flex-start;
+    padding-top: 0;
+    align-items: flex-start;
+  }
+  .al-hero > img { object-position: 72% 42%; }
+  .al-hero-veil {
+    background:
+      linear-gradient(180deg,
+        rgba(60, 77, 69, .18) 0%,
+        rgba(60, 77, 69, .08) 38%,
+        rgba(60, 77, 69, .42) 68%,
+        rgba(60, 77, 69, .88) 100%),
+      linear-gradient(90deg,
+        rgba(60, 77, 69, .35) 0%,
+        rgba(60, 77, 69, .12) 42%,
+        rgba(60, 77, 69, 0) 70%);
+  }
   .al-hero h1 { letter-spacing: .1em; font-size: clamp(28px, 8vw, 40px); }
-  .al-hero p { font-size: 15px; line-height: 1.65; }
+  .al-hero .al-kicker {
+    white-space: nowrap;
+    font-size: 10px;
+    letter-spacing: .14em;
+  }
+  .al-hero p {
+    margin-top: auto;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 22em;
+    text-align: center;
+    text-wrap: pretty;
+    align-self: center;
+  }
   .al-btn, .al-btn-outline { display: block; text-align: center; padding: 12px 20px; }
-  .al-btn-row { flex-direction: column; align-items: stretch; }
+  .al-hero .al-btn {
+    display: inline-block;
+    width: auto;
+    padding: 10px 22px;
+    font-size: 12px;
+    letter-spacing: .08em;
+  }
+  .al-btn-row {
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    width: auto;
+    max-width: 22em;
+    margin-top: 4px;
+  }
   .al-hero-foot {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 14px;
+  }
+  .al-hero-foot .al-by {
+    justify-content: center;
+    width: 100%;
   }
   .al-scroll-txt { display: none; }
   .al-scroll-hint { align-self: center; }

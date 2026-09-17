@@ -56,6 +56,86 @@
     });
   }
 
+  /* Scrollbar horizontal (arrastre 1:1, sin flechas) */
+  document.querySelectorAll('.al-hscroll').forEach(function (scroller) {
+    var line = document.createElement('div');
+    line.className = 'al-scroll-line';
+    var thumb = document.createElement('span');
+    line.appendChild(thumb);
+    scroller.insertAdjacentElement('afterend', line);
+
+    var dragging = false;
+    var grabOffset = 0;
+
+    var metrics = function () {
+      var view = scroller.clientWidth;
+      var total = Math.max(scroller.scrollWidth, 1);
+      var max = Math.max(total - view, 0);
+      var track = line.clientWidth;
+      var tw = Math.min(track, Math.max(track * (view / total), 48));
+      return { view: view, total: total, max: max, track: track, tw: tw };
+    };
+
+    var thumbLeft = function () {
+      var m = metrics();
+      return m.max ? (scroller.scrollLeft / m.max) * (m.track - m.tw) : 0;
+    };
+
+    var sync = function () {
+      if (dragging) return;
+      var m = metrics();
+      thumb.style.width = m.tw + 'px';
+      thumb.style.left = thumbLeft() + 'px';
+    };
+
+    var applyLeft = function (left) {
+      var m = metrics();
+      var maxL = Math.max(m.track - m.tw, 0);
+      left = Math.min(Math.max(left, 0), maxL);
+      thumb.style.width = m.tw + 'px';
+      thumb.style.left = left + 'px';
+      scroller.scrollLeft = maxL ? (left / maxL) * m.max : 0;
+    };
+
+    scroller.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+
+    line.addEventListener('pointerdown', function (e) {
+      e.preventDefault();
+      var m = metrics();
+      var x = e.clientX - line.getBoundingClientRect().left;
+      var tl = thumbLeft();
+      dragging = true;
+      line.classList.add('is-grabbing');
+      scroller.style.scrollSnapType = 'none';
+      line.setPointerCapture(e.pointerId);
+      if (x < tl || x > tl + m.tw) {
+        grabOffset = m.tw / 2;
+        applyLeft(x - grabOffset);
+      } else {
+        grabOffset = x - tl;
+      }
+    });
+    line.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      applyLeft(e.clientX - line.getBoundingClientRect().left - grabOffset);
+    });
+    var endDrag = function () {
+      if (!dragging) return;
+      dragging = false;
+      line.classList.remove('is-grabbing');
+      scroller.style.scrollSnapType = '';
+    };
+    line.addEventListener('pointerup', endDrag);
+    line.addEventListener('pointercancel', endDrag);
+    line.addEventListener('wheel', function (e) {
+      scroller.scrollLeft += e.deltaY + e.deltaX;
+      e.preventDefault();
+    }, { passive: false });
+
+    sync();
+  });
+
   /* Nav sólida al pasar la portada */
   var nav = document.getElementById('al-nav');
   var onScroll = function () {
