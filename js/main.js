@@ -52,10 +52,14 @@
     btn.addEventListener('click', function () {
       if (!lb || !lbImg) return;
       lbImg.src = btn.getAttribute('data-lb');
+      lbImg.alt = '';
       lb.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     });
   });
+  if (lbImg) {
+    lbImg.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  }
   var closeLb = function () {
     if (!lb) return;
     lb.classList.remove('is-open');

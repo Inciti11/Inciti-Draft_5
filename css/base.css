@@ -52,10 +52,7 @@ input, textarea, button, select { font: inherit; color: inherit; }
   html { scroll-behavior: auto; }
 }
 
-/* zoom on hover */
-.al-zoomwrap { overflow: hidden; }
-.al-zoomwrap img { transition: transform 1.6s cubic-bezier(.22,.61,.36,1); }
-.al-zoomwrap:hover img { transform: scale(1.045); }
+/* no hover zoom — las fotos se abren al hacer clic */
 
 /* horizontal scrollers */
 .al-hscroll { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
