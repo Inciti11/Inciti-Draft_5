@@ -15,25 +15,24 @@
   position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto;
   padding: 120px var(--pad) 48px;
 }
-.al-hero-body { display: flex; flex-direction: column; justify-content: center; gap: 26px; max-width: 780px; }
-.al-kicker { font-size: 15px; letter-spacing: .32em; text-transform: uppercase; color: rgba(244,238,224,.9); }
-.al-hero-logo { width: min(400px, 62vw); height: auto; }
+.al-hero-body { display: flex; flex-direction: column; justify-content: center; gap: 22px; max-width: 640px; }
+.al-kicker { font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: rgba(244,238,224,.9); }
+.al-hero-logo { width: min(320px, 52vw); height: auto; }
 .al-hero h1 {
   margin: 0; font-family: var(--font-title); font-weight: 400;
-  font-size: clamp(48px, 6vw, 96px); letter-spacing: .08em; line-height: 1.18;
+  font-size: clamp(32px, 3.8vw, 52px); letter-spacing: .1em; line-height: 1.16;
   color: var(--bone); text-transform: uppercase;
   -webkit-font-smoothing: auto;
-  -webkit-text-stroke: 0.35px currentColor;
 }
 .al-hero h1.al-h1-launch { letter-spacing: .05em; line-height: 1.12; }
 .al-hero p {
-  margin: 0; max-width: 580px; font-size: 20px; font-weight: 400; line-height: 1.7;
-  color: rgba(244,238,224,.95); text-wrap: pretty;
+  margin: 0; max-width: 480px; font-size: 16px; font-weight: 400; line-height: 1.65;
+  color: rgba(244,238,224,.92); text-wrap: pretty;
 }
 .al-btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
 .al-btn {
   display: inline-block; padding: 18px 44px; background: var(--sand); color: var(--ink);
-  font-size: 15px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  font-size: 13px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
   transition: background .4s ease, color .4s ease;
 }
 .al-btn:hover { background: var(--bone); color: var(--ink); }

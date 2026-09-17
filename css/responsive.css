@@ -17,8 +17,7 @@
   .al-gal .al-g-main, .al-gal .al-g-stack, .al-gal .al-g-third { grid-column: auto; height: auto; }
   .al-gal .al-g-main img, .al-gal .al-g-third img { height: 300px; }
   .al-gal .al-g-stack button { height: 220px; }
-  .al-slots { grid-template-columns: 1fr 1fr; }
-  .al-slot { height: 180px; }
+  .al-tour-frame { height: 70vh; min-height: 420px; }
   .al-form { grid-template-columns: 1fr; }
   .al-form .al-full, .al-consent, .al-submit-row { grid-column: auto; }
   .al-footer-top { grid-template-columns: 1fr; gap: 40px; }
@@ -29,8 +28,8 @@
   :root { --pad: 22px; }
   .al-hero-in { padding: 110px var(--pad) 36px; }
   .al-hero-body { gap: 20px; }
-  .al-hero h1 { letter-spacing: .1em; font-size: clamp(40px, 11vw, 56px); }
-  .al-hero p { font-size: 17px; line-height: 1.7; }
+  .al-hero h1 { letter-spacing: .1em; font-size: clamp(28px, 8vw, 40px); }
+  .al-hero p { font-size: 15px; line-height: 1.65; }
   .al-btn, .al-btn-outline { display: block; text-align: center; padding: 18px 20px; }
   .al-btn-row { flex-direction: column; align-items: stretch; }
   .al-hero-foot { flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -42,7 +41,7 @@
   .al-index { grid-template-columns: 1fr 1fr; }
   .al-index > div { padding: 18px 12px; }
   .al-index > div:nth-child(odd) { padding-left: 0; }
-  .al-slots { grid-template-columns: 1fr; }
+  .al-tour-frame { height: 62vh; min-height: 380px; }
   .al-footer-legal { flex-direction: column; gap: 10px; }
   .al-lb { padding: 18px; }
 }
