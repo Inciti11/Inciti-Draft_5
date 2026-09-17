@@ -72,6 +72,8 @@
 .al-drawer nav a {
   font-family: var(--font-title); font-size: clamp(28px, 7vw, 40px); letter-spacing: .04em;
   text-transform: uppercase; color: var(--bone);
+  -webkit-text-stroke: 0.7px currentColor;
+  paint-order: stroke fill;
   opacity: 0; transform: translateY(18px);
   transition: opacity .4s ease, transform .45s cubic-bezier(.22,.61,.36,1), color .3s ease;
 }
