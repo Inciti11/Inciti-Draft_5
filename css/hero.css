@@ -13,7 +13,7 @@
 }
 .al-hero-in {
   position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto;
-  padding: 120px var(--pad) 48px;
+  padding: 120px var(--pad) 56px;
 }
 .al-hero-body { display: flex; flex-direction: column; justify-content: center; gap: 22px; max-width: 640px; }
 .al-kicker { font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: rgba(244,238,224,.9); }
@@ -50,4 +50,27 @@
 .al-by { display: flex; align-items: center; gap: 14px; }
 .al-by span { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: rgba(244,238,224,.7); }
 .al-by img { height: 40px; width: auto; opacity: .85; }
-.al-scroll-hint { font-size: 10px; letter-spacing: .34em; text-transform: uppercase; color: rgba(244,238,224,.7); }
+.al-scroll-hint {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: .34em; text-transform: uppercase; color: rgba(244,238,224,.7);
+}
+.al-scroll-chevs {
+  display: block;
+  width: 28px; height: 34px;
+  color: rgba(244,238,224,.95);
+  animation: al-scroll-bounce 1.5s ease-in-out infinite;
+}
+.al-scroll-chevs path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@keyframes al-scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: .4; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .al-scroll-chevs { animation: none; opacity: .85; }
+}
