@@ -5,19 +5,17 @@
 .al-sec-green { background: var(--green); color: var(--bone); }
 .al-wrap { max-width: 1440px; margin: 0 auto; }
 .al-eyebrow { display: flex; align-items: baseline; gap: 18px; }
-.al-eyebrow .al-num { font-family: var(--font-title); font-size: 16px; letter-spacing: .2em; color: var(--gold); }
+.al-eyebrow .al-num { display: none; }
 .al-eyebrow .al-lbl { font-family: var(--font-title); font-size: 16px; letter-spacing: .28em; text-transform: uppercase; color: rgba(41,41,41,.5); }
-.al-sec-dark .al-eyebrow .al-num,
-.al-sec-green .al-eyebrow .al-num { color: var(--sand); }
 .al-sec-dark .al-eyebrow .al-lbl,
 .al-sec-green .al-eyebrow .al-lbl { color: rgba(244,238,224,.55); }
 
 .al-h2 {
-  margin: 0; font-family: var(--font-title); font-weight: 400; font-size: clamp(36px, 3.4vw, 50px);
-  line-height: 1.22; letter-spacing: .02em; color: var(--green); text-wrap: balance;
+  margin: 0; font-family: var(--font-body); font-weight: 700; font-size: clamp(36px, 3.4vw, 50px);
+  line-height: 1.22; letter-spacing: .02em; color: var(--green); text-transform: uppercase; text-wrap: balance;
 }
 .al-h2-serif {
-  font-size: clamp(40px, 4.2vw, 70px);
+  font-family: var(--font-title); font-weight: 400; font-size: clamp(40px, 4.2vw, 70px);
   line-height: 1.18; letter-spacing: .03em; text-transform: uppercase; color: var(--ink);
 }
 .al-sec-dark .al-h2, .al-sec-green .al-h2 { color: var(--bone); }
@@ -42,7 +40,7 @@
 .al-stats > div + div { padding-left: 40px; }
 .al-stat-n { font-size: clamp(38px, 3.6vw, 60px); line-height: 1; color: var(--green); font-weight: 300; }
 .al-stat-phrase { font-size: clamp(22px, 2.1vw, 32px); line-height: 1.15; }
-.al-stat-l { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: rgba(41,41,41,.55); }
+.al-stat-l { font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(41,41,41,.55); }
 .al-sec-dark .al-stats { background: rgba(244,238,224,.18); border-color: rgba(244,238,224,.18); }
 .al-sec-dark .al-stats > div { background: var(--ink); }
 .al-sec-dark .al-stat-n { font-family: var(--font-title); color: var(--sand); font-size: clamp(42px,4.6vw,78px); }
@@ -131,7 +129,7 @@
 .al-form .al-k { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: rgba(41,41,41,.5); }
 .al-form input[type=text], .al-form input[type=tel], .al-form input[type=email], .al-form textarea {
   padding: 12px 0; border: 0; border-bottom: 1px solid rgba(41,41,41,.28);
-  background: transparent; font-size: 16px; font-weight: 300; outline: none;
+  background: transparent; font-size: 16px; font-weight: 400; outline: none;
 }
 .al-form input:focus, .al-form textarea:focus { border-bottom-color: var(--green); }
 .al-form textarea { resize: none; }

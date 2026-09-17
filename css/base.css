@@ -24,7 +24,7 @@ body.alrio {
   background: var(--bone);
   color: var(--ink);
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
