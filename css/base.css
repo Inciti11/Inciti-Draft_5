@@ -13,6 +13,8 @@
   --sand: #E2CFB0;
   --gold: #B99A63;
   --pad: 56px;
+  --font-body: "Josefin Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-title: "Abramo", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -21,7 +23,7 @@ body.alrio {
   margin: 0;
   background: var(--bone);
   color: var(--ink);
-  font-family: "Josefin Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

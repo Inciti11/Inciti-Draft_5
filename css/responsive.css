@@ -32,15 +32,15 @@
   :root { --pad: 22px; }
   .al-hero-in { padding: 110px var(--pad) 36px; }
   .al-hero-body { gap: 20px; }
-  .al-hero h1 { letter-spacing: .12em; font-size: clamp(28px, 9vw, 40px); }
-  .al-hero p { font-size: 15px; }
+  .al-hero h1 { letter-spacing: .1em; font-size: clamp(34px, 10vw, 48px); }
+  .al-hero p { font-size: 17px; line-height: 1.7; }
   .al-btn, .al-btn-outline { display: block; text-align: center; padding: 18px 20px; }
   .al-btn-row { flex-direction: column; align-items: stretch; }
   .al-hero-foot { flex-direction: column; align-items: flex-start; gap: 16px; }
   .al-sec { padding: 72px var(--pad); }
   .al-bleed { height: 52vh; min-height: 300px; }
-  .al-lifestyle figure, .al-lifestyle figure.al-short { flex: 0 0 74vw; min-width: 240px; align-self: auto; }
-  .al-lifestyle .al-shot, .al-lifestyle figure.al-short .al-shot { height: 46vh; min-height: 300px; }
+  .al-lifestyle figure { flex: 0 0 74vw; min-width: 240px; }
+  .al-lifestyle .al-shot { height: 46vh; min-height: 300px; }
   .al-subhead { flex-direction: column; gap: 10px; }
   .al-index { grid-template-columns: 1fr 1fr; }
   .al-index > div { padding: 18px 12px; }

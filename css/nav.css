@@ -50,7 +50,7 @@
 .al-drawer-close { padding: 8px; border: 0; background: none; font-size: 26px; line-height: 1; color: var(--bone); cursor: pointer; }
 .al-drawer nav { display: flex; flex-direction: column; gap: 24px; }
 .al-drawer nav a {
-  font-family: Abramo, Georgia, serif; font-size: 30px; letter-spacing: .06em;
+  font-family: var(--font-title); font-size: 34px; letter-spacing: .06em;
   text-transform: uppercase; color: var(--bone);
 }
 .al-drawer nav a:last-child { color: var(--sand); }
