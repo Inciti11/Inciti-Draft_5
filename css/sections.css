@@ -7,8 +7,8 @@
 .al-wrap { max-width: 1440px; margin: 0 auto; }
 .al-eyebrow { display: flex; align-items: baseline; gap: 18px; }
 .al-eyebrow .al-num {
-  font-family: var(--font-title); font-size: 18px; letter-spacing: .2em; color: var(--gold);
-  -webkit-font-smoothing: auto;
+  font-family: var(--font-title); font-size: 32px; letter-spacing: .12em; color: var(--green);
+  -webkit-font-smoothing: auto; -webkit-text-stroke: 0.7px currentColor;
 }
 .al-eyebrow .al-lbl { display: none; }
 .al-sec-dark .al-eyebrow .al-num,
@@ -87,8 +87,8 @@
 .al-index > div { padding: 34px 22px; background: var(--bone); }
 .al-index > div:first-child { padding-left: 0; }
 .al-index-n {
-  display: block; font-family: var(--font-title); font-size: 22px; letter-spacing: .08em;
-  color: var(--green); -webkit-font-smoothing: auto; -webkit-text-stroke: 0.3px currentColor;
+  display: block; font-family: var(--font-title); font-size: 30px; letter-spacing: .08em;
+  color: var(--green); -webkit-font-smoothing: auto; -webkit-text-stroke: 0.7px currentColor;
 }
 .al-index-t { display: block; margin-top: 14px; font-size: 22px; line-height: 1.3; font-weight: 400; }
 
