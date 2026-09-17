@@ -1,0 +1,28 @@
+/* ALRÍO · pie y lightbox */
+/* footer */
+.al-footer { padding: 90px var(--pad) 44px; background: var(--ink); color: rgba(244,238,224,.6); }
+.al-footer-top {
+  max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto; gap: 80px;
+  align-items: start; padding-bottom: 60px; border-bottom: 1px solid rgba(244,238,224,.14);
+}
+.al-footer-brand { display: flex; flex-direction: column; gap: 22px; }
+.al-footer-brand img { width: 190px; height: auto; }
+.al-footer-brand p { margin: 0; font-size: 13px; letter-spacing: .06em; }
+.al-footer nav { display: flex; flex-direction: column; gap: 14px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+.al-footer-by { display: flex; flex-direction: column; gap: 18px; }
+.al-footer-by span { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(244,238,224,.4); }
+.al-footer-by img { height: 36px; width: auto; opacity: .8; }
+.al-footer-legal {
+  max-width: 1440px; margin: 22px auto 0; display: flex; justify-content: space-between; gap: 24px;
+  font-size: 11px; letter-spacing: .1em; color: rgba(244,238,224,.4);
+}
+
+/* lightbox */
+.al-lb {
+  position: fixed; inset: 0; z-index: 950; display: none;
+  align-items: center; justify-content: center; padding: 48px;
+  background: rgba(28,28,28,.94); cursor: zoom-out;
+}
+.al-lb.is-open { display: flex; }
+.al-lb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.al-lb-x { position: absolute; top: 26px; right: 36px; font-size: 26px; line-height: 1; color: rgba(244,238,224,.7); }

@@ -1,0 +1,38 @@
+=== ALRÍO · sitio en HTML + CSS ===
+
+Sitio estático, sin WordPress ni dependencias. Abre index.html en el navegador
+o súbelo por FTP a cualquier hosting.
+
+
+ARCHIVOS
+--------
+index.html         portada de PRE-LANZAMIENTO ("Muy pronto")
+lanzamiento.html   misma página con la portada de LANZAMIENTO
+                   (usa una u otra: renombra la que quieras como index.html)
+
+css/base.css       tipografías, variables de color, reset y utilidades
+css/nav.css        menú fijo y menú móvil
+css/hero.css       portada
+css/sections.css   secciones 01 a 08
+css/footer.css     pie y lightbox de galería
+css/responsive.css ajustes por ancho de pantalla
+
+js/main.js         aparición al hacer scroll, menú móvil, lightbox, ES/EN
+assets/            imágenes, logos, favicon y tipografía Abramo
+
+
+CÓMO EDITAR
+-----------
+Textos      en index.html / lanzamiento.html. Cada texto en español lleva su
+            traducción en data-en="..."; eso es lo que muestra el botón EN.
+Colores     variables :root de css/base.css (--bone, --green, --ink, --sand, --gold).
+Imágenes    reemplaza los archivos de /assets conservando el mismo nombre.
+Amenidades  los tres marcos punteados de la sección 04 son placeholders:
+            cámbialos por <img> cuando llegue el material oficial.
+
+
+FORMULARIO
+----------
+Es HTML puro: no envía nada por sí solo. Conéctalo a un servicio
+(Formspree, HubSpot, Netlify Forms...) cambiando el atributo action
+del <form class="al-form"> en ambas páginas.

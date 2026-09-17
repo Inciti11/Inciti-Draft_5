@@ -1,0 +1,51 @@
+/* ALRÍO · ajustes por ancho de pantalla */
+/* ── RESPONSIVE ────────────────────────────────── */
+@media (max-width: 1180px) {
+  :root { --pad: 40px; }
+  .al-duo, .al-arch, .al-contact { gap: 56px; }
+  .al-index { grid-template-columns: repeat(3, 1fr); }
+  .al-index > div:nth-child(4) { padding-left: 0; }
+}
+@media (max-width: 1000px) {
+  .al-navlinks { display: none; }
+  .al-burger { display: flex; }
+  .al-lang { margin-left: auto; }
+  .al-sec { padding: 96px var(--pad); }
+  .al-duo, .al-arch, .al-contact { grid-template-columns: 1fr; }
+  .al-stats { grid-template-columns: 1fr; margin-top: 56px; }
+  .al-stats > div { padding: 28px 0; }
+  .al-stats > div + div { padding-left: 0; border-top: 1px solid rgba(41,41,41,.14); }
+  .al-sec-dark .al-stats > div + div { border-top-color: rgba(244,238,224,.18); }
+  .al-gal { grid-template-columns: 1fr; gap: 14px; }
+  .al-gal .al-g-main, .al-gal .al-g-stack, .al-gal .al-g-third { grid-column: auto; height: auto; }
+  .al-gal .al-g-main img, .al-gal .al-g-third img { height: 300px; }
+  .al-gal .al-g-stack button { height: 220px; }
+  .al-slots { grid-template-columns: 1fr 1fr; }
+  .al-slot { height: 180px; }
+  .al-form { grid-template-columns: 1fr; }
+  .al-form .al-full, .al-consent, .al-submit-row { grid-column: auto; }
+  .al-footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .al-specs { grid-template-columns: 1fr; }
+  .al-specs > div { padding: 22px 0; }
+}
+@media (max-width: 680px) {
+  :root { --pad: 22px; }
+  .al-hero-in { padding: 110px var(--pad) 36px; }
+  .al-hero-body { gap: 20px; }
+  .al-hero h1 { letter-spacing: .12em; font-size: clamp(28px, 9vw, 40px); }
+  .al-hero p { font-size: 15px; }
+  .al-btn, .al-btn-outline { display: block; text-align: center; padding: 18px 20px; }
+  .al-btn-row { flex-direction: column; align-items: stretch; }
+  .al-hero-foot { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .al-sec { padding: 72px var(--pad); }
+  .al-bleed { height: 52vh; min-height: 300px; }
+  .al-lifestyle figure, .al-lifestyle figure.al-short { flex: 0 0 74vw; min-width: 240px; align-self: auto; }
+  .al-lifestyle .al-shot, .al-lifestyle figure.al-short .al-shot { height: 46vh; min-height: 300px; }
+  .al-subhead { flex-direction: column; gap: 10px; }
+  .al-index { grid-template-columns: 1fr 1fr; }
+  .al-index > div { padding: 18px 12px; }
+  .al-index > div:nth-child(odd) { padding-left: 0; }
+  .al-slots { grid-template-columns: 1fr; }
+  .al-footer-legal { flex-direction: column; gap: 10px; }
+  .al-lb { padding: 18px; }
+}

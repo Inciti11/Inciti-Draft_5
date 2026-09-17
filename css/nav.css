@@ -1,0 +1,59 @@
+/* ALRÍO · menú fijo y menú móvil */
+/* ── NAV ───────────────────────────────────────── */
+.al-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; gap: 36px;
+  padding: 26px var(--pad);
+  background: rgba(244,238,224,0);
+  border-bottom: 1px solid rgba(244,238,224,0);
+  transition: background .6s ease, border-color .6s ease, padding .6s ease;
+}
+.al-nav.is-solid {
+  background: rgba(244,238,224,.96);
+  border-bottom-color: rgba(41,41,41,.12);
+  padding: 16px var(--pad);
+}
+.al-brand { position: relative; display: block; flex: 0 0 auto; width: 119px; height: 30px; }
+.al-brand img { position: absolute; left: 0; top: 0; height: 30px; width: auto; transition: opacity .5s ease; }
+.al-brand .al-logo-dark { opacity: 0; }
+.al-nav.is-solid .al-brand .al-logo-light { opacity: 0; }
+.al-nav.is-solid .al-brand .al-logo-dark { opacity: 1; }
+
+.al-navlinks {
+  display: flex; flex-wrap: wrap; gap: 27px; margin-right: auto;
+  font-size: 11px; letter-spacing: .11em; text-transform: uppercase;
+  color: var(--bone); transition: color .6s ease;
+}
+.al-nav.is-solid .al-navlinks { color: var(--ink); }
+
+.al-lang { display: flex; gap: 4px; padding-left: 16px; border-left: 1px solid rgba(226,207,176,.25); }
+.al-pill {
+  padding: 7px 13px; border: 1px solid rgba(226,207,176,.25); background: transparent;
+  color: rgba(226,207,176,.85); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+  cursor: pointer; border-radius: 1px; transition: all .3s ease;
+}
+.al-pill.is-on { border-color: rgba(226,207,176,.9); background: var(--sand); color: var(--ink); }
+.al-nav.is-solid .al-pill { border-color: rgba(60,77,69,.28); color: rgba(60,77,69,.8); }
+.al-nav.is-solid .al-pill.is-on { background: var(--green); border-color: var(--green); color: var(--bone); }
+
+.al-burger { display: none; flex-direction: column; gap: 5px; padding: 8px; border: 0; background: none; cursor: pointer; }
+.al-burger span { display: block; width: 22px; height: 1px; background: var(--bone); transition: background .4s ease; }
+.al-nav.is-solid .al-burger span { background: var(--ink); }
+
+.al-drawer {
+  position: fixed; inset: 0; z-index: 600; display: none;
+  padding: 40px 28px; background: var(--green); color: var(--bone);
+}
+.al-drawer.is-open { display: block; }
+.al-drawer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; }
+.al-drawer-top img { height: 22px; width: auto; }
+.al-drawer-close { padding: 8px; border: 0; background: none; font-size: 26px; line-height: 1; color: var(--bone); cursor: pointer; }
+.al-drawer nav { display: flex; flex-direction: column; gap: 24px; }
+.al-drawer nav a {
+  font-family: Abramo, Georgia, serif; font-size: 30px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--bone);
+}
+.al-drawer nav a:last-child { color: var(--sand); }
+.al-drawer-foot { position: absolute; left: 28px; right: 28px; bottom: 38px; display: flex; align-items: center; gap: 12px; }
+.al-drawer-foot span { font-size: 9px; letter-spacing: .26em; text-transform: uppercase; color: rgba(244,238,224,.45); }
+.al-drawer-foot img { height: 20px; width: auto; opacity: .8; }

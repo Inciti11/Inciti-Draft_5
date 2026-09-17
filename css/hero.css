@@ -1,0 +1,48 @@
+/* ALRÍO · portada */
+/* ── HERO ──────────────────────────────────────── */
+.al-hero { position: relative; min-height: 100svh; overflow: hidden; background: var(--ink); }
+.al-hero > img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 42%;
+}
+.al-hero-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(41,41,41,.62) 0%, rgba(41,41,41,.18) 34%, rgba(41,41,41,.10) 55%, rgba(41,41,41,.80) 100%);
+}
+.al-hero-in {
+  position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto;
+  padding: 120px var(--pad) 48px;
+}
+.al-hero-body { display: flex; flex-direction: column; justify-content: center; gap: 26px; max-width: 780px; }
+.al-kicker { font-size: 13px; letter-spacing: .42em; text-transform: uppercase; color: rgba(244,238,224,.72); }
+.al-hero-logo { width: min(400px, 62vw); height: auto; }
+.al-hero h1 {
+  margin: 0; font-family: Abramo, Georgia, serif; font-weight: 400;
+  font-size: clamp(34px, 4.6vw, 76px); letter-spacing: .14em; line-height: 1.05;
+  color: var(--bone); text-transform: uppercase;
+}
+.al-hero h1.al-h1-launch { letter-spacing: .05em; line-height: 1.07; }
+.al-hero p {
+  margin: 0; max-width: 520px; font-size: 18px; line-height: 1.6;
+  color: rgba(244,238,224,.85); text-wrap: pretty;
+}
+.al-btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+.al-btn {
+  display: inline-block; padding: 17px 42px; background: var(--sand); color: var(--ink);
+  font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+  transition: background .4s ease, color .4s ease;
+}
+.al-btn:hover { background: var(--bone); color: var(--ink); }
+.al-btn-ghost { background: transparent; border: 1px solid rgba(244,238,224,.45); color: var(--bone); }
+.al-btn-ghost:hover { background: rgba(244,238,224,.12); color: var(--bone); }
+.al-btn-outline {
+  display: inline-block; padding: 16px 38px; border: 1px solid rgba(226,207,176,.5);
+  color: var(--sand); font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+  transition: background .4s ease, color .4s ease;
+}
+.al-btn-outline:hover { background: var(--sand); color: var(--ink); }
+.al-hero-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.al-by { display: flex; align-items: center; gap: 14px; }
+.al-by span { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: rgba(244,238,224,.55); }
+.al-by img { height: 40px; width: auto; opacity: .85; }
+.al-scroll-hint { font-size: 10px; letter-spacing: .34em; text-transform: uppercase; color: rgba(244,238,224,.55); }
