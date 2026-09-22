@@ -9,6 +9,7 @@
     '.al-stat-n', '.al-stat-l', '.al-index-n', '.al-index-t',
     'figcaption', '.al-note',
     '.al-consent span', '.al-form .al-k',
+    '.al-advisor-role', '.al-advisor-meta',
     '.al-cta > *',
     '.al-by span', '.al-footer-legal span'
   ].join(',');
@@ -191,6 +192,91 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { closeLb(); setDrawer(false); }
   });
+
+  /* Carrusel coverflow */
+  document.querySelectorAll('[data-coverflow]').forEach(function (root) {
+    var cards = Array.prototype.slice.call(root.querySelectorAll('.al-cover-card'));
+    if (!cards.length) return;
+    var i = 0;
+    var timer = null;
+    var layout = function () {
+      var n = cards.length;
+      cards.forEach(function (card, idx) {
+        var d = idx - i;
+        if (d > n / 2) d -= n;
+        if (d < -n / 2) d += n;
+        var abs = Math.abs(d);
+        card.style.setProperty('--x', (d * 72) + '%');
+        card.style.setProperty('--s', abs === 0 ? '1' : abs === 1 ? '.82' : '.68');
+        card.style.setProperty('--ry', (d * -16) + 'deg');
+        card.style.setProperty('--o', abs > 2 ? '0' : abs === 2 ? '.55' : '1');
+        card.style.setProperty('--b', abs === 0 ? '1' : abs === 1 ? '.78' : '.62');
+        card.style.setProperty('--z', String(8 - abs));
+        card.style.setProperty('--z3', abs === 0 ? '48px' : abs === 1 ? '0px' : '-70px');
+        card.classList.toggle('is-on', d === 0);
+      });
+    };
+    var go = function (dir) {
+      i = (i + dir + cards.length) % cards.length;
+      layout();
+    };
+    var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
+    var start = function () {
+      stop();
+      timer = setInterval(function () { go(1); }, 4500);
+    };
+    var prev = root.querySelector('.al-cover-prev');
+    var next = root.querySelector('.al-cover-next');
+    if (prev) prev.addEventListener('click', function () { go(-1); start(); });
+    if (next) next.addEventListener('click', function () { go(1); start(); });
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+
+    var sx = 0;
+    var dx = 0;
+    var tracking = false;
+    var suppressClick = false;
+    root.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('.al-cover-nav')) return;
+      tracking = true;
+      sx = e.clientX;
+      dx = 0;
+    });
+    root.addEventListener('pointermove', function (e) {
+      if (!tracking) return;
+      dx = e.clientX - sx;
+    });
+    root.addEventListener('pointerup', function () {
+      if (!tracking) return;
+      tracking = false;
+      if (Math.abs(dx) > 46) {
+        suppressClick = true;
+        go(dx < 0 ? 1 : -1);
+        start();
+      }
+    });
+    root.addEventListener('click', function (e) {
+      if (!suppressClick) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      suppressClick = false;
+    }, true);
+
+    layout();
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) start();
+  });
+
+  /* WhatsApp: mensaje que aparece cada cierto tiempo */
+  var waMsg = document.getElementById('al-wa-msg');
+  if (waMsg) {
+    var showWa = function () {
+      waMsg.classList.add('is-on');
+      setTimeout(function () { waMsg.classList.remove('is-on'); }, 3600);
+    };
+    setTimeout(showWa, 1600);
+    setInterval(showWa, 9000);
+  }
 
   /* Conmutador ES / EN */
   var pills = document.querySelectorAll('.al-pill[data-lang]');

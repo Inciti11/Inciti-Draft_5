@@ -1,0 +1,231 @@
+/* ALRÍO · WhatsApp, carruseles y asesores */
+
+/* WhatsApp flotante */
+.al-wa {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1100;
+  width: 46px;
+  height: 46px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.al-wa-msg {
+  position: absolute;
+  right: 38px;
+  top: 50%;
+  background: var(--bone);
+  color: var(--green);
+  height: 40px;
+  padding: 0 22px 0 16px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow:
+    0 8px 18px rgba(20, 18, 16, .16),
+    0 2px 5px rgba(20, 18, 16, .08);
+  opacity: 0;
+  transform: translate(18px, -50%) scale(.92);
+  transform-origin: right center;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity .45s ease, transform .45s cubic-bezier(.22, .61, .36, 1);
+}
+.al-wa-msg.is-on {
+  opacity: 1;
+  transform: translate(0, -50%) scale(1);
+  pointer-events: auto;
+}
+.al-wa-btn {
+  position: relative;
+  z-index: 1;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #25D366;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+}
+.al-wa-btn svg { width: 26px; height: 26px; display: block; }
+
+/* Coverflow */
+section.al-sec.al-sec-apart {
+  padding-top: 180px;
+  padding-bottom: 180px;
+  overflow: visible;
+}
+.al-cover-head { max-width: 720px; margin-bottom: 56px; }
+.al-cover {
+  position: relative;
+  height: min(64vh, 620px);
+  min-height: 420px;
+  perspective: 1800px;
+  overflow: visible;
+  touch-action: pan-y;
+}
+.al-cover-stage {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+.al-cover-card {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  width: min(36vw, 390px);
+  height: 92%;
+  margin-left: calc(min(36vw, 390px) / -2);
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--green);
+  box-shadow: 0 22px 50px rgba(41, 41, 41, .2);
+  transition: transform .95s cubic-bezier(.22, .61, .36, 1), opacity .95s ease, filter .95s ease;
+  transform: translate3d(var(--x, 0), 0, var(--z3, 0px)) scale(var(--s, .7)) rotateY(var(--ry, 0deg));
+  opacity: var(--o, 0);
+  filter: brightness(var(--b, .72));
+  z-index: var(--z, 0);
+  pointer-events: none;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+.al-cover-card.is-on { pointer-events: auto; cursor: pointer; }
+.al-cover-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.al-cover-card figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  margin: 0;
+  padding: 28px 26px 22px;
+  background: linear-gradient(180deg, transparent, rgba(60, 77, 69, .88));
+  color: var(--bone);
+  font-size: 13px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.al-cover-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 12;
+  width: 52px;
+  height: 52px;
+  margin-top: -26px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--bone);
+  color: var(--green);
+  box-shadow: 0 10px 24px rgba(41, 41, 41, .16);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background .3s ease, transform .3s ease;
+}
+.al-cover-nav:hover { background: var(--sand); transform: scale(1.06); }
+.al-cover-nav svg { width: 16px; height: 16px; display: block; }
+.al-cover-prev { left: 6%; }
+.al-cover-next { right: 6%; }
+.al-sec-green .al-cover-nav { background: var(--sand); color: var(--ink); }
+.al-sec-green .al-cover-nav:hover { background: var(--bone); }
+.al-sec-green .al-cover-card { box-shadow: 0 22px 50px rgba(20, 18, 16, .28); }
+
+/* Asesores */
+.al-team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.al-advisor {
+  background: var(--bone);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(41, 41, 41, .08);
+}
+.al-advisor-photo {
+  position: relative;
+  aspect-ratio: 3 / 3.6;
+  background:
+    linear-gradient(180deg, rgba(60, 77, 69, .08), rgba(60, 77, 69, .22)),
+    var(--sand);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.al-advisor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.al-advisor-photo .al-advisor-ph {
+  font-family: var(--font-title);
+  font-size: 56px;
+  letter-spacing: .08em;
+  color: var(--green);
+  opacity: .55;
+}
+.al-advisor-body { padding: 28px 26px 32px; display: flex; flex-direction: column; gap: 8px; }
+.al-advisor-role {
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(60, 77, 69, .62);
+}
+.al-advisor-name {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 28px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  -webkit-text-stroke: 0.3px currentColor;
+}
+.al-advisor-meta {
+  margin: 6px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(41, 41, 41, .68);
+}
+
+@media (max-width: 1000px) {
+  section.al-sec.al-sec-apart { padding-top: 128px; padding-bottom: 128px; }
+  .al-team { grid-template-columns: 1fr 1fr; }
+  .al-cover-card {
+    width: min(46vw, 340px);
+    margin-left: calc(min(46vw, 340px) / -2);
+  }
+}
+@media (max-width: 680px) {
+  section.al-sec.al-sec-apart { padding-top: 104px; padding-bottom: 104px; }
+  .al-cover-head { margin-bottom: 36px; }
+  .al-cover { height: 56vh; min-height: 340px; }
+  .al-cover-card {
+    width: 74vw;
+    margin-left: calc(74vw / -2);
+  }
+  .al-cover-nav { width: 44px; height: 44px; margin-top: -22px; }
+  .al-cover-prev { left: 2px; }
+  .al-cover-next { right: 2px; }
+  .al-team { grid-template-columns: 1fr; gap: 22px; }
+  .al-advisor-name { font-size: 24px; }
+  .al-wa { right: 12px; bottom: 12px; width: 42px; height: 42px; }
+  .al-wa-msg { font-size: 10px; height: 36px; padding: 0 18px 0 14px; right: 34px; }
+  .al-wa-btn { width: 42px; height: 42px; }
+  .al-wa-btn svg { width: 24px; height: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .al-cover-card { transition: none; }
+  .al-wa-msg { transition: none; }
+}
