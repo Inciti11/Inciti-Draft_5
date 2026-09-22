@@ -14,7 +14,7 @@
     '.al-by span', '.al-footer-legal span'
   ].join(',');
   var skipUnblur = function (el) {
-    return el.closest('.al-hero') || el.closest('.al-nav') || el.closest('.al-drawer');
+    return el.closest('.al-hero') || el.closest('.al-nav') || el.closest('.al-drawer') || el.classList.contains('al-legal-note');
   };
   var markUnblur = function (root, startDelay) {
     var delay = startDelay || 0;
@@ -265,6 +265,19 @@
     layout();
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) start();
+  });
+
+  /* Nota legal en imágenes */
+  var legalEs = 'NOTA LEGAL: Estas imágenes pueden contener decoración y elementos de apreciación estética que son interpretación del artífice y no comprometen a la sociedad promotora. El proyecto podrá ser modificado por exigencia de las autoridades competentes o por exigencias técnicas o del mercado. Las especificaciones serán las que se establezcan en los contratos de vinculación al proyecto inmobiliario.';
+  var legalEn = 'LEGAL NOTICE: These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts.';
+  var legalTargets = document.querySelectorAll('.al-hero, .al-arch-img, .al-mapwrap, .al-lifestyle .al-shot, .al-cover-card, .al-gal [data-lb], .al-bleed');
+  legalTargets.forEach(function (box) {
+    if (box.querySelector(':scope > .al-legal-note')) return;
+    var note = document.createElement('span');
+    note.className = 'al-legal-note';
+    note.setAttribute('data-en', legalEn);
+    note.textContent = legalEs;
+    box.appendChild(note);
   });
 
   /* WhatsApp: mensaje que aparece cada cierto tiempo */

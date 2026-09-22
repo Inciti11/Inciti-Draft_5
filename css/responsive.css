@@ -27,7 +27,7 @@
 }
 @media (max-width: 680px) {
   :root { --radius: 20px; --pad: 22px; }
-  .al-hero-in { padding: 96px var(--pad) 52px; }
+  .al-hero-in { padding: 96px var(--pad) 70px; }
   .al-hero-logo {
     width: min(200px, 58vw);
     height: auto;
@@ -97,13 +97,13 @@
   .al-scroll-txt { display: none; }
   .al-scroll-hint { align-self: center; margin-bottom: 4px; }
   .al-scroll-chevs {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 20px;
     color: var(--bone);
     filter: drop-shadow(0 1px 8px rgba(20,18,16,.55));
     animation: al-scroll-bounce 1.6s ease-in-out infinite;
   }
-  .al-scroll-chevs path { stroke-width: 2.4; }
+  .al-scroll-chevs path { stroke-width: 2.8; }
   #proyecto { margin-top: -22px; padding-bottom: 20px; }
   .al-bleed { height: 68vh; min-height: 380px; }
   .al-lifestyle figure { flex: 0 0 74vw; min-width: 240px; }

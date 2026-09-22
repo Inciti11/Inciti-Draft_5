@@ -24,8 +24,9 @@
   background: rgba(28,28,28,.94); cursor: default;
 }
 .al-lb.is-open { display: flex; }
+.al-lb-box { position: relative; max-width: min(92vw, 1180px); }
 .al-lb img {
-  max-width: min(92vw, 1180px); max-height: 86vh; object-fit: contain;
+  display: block; max-width: 100%; max-height: 82vh; object-fit: contain;
   border-radius: var(--radius); pointer-events: none; user-select: none;
 }
 .al-lb-x { position: absolute; top: 26px; right: 36px; font-size: 26px; line-height: 1; color: rgba(244,238,224,.7); cursor: pointer; }

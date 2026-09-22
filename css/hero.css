@@ -16,7 +16,7 @@
 }
 .al-hero-in {
   position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto;
-  padding: 120px var(--pad) 56px;
+  padding: 120px var(--pad) 74px;
 }
 .al-hero-body { display: flex; flex-direction: column; justify-content: center; gap: 22px; max-width: 640px; }
 .al-hero-body > *,
@@ -78,14 +78,15 @@
 }
 .al-scroll-chevs {
   display: block;
-  width: 28px; height: 18px;
-  color: rgba(244,238,224,.95);
+  width: 34px; height: 22px;
+  color: var(--bone);
+  filter: drop-shadow(0 1px 6px rgba(20, 18, 16, .45));
   animation: al-scroll-bounce 1.5s ease-in-out infinite;
 }
 .al-scroll-chevs path {
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.8;
+  stroke-width: 2.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
