@@ -3,8 +3,6 @@
 @media (max-width: 1180px) {
   :root { --pad: 40px; }
   .al-duo, .al-arch, .al-contact { gap: 56px; }
-  .al-index { grid-template-columns: repeat(3, 1fr); }
-  .al-index > div:nth-child(4) { padding-left: 0; }
 }
 @media (max-width: 1000px) {
   .al-burger {
@@ -49,10 +47,10 @@
   .al-brand { width: 92px; }
   .al-lang-btn,
   .al-burger {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
-  .al-lang-btn svg { width: 20px; height: 20px; }
+  .al-lang-btn svg { width: 28px; height: 28px; }
   .al-burger {
     display: block !important;
     visibility: visible !important;
@@ -69,7 +67,7 @@
   .al-nav.is-solid .al-burger span { background: var(--ink) !important; }
   .al-nav.is-menu .al-burger { background: rgba(244, 238, 224, .14); }
   .al-nav.is-menu .al-burger span { background: var(--bone) !important; }
-  .al-hero-in { padding: 96px var(--pad) 78px; gap: 32px; }
+  .al-hero-in { padding: 96px var(--pad) 102px; gap: 10px; }
   .al-hero-logo {
     width: min(200px, 58vw);
     height: auto;
@@ -104,6 +102,7 @@
   }
   .al-hero p {
     margin-top: auto;
+    padding-top: 18px;
     font-size: 14px;
     line-height: 1.5;
     max-width: 22em;
@@ -125,15 +124,15 @@
     align-self: center;
     width: auto;
     max-width: 22em;
-    margin-top: 4px;
-    margin-bottom: 8px;
+    margin-top: 10px;
+    margin-bottom: 0;
   }
   .al-hero-foot {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
-    margin-top: 8px;
+    gap: 12px;
+    margin-top: 0;
   }
   .al-hero-foot .al-by {
     justify-content: center;
@@ -141,7 +140,7 @@
     width: 100%;
   }
   .al-scroll-txt { display: none; }
-  .al-scroll-hint { align-self: center; margin-bottom: 4px; }
+  .al-scroll-hint { align-self: center; margin-bottom: 4px; margin-right: 0; width: auto; }
   .al-scroll-chevs {
     width: 28px;
     height: 20px;
@@ -149,21 +148,23 @@
     filter: drop-shadow(0 1px 8px rgba(20,18,16,.55));
     animation: al-scroll-bounce 1.6s ease-in-out infinite;
   }
-  .al-scroll-chevs path { stroke-width: 2.8; }
+  .al-scroll-chevs path { stroke-width: 4.2; }
   #proyecto { margin-top: -28px; padding-bottom: 20px; border-radius: var(--radius) var(--radius) 0 0; }
   #arquitectura .al-col { padding-bottom: 0; }
   .al-arch-img { margin-top: -36px; }
-  .al-bleed { height: 68vh; min-height: 380px; }
+  .al-bleed {
+    width: calc(100% - 32px);
+    height: 68vh;
+    min-height: 380px;
+    aspect-ratio: auto;
+    margin: 8px 16px 16px;
+  }
   .al-lifestyle figure { flex: 0 0 100%; min-width: 0; }
   .al-lifestyle .al-shot { height: 46vh; min-height: 300px; }
   .al-life-nav { width: 40px; height: 40px; top: 22vh; }
   .al-life-prev { left: 6px; }
   .al-life-next { right: 6px; }
   .al-subhead { flex-direction: column; gap: 10px; }
-  .al-index { grid-template-columns: 1fr 1fr; }
-  .al-index > div { padding: 18px 16px; }
-  .al-index > div:first-child,
-  .al-index > div:nth-child(odd) { padding-left: 16px; }
   .al-tour-frame { height: 62vh; min-height: 380px; }
   .al-footer-legal { flex-direction: column; gap: 10px; }
   .al-lb { padding: 18px; }

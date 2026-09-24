@@ -51,7 +51,7 @@
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(16, 14, 12, .22);
 }
-.al-lang-btn svg { width: 20px; height: 20px; display: block; }
+.al-lang-btn svg { width: 28px; height: 28px; display: block; }
 .al-nav.is-solid .al-lang-btn { background: rgba(60, 77, 69, .14); color: var(--ink); box-shadow: none; }
 .al-nav.is-menu .al-lang-btn { background: rgba(244, 238, 224, .14); color: var(--bone); }
 .al-lang-menu { display: flex; gap: 6px; }

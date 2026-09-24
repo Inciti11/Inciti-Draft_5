@@ -4,7 +4,7 @@
 .al-wa {
   position: fixed;
   right: calc(var(--pad) - 9px);
-  bottom: 58px;
+  bottom: 132px;
   z-index: 600;
   width: 46px;
   height: 46px;
@@ -74,7 +74,7 @@
   pointer-events: none;
   text-transform: none;
 }
-.al-mapwrap,
+.ubic__visor,
 .al-gal [data-lb] {
   position: relative;
   overflow: hidden;
@@ -585,7 +585,7 @@ section.al-sec.al-sec-apart {
     color: rgba(244, 238, 224, .8);
     text-shadow: 0 1px 8px rgba(16, 14, 12, .55);
   }
-  .al-wa { right: calc(var(--pad) - 10px); bottom: 72px; width: 42px; height: 42px; }
+  .al-wa { right: calc(var(--pad) - 10px); bottom: 86px; width: 42px; height: 42px; }
   .al-wa-msg { font-size: 10px; height: 36px; padding: 0 18px 0 14px; right: 34px; }
   .al-wa-btn { width: 42px; height: 42px; }
   .al-wa-btn svg { width: 24px; height: 24px; }

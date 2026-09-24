@@ -271,7 +271,7 @@
   /* Nota legal en imágenes */
   var legalEs = 'Estas imágenes pueden contener decoración y elementos de apreciación estética que son interpretación del artífice y no comprometen a la sociedad promotora. El proyecto podrá ser modificado por exigencia de las autoridades competentes o por exigencias técnicas o del mercado. Las especificaciones serán las que se establezcan en los contratos de vinculación al proyecto inmobiliario.';
   var legalEn = 'These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts.';
-  var legalTargets = document.querySelectorAll('.al-hero, .al-mapwrap, .al-cover-card, .al-gal [data-lb], .al-bleed');
+  var legalTargets = document.querySelectorAll('.al-hero, .ubic__visor, .al-cover-card, .al-gal [data-lb], .al-bleed');
   legalTargets.forEach(function (box) {
     if (box.hasAttribute('data-no-legal')) return;
     if (box.querySelector(':scope > .al-legal-note')) return;
