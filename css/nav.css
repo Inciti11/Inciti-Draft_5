@@ -1,12 +1,15 @@
 /* ALRÍO · menú fijo y menú móvil */
 /* ── NAV ───────────────────────────────────────── */
 .al-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 700;
-  display: flex; align-items: center; gap: 12px;
+  position: fixed; top: 0; left: 0; right: auto; z-index: 700;
+  width: 100%;
+  max-width: 100%;
+  display: flex; align-items: center; gap: 10px;
   padding: 26px var(--pad);
   background: rgba(244,238,224,0);
   border-bottom: 1px solid rgba(244,238,224,0);
   transition: background .6s ease, border-color .6s ease, padding .6s ease;
+  box-sizing: border-box;
 }
 .al-nav.is-solid {
   background: rgba(244,238,224,.96);
@@ -26,7 +29,32 @@
 .al-nav.is-menu .al-brand .al-logo-dark { opacity: 0; }
 
 .al-navlinks { display: none; }
-.al-lang { display: flex; gap: 6px; margin-left: auto; position: relative; z-index: 1; }
+.al-lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  position: relative;
+  z-index: 9;
+  flex: 0 0 auto;
+}
+.al-lang-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(60, 77, 69, .72);
+  color: var(--bone);
+  display: none;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(16, 14, 12, .22);
+}
+.al-lang-btn svg { width: 20px; height: 20px; display: block; }
+.al-nav.is-solid .al-lang-btn { background: rgba(60, 77, 69, .14); color: var(--ink); box-shadow: none; }
+.al-nav.is-menu .al-lang-btn { background: rgba(244, 238, 224, .14); color: var(--bone); }
+.al-lang-menu { display: flex; gap: 6px; }
 .al-pill {
   padding: 8px 14px; border: 1px solid rgba(226,207,176,.4); background: transparent;
   color: rgba(244,238,224,.9); font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
@@ -37,6 +65,11 @@
 .al-nav.is-solid .al-pill.is-on { background: var(--green); border-color: var(--green); color: var(--bone); }
 .al-nav.is-menu .al-pill { border-color: rgba(226,207,176,.45); color: var(--bone); }
 .al-nav.is-menu .al-pill.is-on { background: var(--sand); border-color: var(--sand); color: var(--ink); }
+.al-drawer-lang {
+  display: none;
+  gap: 10px;
+  padding: 18px 0 8px;
+}
 
 .al-burger {
   display: block; position: relative; z-index: 8; flex: 0 0 auto;
@@ -113,6 +146,55 @@
 .al-drawer-foot span { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(244,238,224,.55); }
 .al-drawer-foot img { height: 22px; width: auto; opacity: .8; }
 
+@media (max-width: 1000px) {
+  .al-lang { display: flex; }
+  .al-lang-btn { display: grid; }
+  .al-burger { margin-left: 0; }
+  .al-lang-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(60, 77, 69, .94);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(16, 14, 12, .28);
+  }
+  .al-lang.is-open .al-lang-menu { display: flex; }
+  .al-lang-menu .al-pill {
+    min-width: 64px;
+    background: transparent;
+    border-color: rgba(244, 238, 224, .4);
+    color: var(--bone);
+  }
+  .al-lang-menu .al-pill.is-on {
+    background: var(--sand);
+    border-color: var(--sand);
+    color: var(--ink);
+  }
+  .al-nav.is-solid .al-lang-menu { background: var(--bone); }
+  .al-nav.is-solid .al-lang-menu .al-pill {
+    border-color: rgba(60, 77, 69, .28);
+    color: var(--green);
+  }
+  .al-nav.is-solid .al-lang-menu .al-pill.is-on {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--bone);
+  }
+  .al-drawer-lang { display: flex; }
+  .al-drawer-lang .al-pill {
+    border-color: rgba(244, 238, 224, .4);
+    color: var(--bone);
+  }
+  .al-drawer-lang .al-pill.is-on {
+    background: var(--sand);
+    border-color: var(--sand);
+    color: var(--ink);
+  }
+}
 @media (max-width: 720px) {
   .al-drawer { padding: 96px var(--pad) 24px; }
   .al-drawer nav {

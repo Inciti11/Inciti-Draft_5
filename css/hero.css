@@ -1,9 +1,9 @@
 /* ALRÍO · portada */
 /* ── HERO ──────────────────────────────────────── */
 .al-hero {
-  position: relative; min-height: 100svh; overflow: hidden;
+  position: relative; width: 100%; min-height: 100svh; overflow: hidden;
   background: #2a4668 url("../assets/ext-hero-blur.jpg") center / cover no-repeat;
-  border-radius: 0 0 var(--radius) var(--radius);
+  border-radius: 0;
 }
 .al-hero > img {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -20,7 +20,7 @@
 }
 .al-hero-in {
   position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto;
-  padding: 120px var(--pad) 74px;
+  padding: 120px var(--pad) 86px;
 }
 .al-hero-body { display: flex; flex-direction: column; justify-content: center; gap: 22px; max-width: 640px; }
 .al-hero-body > *,
@@ -72,7 +72,14 @@
   transition: background .4s ease, color .4s ease;
 }
 .al-btn-outline:hover { background: var(--sand); color: var(--ink); }
-.al-hero-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.al-hero-foot {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+.al-hero-foot .al-by { justify-self: start; }
+.al-hero-foot .al-scroll-hint { justify-self: center; }
 .al-by { display: flex; align-items: center; gap: 14px; }
 .al-by span { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: rgba(244,238,224,.7); }
 .al-by img { height: 40px; width: auto; opacity: .85; }

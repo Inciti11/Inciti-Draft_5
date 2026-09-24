@@ -39,9 +39,23 @@
 		<a href="#contacto" data-en="Contact us">Contáctanos</a>
 	</nav>
 
-	<div class="al-lang">
-		<button type="button" class="al-pill" data-lang="es">ES</button>
-		<button type="button" class="al-pill" data-lang="en">EN</button>
+	<div class="al-lang" id="al-lang">
+		<button type="button" class="al-lang-btn" id="al-lang-btn" aria-label="Idioma" aria-expanded="false" aria-haspopup="true">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<rect x="2.2" y="11.2" width="8.2" height="8.2" rx="1.3"/>
+				<path d="M4.3 17.6 6.3 13.2l2 4.4M4.9 16.2h2.8"/>
+				<rect x="13.6" y="4.6" width="8.2" height="8.2" rx="1.3"/>
+				<path d="M15.4 7.2h4.6M17.7 7.2v4.2M15.6 9.7c.9 1 2.3 1.7 4 1.8"/>
+				<path d="M8.2 9.4C8.4 6.2 11.4 4.2 15 5"/>
+				<path d="M14.1 3.8 15.4 5l-1.6.5"/>
+				<path d="M15.8 14.6c-.2 3.2-3.2 5.2-6.8 4.4"/>
+				<path d="M9.9 20.2 8.6 19l1.6-.5"/>
+			</svg>
+		</button>
+		<div class="al-lang-menu" role="menu">
+			<button type="button" class="al-pill" data-lang="es" role="menuitem">ES</button>
+			<button type="button" class="al-pill" data-lang="en" role="menuitem">EN</button>
+		</div>
 	</div>
 
 	<button type="button" class="al-burger" id="al-burger" aria-label="Menú" aria-expanded="false">
@@ -64,6 +78,10 @@
 		<a href="#galeria" data-en="Gallery">Galería</a>
 		<a href="#contacto" data-en="Contact">Contacto</a>
 	</nav>
+	<div class="al-drawer-lang">
+		<button type="button" class="al-pill" data-lang="es">ES</button>
+		<button type="button" class="al-pill" data-lang="en">EN</button>
+	</div>
 	<div class="al-drawer-foot">
 		<span data-en="A project by">Un proyecto de</span>
 		<img src="assets/partners-neg.png" alt="YDN · Arquitectura &amp; Concreto">
@@ -221,43 +239,124 @@
 			<h2 class="al-h2 al-amen-title" data-en="Amenities">Amenidades</h2>
 			<ul class="al-amen-grid">
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 11c0-2.8 1.8-5 4-5s4 2.2 4 5"/><path d="M6.5 11h11l-.7 6.2c-.1 1.1-1 1.8-2.1 1.8H9.3c-1.1 0-2-.7-2.1-1.8L6.5 11z"/><path d="M10 19a2 2 0 004 0"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-bell" viewBox="0 0 256 256" fill="currentColor">
+							<g class="al-ico-shell">
+								<path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H208a16,16,0,0,0,13.8-24.06ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"/>
+								<path class="al-ico-clapper" d="M88.81,200a40,40,0,0,0,78.38,0L150.62,200A24,24,0,0,1,105.38,200Z"/>
+							</g>
+						</svg>
+					</span>
 					<span data-en="Lobby">Lobby</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10l8-6 8 6v10"/><path d="M4 13h16"/><path d="M9 20v-4h6v4"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-house" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+							<path class="al-ico-roof" d="M216,120a8,8,0,0,0-2.34-5.66l-80-80a8,8,0,0,0-11.32,0l-80,80A8,8,0,0,0,40,120"/>
+							<path d="M104,216h-64V120M152,216h64V120"/>
+							<path class="al-ico-door" d="M104,216V152h48v64"/>
+						</svg>
+					</span>
 					<span data-en="Panoramic rooftop terrace">Terraza rooftop panorámico</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9v6M7 7v10M17 7v10M20 9v6M7 12h10"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-barbell" viewBox="0 0 256 256" fill="currentColor">
+							<path class="al-ico-plate al-ico-plate-l" fill-rule="evenodd" d="M88,48H64A16,16,0,0,0,48,64v8H32A16,16,0,0,0,16,88v32H8a8,8,0,0,0,0,16h8v32a16,16,0,0,0,16,16H48v8a16,16,0,0,0,16,16H88a16,16,0,0,0,16-16V64A16,16,0,0,0,88,48ZM32,88H48v80H32ZM64,64H88V192H64Z"/>
+							<path class="al-ico-plate al-ico-plate-r" fill-rule="evenodd" d="M168,48h24a16,16,0,0,1,16,16v8h16a16,16,0,0,1,16,16v32h8a8,8,0,0,1,0,16h-8v32a16,16,0,0,1-16,16H208v8a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V64A16,16,0,0,1,168,48ZM224,88H208v80h16ZM192,64H168V192h24Z"/>
+							<path class="al-ico-rod" d="M104,120C120,120,136,120,152,120L152,136C136,136,120,136,104,136Z"/>
+						</svg>
+					</span>
 					<span data-en="Gym">Gimnasio</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 19c-3.2-2.2-5-5-5-8a5 5 0 0110 0c0 3-1.8 5.8-5 8z"/><path d="M12 19c-1.6-4 1-7.2 3.2-8.2"/><path d="M12 19c1.6-4-1-7.2-3.2-8.2"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-bathtub" viewBox="0 0 256 256" fill="currentColor">
+							<g class="al-ico-tub">
+								<path d="M240,96H208a8,8,0,0,0-8-8H136a8,8,0,0,0-8,8H64V52A12,12,0,0,1,76,40a12.44,12.44,0,0,1,12.16,9.59,8,8,0,0,0,15.68-3.18A28.32,28.32,0,0,0,76,24,28,28,0,0,0,48,52V96H16a8,8,0,0,0-8,8v40a56.06,56.06,0,0,0,56,56v16a8,8,0,0,0,16,0V200h96v16a8,8,0,0,0,16,0V200a56.06,56.06,0,0,0,56-56V104A8,8,0,0,0,240,96Zm-48,8v32H144V104Zm40,40a40,40,0,0,1-40,40H64a40,40,0,0,1-40-40V112H128v32a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V112h24Z"/>
+							</g>
+							<g class="al-ico-drops" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round">
+								<path class="al-ico-drop al-ico-drop-a" d="M164,118 l0,7"/>
+								<path class="al-ico-drop al-ico-drop-b" d="M148,122 l0,7"/>
+								<path class="al-ico-drop al-ico-drop-c" d="M158,120 l0,7"/>
+								<path class="al-ico-drop al-ico-drop-d" d="M142,124 l0,7"/>
+							</g>
+						</svg>
+					</span>
 					<span data-en="Turkish bath / sauna">Turco / sauna</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 15h14v1.6A3.4 3.4 0 0115.6 20H8.4A3.4 3.4 0 015 16.6V15z"/><path d="M8 11c.4-2.2 2-4 4-4s3.6 1.8 4 4"/><path d="M8 15v-4M16 15v-4"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-cook" viewBox="0 0 256 256" fill="currentColor">
+							<g class="al-ico-steam">
+								<path d="M88,48V16a8,8,0,0,1,16,0V48a8,8,0,0,1-16,0Zm40,8a8,8,0,0,0,8-8V16a8,8,0,0,0-16,0V48A8,8,0,0,0,128,56Zm32,0a8,8,0,0,0,8-8V16a8,8,0,0,0-16,0V48A8,8,0,0,0,160,56Z"/>
+							</g>
+							<g class="al-ico-pot">
+								<path d="M252.8,102.4L224,124v60a32,32,0,0,1-32,32H64a32,32,0,0,1-32-32V124L3.2,102.4a8,8,0,0,1,9.6-12.8L32,104V80a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8v24l19.2-14.4a8,8,0,0,1,9.6,12.8ZM208,88H48v96a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16Z"/>
+							</g>
+						</svg>
+					</span>
 					<span data-en="BBQ area">Zona BBQ</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4h8l-1.8 8H9.8L8 4z"/><path d="M12 12v6M9 20h6"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-beer" viewBox="0 0 256 256" fill="currentColor">
+							<g class="al-ico-cheers">
+								<path d="M104,104v80a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm40-8a8,8,0,0,0-8,8v80a8,8,0,0,0,16,0V104A8,8,0,0,0,144,96Zm96,16v64a24,24,0,0,1-24,24H200v8a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V72c0-30.88,28.71-56,64-56,16.77,0,32.91,5.8,44.82,16H160a40,40,0,0,1,40,40V88h16A24,24,0,0,1,240,112ZM57,64H182.62A24,24,0,0,0,160,48H145.74a8,8,0,0,1-5.53-2.22C131.06,37,117.87,32,104,32,80.82,32,61.43,45.76,57,64ZM184,208V80H56V208H184Zm40-96a8,8,0,0,0-8-8H200v80h16a8,8,0,0,0,8-8Z"/>
+								<circle class="al-ico-fizz al-ico-fizz-a" cx="72" cy="184" r="4"/>
+								<circle class="al-ico-fizz al-ico-fizz-b" cx="120" cy="188" r="3.5"/>
+								<circle class="al-ico-fizz al-ico-fizz-c" cx="168" cy="180" r="3.5"/>
+								<circle class="al-ico-fizz al-ico-fizz-d" cx="96" cy="192" r="3"/>
+							</g>
+						</svg>
+					</span>
 					<span data-en="Premium social lounge">Salón social premium</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5h8v7H8z"/><path d="M7 12h10v1.6H7z"/><path d="M8.5 13.6V20M15.5 13.6V20M8.5 20h2.4M13.1 20h2.4"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-presentation" viewBox="0 0 256 256" fill="currentColor">
+							<path d="M134.08,154.79a8,8,0,0,0-12.15,0l-48,56A8,8,0,0,0,80,224h96a8,8,0,0,0,6.07-13.21ZM97.39,208,128,172.29,158.61,208Z"/>
+							<path class="al-ico-board" d="M232,64V176a24,24,0,0,1-24,24h-8a8,8,0,0,1,0-16h8a8,8,0,0,0,8-8V64a8,8,0,0,0-8-8H48a8,8,0,0,0-8,8V176a8,8,0,0,0,8,8h8a8,8,0,0,1,0,16H48a24,24,0,0,1-24-24V64A24,24,0,0,1,48,40H208A24,24,0,0,1,232,64Z"/>
+						</svg>
+					</span>
 					<span data-en="Meeting rooms">Salas de juntas</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10c2 .9 3 .9 4.8 0S12 9.1 13.8 10 16.8 10.9 20 10"/><path d="M4 14c2 .9 3 .9 4.8 0S12 13.1 13.8 14 16.8 14.9 20 14"/><path d="M4 18c2 .9 3 .9 4.8 0S12 17.1 13.8 18 16.8 18.9 20 18"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-pool" viewBox="0 0 256 256" fill="currentColor">
+							<g class="al-ico-ladder">
+								<path d="M88,149.39a8,8,0,0,0,8-8V128h64v15.29a8,8,0,0,0,16,0V32a8,8,0,0,0-16,0V48H96V32a8,8,0,0,0-16,0V141.39A8,8,0,0,0,88,149.39ZM96,112V96h64v16Zm64-48V80H96V64Z"/>
+							</g>
+							<g class="al-ico-waves">
+								<path d="M24,168a8,8,0,0,1,8-8c14.42,0,22.19,5.18,28.44,9.34C66,173.06,70.42,176,80,176s14-2.94,19.56-6.66c6.24-4.16,14-9.34,28.43-9.34s22.2,5.18,28.44,9.34c5.58,3.72,10,6.66,19.57,6.66s14-2.94,19.56-6.66c6.25-4.16,14-9.34,28.44-9.34a8,8,0,0,1,0,16c-9.58,0-14,2.94-19.56,6.66-6.25,4.16-14,9.34-28.44,9.34s-22.2-5.18-28.44-9.34C142,178.94,137.57,176,128,176s-14,2.94-19.56,6.66c-6.24,4.16-14,9.34-28.43,9.34s-22.19-5.18-28.44-9.34C46,178.94,41.58,176,32,176A8,8,0,0,1,24,168Z"/>
+								<path class="al-ico-wave-b" d="M232,208a8,8,0,0,1-8,8c-9.58,0-14,2.94-19.56,6.66-6.25,4.16-14,9.34-28.44,9.34s-22.2-5.18-28.44-9.34C142,218.94,137.57,216,128,216s-14,2.94-19.56,6.66c-6.24,4.16-14,9.34-28.43,9.34s-22.19-5.18-28.44-9.34C46,218.94,41.58,216,32,216a8,8,0,0,1,0-16c14.42,0,22.19,5.18,28.44,9.34C66,213.06,70.42,216,80,216s14-2.94,19.56-6.66c6.24-4.16,14-9.34,28.43-9.34s22.2,5.18,28.44,9.34c5.58,3.72,10,6.66,19.57,6.66s14-2.94,19.56-6.66c6.25-4.16,14-9.34,28.44-9.34A8,8,0,0,1,232,208Z"/>
+							</g>
+						</svg>
+					</span>
 					<span data-en="Adults and children pool">Piscina para adultos y niños</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 20V11l7-6 7 6v9"/><path d="M9 20v-5h6v5"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-baby" viewBox="0 0 256 256" fill="currentColor">
+							<g class="al-ico-giggle">
+								<circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-width="16"/>
+								<path class="al-ico-hair" d="M131.91,26L131.91,40.09C120.32,56.38,120,71.88,120,72a8,8,0,0,0,16,0a8,8,0,0,1,16,0a24,24,0,0,1-48,0c0-.73.13-14.3,8.46-30.63L112.46,26Z"/>
+								<circle class="al-ico-eye al-ico-eye-l" cx="92" cy="128" r="12"/>
+								<circle class="al-ico-eye al-ico-eye-r" cx="164" cy="128" r="12"/>
+								<path d="M151.73,161.23a45,45,0,0,1-47.46,0a8,8,0,0,0-8.54,13.54a61,61,0,0,0,64.54,0a8,8,0,0,0-8.54-13.54Z"/>
+							</g>
+						</svg>
+					</span>
 					<span data-en="Children's park">Parque para niños</span>
 				</li>
 				<li>
-					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="7" cy="8" r="1.7"/><circle cx="12" cy="6.2" r="1.7"/><circle cx="17" cy="8" r="1.7"/><path d="M8.2 13.6c0-1.8 1.5-3 3.8-3s3.8 1.2 3.8 3-1.6 5-3.8 5-3.8-3.2-3.8-5z"/></svg></span>
+					<span class="al-amen-ico" aria-hidden="true">
+						<svg class="al-ico al-ico-paw" viewBox="0 0 256 256" fill="currentColor">
+							<g class="al-ico-stamp">
+								<path d="M212,80a28,28,0,1,0,28,28A28,28,0,0,0,212,80Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,212,120ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM44,120a12,12,0,1,1,12-12A12,12,0,0,1,44,120ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm0-40A12,12,0,1,1,80,60,12,12,0,0,1,92,48Zm72,40a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,48Zm23.12,100.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72ZM168,208a24,24,0,0,1-9.45-1.93,80.14,80.14,0,0,0-61.19,0,24,24,0,0,1-20.71-43.26,51.22,51.22,0,0,0,24.46-30.67,28,28,0,0,1,53.78,0,51.27,51.27,0,0,0,24.53,30.71A24,24,0,0,1,168,208Z"/>
+							</g>
+						</svg>
+					</span>
 					<span data-en="Pet grooming">Pet grooming (Aseo para mascotas)</span>
 				</li>
 			</ul>

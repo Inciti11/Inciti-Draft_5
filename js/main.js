@@ -160,6 +160,7 @@
     }
     if (nav) nav.classList.toggle('is-menu', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    if (open && langBox) langBox.classList.remove('is-open');
   };
   if (burger) burger.addEventListener('click', function () { setDrawer(!drawer.classList.contains('is-open')); });
   if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
@@ -294,6 +295,22 @@
 
   /* Conmutador ES / EN */
   var pills = document.querySelectorAll('.al-pill[data-lang]');
+  var langBox = document.getElementById('al-lang');
+  var langBtn = document.getElementById('al-lang-btn');
+  var setLangOpen = function (open) {
+    if (!langBox || !langBtn) return;
+    langBox.classList.toggle('is-open', open);
+    langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  if (langBtn) {
+    langBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setLangOpen(!langBox.classList.contains('is-open'));
+    });
+    document.addEventListener('click', function (e) {
+      if (langBox && !langBox.contains(e.target)) setLangOpen(false);
+    });
+  }
   var apply = function (lang) {
     document.querySelectorAll('[data-en]').forEach(function (el) {
       if (el.dataset.es === undefined) el.dataset.es = el.textContent;
@@ -304,6 +321,7 @@
     document.body.setAttribute('data-lang', lang);
     pills.forEach(function (p) { p.classList.toggle('is-on', p.getAttribute('data-lang') === lang); });
     try { localStorage.setItem('alrio-lang', lang); } catch (err) {}
+    setLangOpen(false);
   };
   pills.forEach(function (p) {
     p.addEventListener('click', function () { apply(p.getAttribute('data-lang')); });

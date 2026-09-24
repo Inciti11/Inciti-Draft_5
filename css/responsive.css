@@ -7,11 +7,27 @@
   .al-index > div:nth-child(4) { padding-left: 0; }
 }
 @media (max-width: 1000px) {
+  .al-burger {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: rgba(60, 77, 69, .78);
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(16, 14, 12, .28);
+  }
+  .al-burger span {
+    background: var(--bone) !important;
+    box-shadow: none;
+  }
+  .al-nav.is-solid .al-burger { background: rgba(60, 77, 69, .16); }
+  .al-nav.is-solid .al-burger span { background: var(--ink) !important; }
+  .al-nav.is-menu .al-burger { background: rgba(244, 238, 224, .14); }
+  .al-nav.is-menu .al-burger span { background: var(--bone) !important; }
   .al-sec { padding: 72px var(--pad); }
   #arquitectura { padding-bottom: 0; }
   #proyecto { padding-bottom: 24px; }
   .al-duo, .al-arch, .al-contact { grid-template-columns: 1fr; }
-  .al-arch-img img.al-cutout { height: auto; object-fit: contain; }
+  .al-arch-img img.al-cutout { width: 100%; max-width: 100%; margin-left: 0; height: auto; object-fit: contain; }
   #arquitectura .al-col { padding-bottom: 8px; }
   .al-stats { grid-template-columns: 1fr; margin-top: 56px; }
   .al-stats > div { padding: 28px 0; }
@@ -30,16 +46,30 @@
 }
 @media (max-width: 680px) {
   :root { --radius: 20px; --pad: 22px; }
+  .al-brand { width: 92px; }
+  .al-lang-btn,
+  .al-burger {
+    width: 40px;
+    height: 40px;
+  }
+  .al-lang-btn svg { width: 20px; height: 20px; }
   .al-burger {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    background: rgba(60, 77, 69, .55);
+    background: rgba(60, 77, 69, .78);
     border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(16, 14, 12, .28);
   }
-  .al-nav.is-solid .al-burger { background: rgba(60, 77, 69, .14); }
-  .al-nav.is-menu .al-burger { background: transparent; }
-  .al-hero-in { padding: 96px var(--pad) 70px; }
+  .al-burger span {
+    background: var(--bone) !important;
+    box-shadow: none;
+  }
+  .al-nav.is-solid .al-burger { background: rgba(60, 77, 69, .16); }
+  .al-nav.is-solid .al-burger span { background: var(--ink) !important; }
+  .al-nav.is-menu .al-burger { background: rgba(244, 238, 224, .14); }
+  .al-nav.is-menu .al-burger span { background: var(--bone) !important; }
+  .al-hero-in { padding: 96px var(--pad) 78px; gap: 32px; }
   .al-hero-logo {
     width: min(200px, 58vw);
     height: auto;
@@ -96,14 +126,18 @@
     width: auto;
     max-width: 22em;
     margin-top: 4px;
+    margin-bottom: 8px;
   }
   .al-hero-foot {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
+    margin-top: 8px;
   }
   .al-hero-foot .al-by {
     justify-content: center;
+    justify-self: center;
     width: 100%;
   }
   .al-scroll-txt { display: none; }
