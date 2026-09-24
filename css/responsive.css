@@ -7,9 +7,12 @@
   .al-index > div:nth-child(4) { padding-left: 0; }
 }
 @media (max-width: 1000px) {
-  .al-sec { padding: 96px var(--pad); }
+  .al-sec { padding: 72px var(--pad); }
+  #arquitectura { padding-bottom: 0; }
   #proyecto { padding-bottom: 24px; }
   .al-duo, .al-arch, .al-contact { grid-template-columns: 1fr; }
+  .al-arch-img img.al-cutout { height: auto; object-fit: contain; }
+  #arquitectura .al-col { padding-bottom: 24px; }
   .al-stats { grid-template-columns: 1fr; margin-top: 56px; }
   .al-stats > div { padding: 28px 0; }
   .al-stats > div + div { padding-left: 0; border-top: 1px solid rgba(41,41,41,.14); }
@@ -41,7 +44,7 @@
     padding-top: 0;
     align-items: flex-start;
   }
-  .al-hero > img { object-position: 72% 42%; }
+  .al-hero > img { object-fit: cover; object-position: 78% 40%; transform: none; }
   .al-hero-veil {
     background:
       linear-gradient(180deg,
@@ -110,8 +113,9 @@
   .al-lifestyle .al-shot { height: 46vh; min-height: 300px; }
   .al-subhead { flex-direction: column; gap: 10px; }
   .al-index { grid-template-columns: 1fr 1fr; }
-  .al-index > div { padding: 18px 12px; }
-  .al-index > div:nth-child(odd) { padding-left: 0; }
+  .al-index > div { padding: 18px 16px; }
+  .al-index > div:first-child,
+  .al-index > div:nth-child(odd) { padding-left: 16px; }
   .al-tour-frame { height: 62vh; min-height: 380px; }
   .al-footer-legal { flex-direction: column; gap: 10px; }
   .al-lb { padding: 18px; }

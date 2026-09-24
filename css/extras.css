@@ -74,13 +74,11 @@
   pointer-events: none;
   text-transform: none;
 }
-.al-arch-img,
 .al-mapwrap,
 .al-gal [data-lb] {
   position: relative;
   overflow: hidden;
 }
-.al-arch-img { border-radius: 20px; }
 .al-hero .al-legal-note {
   bottom: 38px;
   z-index: 6;
@@ -107,15 +105,15 @@
 
 /* Coverflow */
 section.al-sec.al-sec-apart {
-  padding-top: 180px;
-  padding-bottom: 180px;
+  padding-top: 110px;
+  padding-bottom: 110px;
   overflow: visible;
 }
-.al-cover-head { max-width: 720px; margin-bottom: 56px; }
+.al-cover-head { max-width: 720px; margin-bottom: 36px; }
 .al-cover {
   position: relative;
-  height: min(64vh, 620px);
-  min-height: 420px;
+  height: min(56vh, 560px);
+  min-height: 360px;
   perspective: 1800px;
   overflow: visible;
   touch-action: pan-y;
@@ -127,11 +125,11 @@ section.al-sec.al-sec-apart {
 }
 .al-cover-card {
   position: absolute;
-  top: 4%;
+  top: 6%;
   left: 50%;
-  width: min(36vw, 390px);
-  height: 92%;
-  margin-left: calc(min(36vw, 390px) / -2);
+  width: min(56vw, 640px);
+  height: 88%;
+  margin-left: calc(min(56vw, 640px) / -2);
   border-radius: 28px;
   overflow: hidden;
   background: var(--green);
@@ -146,6 +144,14 @@ section.al-sec.al-sec-apart {
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
+.al-cover-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(16, 14, 12, .5) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
 .al-cover-card.is-on { pointer-events: auto; cursor: pointer; }
 .al-cover-card img {
   width: 100%;
@@ -159,12 +165,13 @@ section.al-sec.al-sec-apart {
   z-index: 5;
   margin: 0;
   padding: 22px 20px 28px;
-  background: linear-gradient(180deg, rgba(60, 77, 69, .82), transparent);
+  background: none;
   color: var(--bone);
   font-size: 13px;
   letter-spacing: .16em;
   text-transform: uppercase;
   text-align: center;
+  text-shadow: 0 1px 8px rgba(16, 14, 12, .45);
 }
 .al-cover-nav {
   position: absolute;
@@ -251,20 +258,20 @@ section.al-sec.al-sec-apart {
 }
 
 @media (max-width: 1000px) {
-  section.al-sec.al-sec-apart { padding-top: 128px; padding-bottom: 128px; }
+  section.al-sec.al-sec-apart { padding-top: 88px; padding-bottom: 88px; }
   .al-team { grid-template-columns: 1fr 1fr; }
   .al-cover-card {
-    width: min(46vw, 340px);
-    margin-left: calc(min(46vw, 340px) / -2);
+    width: min(70vw, 520px);
+    margin-left: calc(min(70vw, 520px) / -2);
   }
 }
 @media (max-width: 680px) {
-  section.al-sec.al-sec-apart { padding-top: 104px; padding-bottom: 104px; }
-  .al-cover-head { margin-bottom: 36px; }
-  .al-cover { height: 56vh; min-height: 340px; }
+  section.al-sec.al-sec-apart { padding-top: 72px; padding-bottom: 72px; }
+  .al-cover-head { margin-bottom: 28px; }
+  .al-cover { height: 42vh; min-height: 260px; }
   .al-cover-card {
-    width: 74vw;
-    margin-left: calc(74vw / -2);
+    width: 86vw;
+    margin-left: calc(86vw / -2);
   }
   .al-cover-nav { width: 44px; height: 44px; margin-top: -22px; }
   .al-cover-prev { left: 2px; }

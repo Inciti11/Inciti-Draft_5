@@ -6,7 +6,7 @@
   var textSel = [
     'h1', 'h2', 'h3', 'p',
     '.al-eyebrow', '.al-kicker', '.al-h2', '.al-h3', '.al-p',
-    '.al-stat-n', '.al-stat-l', '.al-index-n', '.al-index-t',
+    '.al-stat-n', '.al-stat-l', '.al-index-n', '.al-index-t', '.al-index-d',
     'figcaption', '.al-note',
     '.al-consent span', '.al-form .al-k',
     '.al-advisor-role', '.al-advisor-meta',
@@ -206,7 +206,7 @@
         if (d > n / 2) d -= n;
         if (d < -n / 2) d += n;
         var abs = Math.abs(d);
-        card.style.setProperty('--x', (d * 72) + '%');
+        card.style.setProperty('--x', (d * 58) + '%');
         card.style.setProperty('--s', abs === 0 ? '1' : abs === 1 ? '.82' : '.68');
         card.style.setProperty('--ry', (d * -16) + 'deg');
         card.style.setProperty('--o', abs > 2 ? '0' : abs === 2 ? '.55' : '1');
@@ -268,9 +268,9 @@
   });
 
   /* Nota legal en imágenes */
-  var legalEs = 'NOTA LEGAL: Estas imágenes pueden contener decoración y elementos de apreciación estética que son interpretación del artífice y no comprometen a la sociedad promotora. El proyecto podrá ser modificado por exigencia de las autoridades competentes o por exigencias técnicas o del mercado. Las especificaciones serán las que se establezcan en los contratos de vinculación al proyecto inmobiliario.';
-  var legalEn = 'LEGAL NOTICE: These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts.';
-  var legalTargets = document.querySelectorAll('.al-hero, .al-arch-img, .al-mapwrap, .al-lifestyle .al-shot, .al-cover-card, .al-gal [data-lb], .al-bleed');
+  var legalEs = 'Estas imágenes pueden contener decoración y elementos de apreciación estética que son interpretación del artífice y no comprometen a la sociedad promotora. El proyecto podrá ser modificado por exigencia de las autoridades competentes o por exigencias técnicas o del mercado. Las especificaciones serán las que se establezcan en los contratos de vinculación al proyecto inmobiliario.';
+  var legalEn = 'These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts.';
+  var legalTargets = document.querySelectorAll('.al-hero, .al-mapwrap, .al-cover-card, .al-gal [data-lb], .al-bleed');
   legalTargets.forEach(function (box) {
     if (box.querySelector(':scope > .al-legal-note')) return;
     var note = document.createElement('span');

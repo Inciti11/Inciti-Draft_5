@@ -1,6 +1,11 @@
 /* ALRÍO · secciones 01 a 08 */
 /* ── SECTIONS ──────────────────────────────────── */
-.al-sec { padding: 140px var(--pad); position: relative; z-index: 1; border-radius: var(--radius); overflow: hidden; }
+.al-sec { padding: 100px var(--pad); position: relative; z-index: 1; border-radius: var(--radius); overflow: hidden; }
+#arquitectura { padding-top: 72px; padding-bottom: 0; }
+#arquitectura .al-col { gap: 22px; padding-bottom: 36px; }
+#arquitectura .al-h2 { font-size: clamp(38px, 4.2vw, 58px); line-height: 1.22; }
+#arquitectura .al-copy { gap: 10px; }
+#arquitectura .al-p { font-size: 17px; line-height: 1.6; }
 .al-sec-dark { background: var(--ink); color: var(--bone); }
 .al-sec-green { background: var(--green); color: var(--bone); }
 #proyecto { z-index: 2; margin-top: -36px; padding-bottom: 32px; background: var(--bone); border-radius: var(--radius) var(--radius) 0 0; }
@@ -81,10 +86,21 @@
 }
 
 /* arquitectura */
-.al-arch { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: center; }
-.al-arch-img { position: relative; }
+.al-arch { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: end; }
+.al-arch-img { position: relative; align-self: end; }
 .al-arch-img .al-frame { display: none; }
 .al-arch-img img { position: relative; display: block; width: 100%; height: auto; border-radius: 20px; }
+.al-arch-img img.al-cutout {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-radius: 20px 20px 0 0;
+  background: transparent;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 22px 48px rgba(16, 14, 12, .28));
+}
 .al-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 8px; background: rgba(244,238,224,.16); }
 .al-specs > div { padding: 26px; background: var(--green); }
 .al-specs > div:first-child { padding-left: 0; }
@@ -92,19 +108,28 @@
 .al-spec-v { display: block; margin-top: 10px; font-size: 15px; color: var(--sand); }
 
 /* ubicación */
-.al-mapwrap { position: relative; overflow: hidden; margin-top: 64px; border-radius: 20px; }
+#ubicacion { padding-bottom: 40px; }
+#entorno > .al-sec { padding-top: 48px; }
+.al-mapwrap { position: relative; overflow: hidden; margin-top: 40px; border-radius: 20px 20px 0 0; }
 .al-mapwrap img { display: block; width: 100%; height: auto; }
 .al-index {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; margin-top: 1px;
-  background: rgba(41,41,41,.14);
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; margin-top: 0;
+  background: rgba(41,41,41,.12);
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
 }
-.al-index > div { padding: 34px 22px; background: var(--bone); }
-.al-index > div:first-child { padding-left: 0; }
+.al-index > div { padding: 22px 18px 24px; background: #EDE6D6; }
+.al-index > div:first-child { padding-left: 22px; }
 .al-index-n {
-  display: block; font-family: var(--font-title); font-size: 30px; letter-spacing: .08em;
+  display: block; font-family: var(--font-title); font-size: 22px; letter-spacing: .08em;
   color: var(--green); -webkit-font-smoothing: auto; -webkit-text-stroke: 0.7px currentColor;
 }
-.al-index-t { display: block; margin-top: 14px; font-size: 22px; line-height: 1.3; font-weight: 400; }
+.al-index-t { display: block; margin-top: 8px; font-size: 16px; line-height: 1.25; font-weight: 400; }
+.al-index-d {
+  display: block; margin-top: 8px;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(41,41,41,.48);
+}
 
 /* entorno */
 .al-lifestyle { display: flex; gap: 24px; padding: 0 var(--pad) 8px; }
@@ -130,7 +155,7 @@
 
 /* apartamentos */
 .al-sec-leaf { position: relative; overflow: hidden; }
-.al-sec-leaf > img.al-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .22; }
+.al-sec-leaf > img.al-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .2; }
 .al-sec-leaf .al-wrap { position: relative; }
 
 /* galería */
@@ -151,6 +176,7 @@
 .al-cta { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; }
 .al-cta .al-kicker { font-size: 13px; letter-spacing: .32em; color: rgba(226,207,176,.75); }
 .al-cta h2 { margin: 0; font-family: var(--font-title); font-weight: 400; font-size: clamp(52px, 6.2vw, 104px); line-height: 1.16; letter-spacing: .04em; text-transform: uppercase; color: var(--bone); -webkit-font-smoothing: auto; -webkit-text-stroke: 0.35px currentColor; }
+.al-cta .al-btn { color: var(--green); }
 .al-cta p { margin: 0; max-width: 520px; font-size: 18px; font-weight: 400; line-height: 1.75; color: rgba(244,238,224,.78); }
 
 /* contacto */

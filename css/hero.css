@@ -1,9 +1,9 @@
 /* ALRÍO · portada */
 /* ── HERO ──────────────────────────────────────── */
-.al-hero { position: relative; min-height: 100svh; overflow: hidden; background: var(--ink); border-radius: 0 0 var(--radius) var(--radius); }
+.al-hero { position: relative; min-height: 100svh; overflow: hidden; background: #2a4668; border-radius: 0 0 var(--radius) var(--radius); }
 .al-hero > img {
   position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: 50% 54%;
+  object-fit: cover; object-position: 80% 38%;
 }
 .al-hero-veil {
   position: absolute; inset: 0;
