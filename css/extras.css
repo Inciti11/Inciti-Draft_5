@@ -180,6 +180,15 @@ section.al-sec.al-sec-apart {
   text-align: center;
   text-shadow: 0 1px 10px rgba(16, 14, 12, .65);
 }
+.al-cover-name,
+.al-cover-ref { display: block; }
+.al-cover-ref {
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: .12em;
+  font-weight: 300;
+  opacity: .78;
+}
 .al-cover-nav {
   position: absolute;
   top: 50%;
