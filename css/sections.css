@@ -153,6 +153,31 @@
   margin-right: auto;
 }
 #entorno > .al-sec { padding-top: 48px; }
+#entorno .al-duo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+}
+#entorno .al-duo .al-col {
+  align-items: stretch;
+  width: 100%;
+}
+#entorno .al-duo .al-eyebrow {
+  justify-content: flex-start;
+}
+#entorno .al-h2-serif {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#entorno .al-p-muted {
+  text-align: center;
+  max-width: 38em;
+  margin-left: auto;
+  margin-right: auto;
+}
+#entorno .al-cover-ref { display: none; }
 
 /* entorno */
 .al-lifestyle-wrap {
