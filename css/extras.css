@@ -203,6 +203,96 @@ section.al-sec.al-sec-apart {
 #entorno .al-cover-nav:hover { background: #2f3e38; color: var(--bone); transform: scale(1.06); }
 #entorno .al-cover { height: min(68vh, 700px); }
 
+/* Amenidades · hoja + iconos */
+.al-amen-sheet { margin-bottom: 56px; }
+.al-amen-sheet .al-eyebrow { justify-content: flex-start; }
+.al-amen-title {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1.16;
+}
+.al-amen-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  justify-items: start;
+  column-gap: 88px;
+  row-gap: 22px;
+  list-style: none;
+  margin: 44px auto 0;
+  padding: 0;
+}
+.al-amen-grid li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.al-amen-ico {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  color: var(--green);
+}
+.al-amen-ico svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: al-amen-bob 3.4s ease-in-out infinite;
+}
+.al-amen-ico svg * {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 64;
+  stroke-dashoffset: 64;
+}
+.al-amen-sheet.is-in .al-amen-ico svg * {
+  animation: al-amen-draw .9s ease forwards;
+}
+.al-amen-sheet.is-in .al-amen-ico svg {
+  animation: al-amen-bob 3.4s ease-in-out .8s infinite;
+}
+.al-amen-grid li:nth-child(2) .al-amen-ico svg { animation-delay: .08s; }
+.al-amen-grid li:nth-child(3) .al-amen-ico svg { animation-delay: .16s; }
+.al-amen-grid li:nth-child(4) .al-amen-ico svg { animation-delay: .24s; }
+.al-amen-grid li:nth-child(5) .al-amen-ico svg { animation-delay: .32s; }
+.al-amen-grid li:nth-child(6) .al-amen-ico svg { animation-delay: .4s; }
+.al-amen-grid li:nth-child(7) .al-amen-ico svg { animation-delay: .48s; }
+.al-amen-grid li:nth-child(8) .al-amen-ico svg { animation-delay: .56s; }
+.al-amen-grid li:nth-child(9) .al-amen-ico svg { animation-delay: .64s; }
+.al-amen-grid li:nth-child(10) .al-amen-ico svg { animation-delay: .72s; }
+.al-amen-grid li:nth-child(2) .al-amen-ico svg * { animation-delay: .08s; }
+.al-amen-grid li:nth-child(3) .al-amen-ico svg * { animation-delay: .16s; }
+.al-amen-grid li:nth-child(4) .al-amen-ico svg * { animation-delay: .24s; }
+.al-amen-grid li:nth-child(5) .al-amen-ico svg * { animation-delay: .32s; }
+.al-amen-grid li:nth-child(6) .al-amen-ico svg * { animation-delay: .4s; }
+.al-amen-grid li:nth-child(7) .al-amen-ico svg * { animation-delay: .48s; }
+.al-amen-grid li:nth-child(8) .al-amen-ico svg * { animation-delay: .56s; }
+.al-amen-grid li:nth-child(9) .al-amen-ico svg * { animation-delay: .64s; }
+.al-amen-grid li:nth-child(10) .al-amen-ico svg * { animation-delay: .72s; }
+@keyframes al-amen-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes al-amen-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
 /* Asesores */
 .al-team {
   display: grid;
@@ -264,6 +354,7 @@ section.al-sec.al-sec-apart {
 
 @media (max-width: 1000px) {
   section.al-sec.al-sec-apart { padding-top: 88px; padding-bottom: 88px; }
+  .al-amen-grid { gap: 18px 36px; }
   .al-team { grid-template-columns: 1fr 1fr; }
   .al-cover-card {
     width: min(78vw, 640px);
@@ -272,6 +363,9 @@ section.al-sec.al-sec-apart {
 }
 @media (max-width: 680px) {
   section.al-sec.al-sec-apart { padding-top: 72px; padding-bottom: 72px; }
+  .al-amen-sheet { margin-bottom: 36px; }
+  .al-amen-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  .al-amen-grid li { font-size: 16px; }
   .al-cover-head { margin-bottom: 28px; }
   .al-cover { height: 54vh; min-height: 370px; }
   .al-cover-card {
@@ -292,4 +386,13 @@ section.al-sec.al-sec-apart {
 @media (prefers-reduced-motion: reduce) {
   .al-cover-card { transition: none; }
   .al-wa-msg { transition: none; }
+  .al-amen-ico svg,
+  .al-amen-ico svg *,
+  .al-amen-sheet.is-in .al-amen-ico svg,
+  .al-amen-sheet.is-in .al-amen-ico svg * {
+    animation: none;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    transform: none;
+  }
 }

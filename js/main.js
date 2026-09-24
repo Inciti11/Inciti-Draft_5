@@ -272,7 +272,7 @@
   var legalEn = 'These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts.';
   var legalTargets = document.querySelectorAll('.al-hero, .al-mapwrap, .al-cover-card, .al-gal [data-lb], .al-bleed');
   legalTargets.forEach(function (box) {
-    if (box.closest('#entorno')) return;
+    if (box.hasAttribute('data-no-legal')) return;
     if (box.querySelector(':scope > .al-legal-note')) return;
     var note = document.createElement('span');
     note.className = 'al-legal-note';

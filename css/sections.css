@@ -1,11 +1,10 @@
 /* ALRÍO · secciones 01 a 08 */
 /* ── SECTIONS ──────────────────────────────────── */
 .al-sec { padding: 100px var(--pad); position: relative; z-index: 1; border-radius: var(--radius); overflow: hidden; }
-#arquitectura { padding-top: 72px; padding-bottom: 0; }
-#arquitectura .al-col { gap: 22px; padding-bottom: 36px; text-align: center; align-items: center; }
-#arquitectura .al-eyebrow { justify-content: center; }
-#arquitectura .al-h2 { font-size: clamp(38px, 4.2vw, 58px); line-height: 1.22; }
-#arquitectura .al-copy { gap: 10px; }
+#arquitectura { padding-top: 72px; padding-bottom: 0; border-radius: var(--radius) var(--radius) 0 0; }
+#arquitectura .al-col { gap: 22px; padding-bottom: 0; }
+#arquitectura .al-h2 { font-size: clamp(38px, 4.2vw, 58px); line-height: 1.22; text-align: center; }
+#arquitectura .al-copy { gap: 10px; text-align: center; }
 #arquitectura .al-p { font-size: 17px; line-height: 1.6; }
 .al-sec-dark { background: var(--ink); color: var(--bone); }
 .al-sec-green { background: var(--green); color: var(--bone); }
@@ -47,6 +46,13 @@
 .al-copy { display: flex; flex-direction: column; gap: 16px; }
 .al-sec-dark .al-p, .al-sec-green .al-p { color: rgba(244,238,224,.8); }
 .al-p-muted { color: rgba(41,41,41,.7); }
+.al-proj-head { display: flex; flex-direction: column; gap: 28px; }
+.al-proj-head .al-h2-proj { text-align: center; margin-left: auto; margin-right: auto; }
+.al-h2-proj {
+  font-size: clamp(40px, 5.4vw, 82px);
+  line-height: 1.14;
+  max-width: 22ch;
+}
 .al-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; }
 .al-duo-end { align-items: end; }
 .al-col { display: flex; flex-direction: column; gap: 34px; }
@@ -87,16 +93,18 @@
 }
 
 /* arquitectura */
-.al-arch { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: center; }
-.al-arch-img { position: relative; align-self: end; }
+.al-arch { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: start; }
+.al-arch-img { position: relative; align-self: end; overflow: visible; margin-bottom: 0; }
 .al-arch-img .al-frame { display: none; }
 .al-arch-img img { position: relative; display: block; width: 100%; height: auto; border-radius: 20px; }
 .al-arch-img img.al-cutout {
   display: block;
-  width: 100%;
+  width: 122%;
+  max-width: none;
+  margin: 0 0 0 -11%;
   height: auto;
   border: 0;
-  border-radius: 20px 20px 0 0;
+  border-radius: 0;
   background: transparent;
   object-fit: contain;
   object-position: center bottom;
@@ -109,7 +117,7 @@
 .al-spec-v { display: block; margin-top: 10px; font-size: 15px; color: var(--sand); }
 
 /* ubicación */
-#ubicacion { padding-bottom: 40px; }
+#ubicacion { padding-bottom: 40px; border-radius: 0; margin-top: 0; }
 #entorno > .al-sec { padding-top: 48px; }
 .al-mapwrap { position: relative; overflow: hidden; margin-top: 40px; border-radius: 20px 20px 0 0; }
 .al-mapwrap img { display: block; width: 100%; height: auto; }

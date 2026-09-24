@@ -6,6 +6,7 @@
   <title>ALRÍO — Gran Malecón del Río, Barranquilla</title>
   <meta name="description" content="ALRÍO — proyecto residencial exclusivo frente al Gran Malecón del Río, Barranquilla. 79 unidades entre 88 y 149 m².">
   <link rel="icon" href="assets/favicon.png">
+  <link rel="preload" as="image" href="assets/ext-hero.jpg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap">
@@ -31,7 +32,6 @@
 		<a href="#proyecto" data-en="Project">Proyecto</a>
 		<a href="#arquitectura" data-en="Architecture">Arquitectura</a>
 		<a href="#ubicacion" data-en="Location">Ubicación</a>
-		<a href="#entorno" data-en="Lifestyle">Entorno</a>
 		<a href="#planos" data-en="Floor plans">Planos</a>
 		<a href="#amenidades" data-en="Amenities">Amenidades</a>
 		<a href="#asesores" data-en="Advisors">Asesores</a>
@@ -58,7 +58,6 @@
 		<a href="#proyecto" data-en="Project">Proyecto</a>
 		<a href="#arquitectura" data-en="Architecture">Arquitectura</a>
 		<a href="#ubicacion" data-en="Location">Ubicación</a>
-		<a href="#entorno" data-en="Lifestyle">Entorno</a>
 		<a href="#planos" data-en="Floor plans">Planos</a>
 		<a href="#amenidades" data-en="Amenities">Amenidades</a>
 		<a href="#asesores" data-en="Advisors">Asesores</a>
@@ -74,7 +73,7 @@
 <!-- PORTADA (la otra versión está en lanzamiento.html — portada de lanzamiento) -->
 <!-- PORTADA · PRE-LANZAMIENTO -->
 <section class="al-hero" id="top">
-	<img src="assets/EXT_01_R4.jpg.jpeg" alt="ALRÍO — render del proyecto" width="3600" height="4500" fetchpriority="high" decoding="async">
+	<img src="assets/ext-hero.jpg" alt="ALRÍO — render del proyecto" width="2048" height="2560" fetchpriority="high" decoding="sync">
 	<div class="al-hero-veil"></div>
 	<div class="al-hero-in">
 		<div class="al-hero-body">
@@ -103,18 +102,12 @@
 <!-- 01 · EL PROYECTO -->
 <section class="al-sec" id="proyecto">
 	<div class="al-wrap">
-		<div class="al-duo" data-reveal>
-			<div class="al-col">
-				<div class="al-eyebrow">
-					<span class="al-num">01</span>
-					<span class="al-lbl" data-en="The project">El proyecto</span>
-				</div>
-				<h2 class="al-h2" data-en="A new exclusive way of living is born on Barranquilla's Gran Malecón">Nace una exclusiva forma de vivir en el Gran Malecón de Barranquilla</h2>
+		<div class="al-proj-head" data-reveal>
+			<div class="al-eyebrow">
+				<span class="al-num">01</span>
+				<span class="al-lbl" data-en="The project">El proyecto</span>
 			</div>
-			<div class="al-col">
-				<p class="al-p" data-en="ALRÍO is born as a real-estate proposition that redefines the relationship between city, nature and lifestyle. Set in a privileged riverside environment, the project is conceived as a place where architecture and landscape converse in perfect harmony.">ALRÍO nace como una propuesta inmobiliaria que redefine la relación entre ciudad, naturaleza y estilo de vida. Ubicado en un entorno privilegiado junto al río, el proyecto se concibe como un espacio donde la arquitectura y el paisaje dialogan en perfecta armonía.</p>
-				<p class="al-p" data-en="Made for those who value the exceptional, ALRÍO offers a residential experience where privacy, design and attention to detail become the protagonists.">Pensado para quienes valoran lo excepcional, ALRÍO ofrece una experiencia residencial donde la privacidad, el diseño y la atención al detalle se convierten en protagonistas.</p>
-			</div>
+			<h2 class="al-h2 al-h2-proj" data-en="A new exclusive way of living is born on Barranquilla's Gran Malecón">Nace una exclusiva forma de vivir en el Gran Malecón de Barranquilla</h2>
 		</div>
 
 		<div class="al-stats" data-reveal>
@@ -139,7 +132,6 @@
 		<source src="assets/atardecer.mp4" type="video/mp4">
 	</video>
 	<div class="al-bleed-veil"></div>
-	<p data-en="Five kilometres of public riverfront, right in front of the project.">Cinco kilómetros de ribera pública, justo al frente del proyecto.</p>
 </section>
  
 <!-- 02 · ARQUITECTURA -->
@@ -218,46 +210,82 @@
 	</div>
 </section>
 
-<!-- 04 · ENTORNO -->
-<section id="entorno" style="padding-bottom: 56px;">
-	<div class="al-sec" style="padding-bottom: 28px;">
-		<div class="al-wrap al-duo al-duo-end" data-reveal>
-			<div class="al-col">
-				<div class="al-eyebrow">
-					<span class="al-num">04</span>
-					<span class="al-lbl" data-en="Lifestyle">Entorno</span>
-				</div>
-				<h2 class="al-h2 al-h2-serif" data-en="The surroundings are the first amenity">El entorno es la primera amenidad</h2>
-			</div>
-			<p class="al-p al-p-muted" data-en="Walking, training, meeting, watching the sun set over the Magdalena. Life at ALRÍO begins the moment you step outside.">Caminar, entrenar, encontrarse, ver caer el sol sobre el Magdalena. La vida en ALRÍO empieza al salir por la puerta.</p>
-		</div>
-	</div>
-
+<!-- 04 · AMENIDADES -->
+<section class="al-sec al-sec-apart" id="amenidades">
 	<div class="al-wrap">
-		<div class="al-cover al-cover-life" data-coverflow>
+		<div class="al-amen-sheet" data-reveal>
+			<div class="al-eyebrow">
+				<span class="al-num">04</span>
+				<span class="al-lbl" data-en="Amenities">Amenidades</span>
+			</div>
+			<h2 class="al-h2 al-amen-title" data-en="Amenities">Amenidades</h2>
+			<ul class="al-amen-grid">
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 11c0-2.8 1.8-5 4-5s4 2.2 4 5"/><path d="M6.5 11h11l-.7 6.2c-.1 1.1-1 1.8-2.1 1.8H9.3c-1.1 0-2-.7-2.1-1.8L6.5 11z"/><path d="M10 19a2 2 0 004 0"/></svg></span>
+					<span data-en="Lobby">Lobby</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10l8-6 8 6v10"/><path d="M4 13h16"/><path d="M9 20v-4h6v4"/></svg></span>
+					<span data-en="Panoramic rooftop terrace">Terraza rooftop panorámico</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9v6M7 7v10M17 7v10M20 9v6M7 12h10"/></svg></span>
+					<span data-en="Gym">Gimnasio</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 19c-3.2-2.2-5-5-5-8a5 5 0 0110 0c0 3-1.8 5.8-5 8z"/><path d="M12 19c-1.6-4 1-7.2 3.2-8.2"/><path d="M12 19c1.6-4-1-7.2-3.2-8.2"/></svg></span>
+					<span data-en="Turkish bath / sauna">Turco / sauna</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 15h14v1.6A3.4 3.4 0 0115.6 20H8.4A3.4 3.4 0 015 16.6V15z"/><path d="M8 11c.4-2.2 2-4 4-4s3.6 1.8 4 4"/><path d="M8 15v-4M16 15v-4"/></svg></span>
+					<span data-en="BBQ area">Zona BBQ</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4h8l-1.8 8H9.8L8 4z"/><path d="M12 12v6M9 20h6"/></svg></span>
+					<span data-en="Premium social lounge">Salón social premium</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5h8v7H8z"/><path d="M7 12h10v1.6H7z"/><path d="M8.5 13.6V20M15.5 13.6V20M8.5 20h2.4M13.1 20h2.4"/></svg></span>
+					<span data-en="Meeting rooms">Salas de juntas</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10c2 .9 3 .9 4.8 0S12 9.1 13.8 10 16.8 10.9 20 10"/><path d="M4 14c2 .9 3 .9 4.8 0S12 13.1 13.8 14 16.8 14.9 20 14"/><path d="M4 18c2 .9 3 .9 4.8 0S12 17.1 13.8 18 16.8 18.9 20 18"/></svg></span>
+					<span data-en="Adults and children pool">Piscina para adultos y niños</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 20V11l7-6 7 6v9"/><path d="M9 20v-5h6v5"/></svg></span>
+					<span data-en="Children's park">Parque para niños</span>
+				</li>
+				<li>
+					<span class="al-amen-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="7" cy="8" r="1.7"/><circle cx="12" cy="6.2" r="1.7"/><circle cx="17" cy="8" r="1.7"/><path d="M8.2 13.6c0-1.8 1.5-3 3.8-3s3.8 1.2 3.8 3-1.6 5-3.8 5-3.8-3.2-3.8-5z"/></svg></span>
+					<span data-en="Pet grooming">Pet grooming (Aseo para mascotas)</span>
+				</li>
+			</ul>
+		</div>
+		<div class="al-cover" data-coverflow>
 			<button type="button" class="al-cover-nav al-cover-prev" aria-label="Anterior">
 				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
 			</button>
 			<div class="al-cover-stage">
-				<figure class="al-cover-card" data-lb="assets/life-walk.jpg">
-					<img loading="lazy" src="assets/life-walk.jpg" alt="">
-					<figcaption data-en="Sunset walk · Gran Malecón">Caminar al atardecer · Gran Malecón</figcaption>
+				<figure class="al-cover-card" data-lb="assets/amen-gym.jpg">
+					<img loading="lazy" src="assets/amen-gym.jpg" alt="Gimnasio ALRÍO">
+					<figcaption data-en="Gym">Gimnasio</figcaption>
 				</figure>
-				<figure class="al-cover-card" data-lb="assets/life-gym.jpg">
-					<img loading="lazy" src="assets/life-gym.jpg" alt="">
-					<figcaption data-en="Training facing the river">Entrenar frente al río</figcaption>
+				<figure class="al-cover-card" data-lb="assets/amen-bbq.jpg">
+					<img loading="lazy" src="assets/amen-bbq.jpg" alt="Zona BBQ ALRÍO">
+					<figcaption data-en="BBQ area">Zona BBQ</figcaption>
 				</figure>
-				<figure class="al-cover-card" data-lb="assets/life-dining.jpg">
-					<img loading="lazy" src="assets/life-dining.jpg" alt="">
-					<figcaption data-en="Dining along the waterfront">Gastronomía a orillas del río</figcaption>
+				<figure class="al-cover-card" data-lb="assets/amen-juntas.jpg">
+					<img loading="lazy" src="assets/amen-juntas.jpg" alt="Salas de juntas ALRÍO">
+					<figcaption data-en="Meeting rooms">Salas de juntas</figcaption>
 				</figure>
-				<figure class="al-cover-card" data-lb="assets/life-courts.jpg">
-					<img loading="lazy" src="assets/life-courts.jpg" alt="">
-					<figcaption data-en="Public sports courts">Canchas deportivas públicas</figcaption>
+				<figure class="al-cover-card" data-lb="assets/amen-parque.jpg">
+					<img loading="lazy" src="assets/amen-parque.jpg" alt="Parque para niños ALRÍO">
+					<figcaption data-en="Children's park">Parque para niños</figcaption>
 				</figure>
-				<figure class="al-cover-card" data-lb="assets/life-yoga.jpg">
-					<img loading="lazy" src="assets/life-yoga.jpg" alt="">
-					<figcaption data-en="Sunrise over the Magdalena">Amanecer sobre el Magdalena</figcaption>
+				<figure class="al-cover-card" data-lb="assets/amen-pool.jpg">
+					<img loading="lazy" src="assets/amen-pool.jpg" alt="Piscina ALRÍO">
+					<figcaption data-en="Pool">Piscina</figcaption>
 				</figure>
 			</div>
 			<button type="button" class="al-cover-nav al-cover-next" aria-label="Siguiente">
@@ -265,8 +293,10 @@
 			</button>
 		</div>
 	</div>
+</section>
 
-	<div class="al-wrap" style="padding: 40px var(--pad) 0;" id="recorridos">
+<section id="recorridos" style="padding-bottom: 56px;">
+	<div class="al-wrap" style="padding: 40px var(--pad) 0;">
 		<div class="al-subhead" data-reveal>
 			<h3 class="al-h3" data-en="360 tours">Recorridos en 360</h3>
 		</div>
@@ -313,50 +343,6 @@
 				<figure class="al-cover-card" data-lb="assets/map.jpg">
 					<img loading="lazy" src="assets/map.jpg" alt="Planta tipo ALRÍO">
 					<figcaption data-en="Type E · coming soon">Tipo E · muy pronto</figcaption>
-				</figure>
-			</div>
-			<button type="button" class="al-cover-nav al-cover-next" aria-label="Siguiente">
-				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-			</button>
-		</div>
-	</div>
-</section>
-
-<!-- 06 · AMENIDADES -->
-<section class="al-sec al-sec-green al-sec-apart" id="amenidades">
-	<div class="al-wrap">
-		<div class="al-cover-head" data-reveal>
-			<div class="al-eyebrow">
-				<span class="al-num">06</span>
-				<span class="al-lbl" data-en="Amenities">Amenidades</span>
-			</div>
-			<h2 class="al-h2 al-h2-serif" data-en="The river, and then everything else">El río, y después todo lo demás</h2>
-			<p class="al-p" data-en="Spaces conceived to extend the day: rest, movement and gathering, always with the Magdalena nearby.">Espacios pensados para alargar el día: descanso, movimiento y encuentro, siempre con el Magdalena cerca.</p>
-		</div>
-		<div class="al-cover" data-coverflow>
-			<button type="button" class="al-cover-nav al-cover-prev" aria-label="Anterior">
-				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-			</button>
-			<div class="al-cover-stage">
-				<figure class="al-cover-card" data-lb="assets/life-gym.jpg">
-					<img loading="lazy" src="assets/life-gym.jpg" alt="Gimnasio ALRÍO">
-					<figcaption data-en="Gym facing the river">Gimnasio frente al río</figcaption>
-				</figure>
-				<figure class="al-cover-card" data-lb="assets/life-walk.jpg">
-					<img loading="lazy" src="assets/life-walk.jpg" alt="Paseo en el Malecón">
-					<figcaption data-en="Sunset walk">Caminar al atardecer</figcaption>
-				</figure>
-				<figure class="al-cover-card" data-lb="assets/life-dining.jpg">
-					<img loading="lazy" src="assets/life-dining.jpg" alt="Gastronomía">
-					<figcaption data-en="Dining by the water">Gastronomía a orillas</figcaption>
-				</figure>
-				<figure class="al-cover-card" data-lb="assets/life-courts.jpg">
-					<img loading="lazy" src="assets/life-courts.jpg" alt="Canchas">
-					<figcaption data-en="Sports courts">Canchas deportivas</figcaption>
-				</figure>
-				<figure class="al-cover-card" data-lb="assets/life-yoga.jpg">
-					<img loading="lazy" src="assets/life-yoga.jpg" alt="Amanecer">
-					<figcaption data-en="Sunrise terrace">Terraza al amanecer</figcaption>
 				</figure>
 			</div>
 			<button type="button" class="al-cover-nav al-cover-next" aria-label="Siguiente">
@@ -507,7 +493,6 @@
 			<a href="#proyecto" data-en="Project">Proyecto</a>
 			<a href="#arquitectura" data-en="Architecture">Arquitectura</a>
 			<a href="#ubicacion" data-en="Location">Ubicación</a>
-			<a href="#entorno" data-en="Lifestyle">Entorno</a>
 			<a href="#planos" data-en="Floor plans">Planos</a>
 			<a href="#amenidades" data-en="Amenities">Amenidades</a>
 		</nav>

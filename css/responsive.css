@@ -12,7 +12,7 @@
   #proyecto { padding-bottom: 24px; }
   .al-duo, .al-arch, .al-contact { grid-template-columns: 1fr; }
   .al-arch-img img.al-cutout { height: auto; object-fit: contain; }
-  #arquitectura .al-col { padding-bottom: 24px; }
+  #arquitectura .al-col { padding-bottom: 8px; }
   .al-stats { grid-template-columns: 1fr; margin-top: 56px; }
   .al-stats > div { padding: 28px 0; }
   .al-stats > div + div { padding-left: 0; border-top: 1px solid rgba(41,41,41,.14); }
@@ -116,7 +116,9 @@
     animation: al-scroll-bounce 1.6s ease-in-out infinite;
   }
   .al-scroll-chevs path { stroke-width: 2.8; }
-  #proyecto { margin-top: -22px; padding-bottom: 20px; }
+  #proyecto { margin-top: -28px; padding-bottom: 20px; border-radius: var(--radius) var(--radius) 0 0; }
+  #arquitectura .al-col { padding-bottom: 0; }
+  .al-arch-img { margin-top: -36px; }
   .al-bleed { height: 68vh; min-height: 380px; }
   .al-lifestyle figure { flex: 0 0 100%; min-width: 0; }
   .al-lifestyle .al-shot { height: 46vh; min-height: 300px; }
