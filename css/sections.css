@@ -2,7 +2,8 @@
 /* ── SECTIONS ──────────────────────────────────── */
 .al-sec { padding: 100px var(--pad); position: relative; z-index: 1; border-radius: var(--radius); overflow: hidden; }
 #arquitectura { padding-top: 72px; padding-bottom: 0; }
-#arquitectura .al-col { gap: 22px; padding-bottom: 36px; }
+#arquitectura .al-col { gap: 22px; padding-bottom: 36px; text-align: center; align-items: center; }
+#arquitectura .al-eyebrow { justify-content: center; }
 #arquitectura .al-h2 { font-size: clamp(38px, 4.2vw, 58px); line-height: 1.22; }
 #arquitectura .al-copy { gap: 10px; }
 #arquitectura .al-p { font-size: 17px; line-height: 1.6; }
@@ -86,7 +87,7 @@
 }
 
 /* arquitectura */
-.al-arch { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: end; }
+.al-arch { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: center; }
 .al-arch-img { position: relative; align-self: end; }
 .al-arch-img .al-frame { display: none; }
 .al-arch-img img { position: relative; display: block; width: 100%; height: auto; border-radius: 20px; }
@@ -132,14 +133,44 @@
 }
 
 /* entorno */
-.al-lifestyle { display: flex; gap: 24px; padding: 0 var(--pad) 8px; }
-.al-lifestyle figure { flex: 0 0 42vw; min-width: 320px; margin: 0; scroll-snap-align: start; cursor: pointer; }
-.al-lifestyle .al-shot { position: relative; height: 60vh; min-height: 400px; overflow: hidden; border-radius: 20px; }
+.al-lifestyle-wrap {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+.al-lifestyle { display: flex; gap: 24px; padding: 0 0 8px; }
+.al-lifestyle figure {
+  flex: 0 0 calc((100% - 24px) / 2);
+  min-width: 0; margin: 0;
+  scroll-snap-align: start; cursor: pointer;
+}
+.al-lifestyle .al-shot { position: relative; height: 56vh; min-height: 380px; overflow: hidden; border-radius: 20px; }
 .al-lifestyle img { width: 100%; height: 100%; object-fit: cover; }
 .al-lifestyle figcaption {
   margin-top: 16px; font-size: 13px; letter-spacing: .18em;
   text-transform: uppercase; color: rgba(41,41,41,.55);
 }
+.al-lifestyle-wrap .al-scroll-line { display: none; }
+.al-life-nav {
+  position: absolute;
+  top: calc(28vh); z-index: 4;
+  width: 48px; height: 48px; padding: 0;
+  border: 0; border-radius: 50%;
+  background: var(--green); color: var(--bone);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(16, 14, 12, .18);
+  transition: background .3s ease, transform .3s ease;
+}
+.al-life-nav:hover { background: #2f3e38; }
+.al-life-nav svg { width: 18px; height: 18px; }
+.al-life-nav path {
+  fill: none; stroke: currentColor; stroke-width: 2.2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.al-life-prev { left: calc(var(--pad) - 8px); }
+.al-life-next { right: calc(var(--pad) - 8px); }
 .al-subhead {
   display: flex; align-items: baseline; justify-content: space-between; gap: 40px;
   padding-bottom: 26px; border-bottom: 1px solid rgba(41,41,41,.14);

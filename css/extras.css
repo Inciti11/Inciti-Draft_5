@@ -112,8 +112,8 @@ section.al-sec.al-sec-apart {
 .al-cover-head { max-width: 720px; margin-bottom: 36px; }
 .al-cover {
   position: relative;
-  height: min(56vh, 560px);
-  min-height: 360px;
+  height: min(68vh, 700px);
+  min-height: 440px;
   perspective: 1800px;
   overflow: visible;
   touch-action: pan-y;
@@ -125,11 +125,11 @@ section.al-sec.al-sec-apart {
 }
 .al-cover-card {
   position: absolute;
-  top: 6%;
+  top: 8%;
   left: 50%;
-  width: min(56vw, 640px);
-  height: 88%;
-  margin-left: calc(min(56vw, 640px) / -2);
+  width: min(72vw, 860px);
+  height: 84%;
+  margin-left: calc(min(72vw, 860px) / -2);
   border-radius: 28px;
   overflow: hidden;
   background: var(--green);
@@ -148,7 +148,9 @@ section.al-sec.al-sec-apart {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(16, 14, 12, .5) 100%);
+  background:
+    linear-gradient(180deg, rgba(16, 14, 12, .48) 0%, rgba(16, 14, 12, .18) 22%, transparent 42%),
+    linear-gradient(180deg, transparent 55%, rgba(16, 14, 12, .5) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -171,7 +173,7 @@ section.al-sec.al-sec-apart {
   letter-spacing: .16em;
   text-transform: uppercase;
   text-align: center;
-  text-shadow: 0 1px 8px rgba(16, 14, 12, .45);
+  text-shadow: 0 1px 10px rgba(16, 14, 12, .65);
 }
 .al-cover-nav {
   position: absolute;
@@ -197,6 +199,9 @@ section.al-sec.al-sec-apart {
 .al-sec-green .al-cover-nav { background: var(--sand); color: var(--ink); }
 .al-sec-green .al-cover-nav:hover { background: var(--bone); }
 .al-sec-green .al-cover-card { box-shadow: 0 22px 50px rgba(20, 18, 16, .28); }
+#entorno .al-cover-nav { background: var(--green); color: var(--bone); }
+#entorno .al-cover-nav:hover { background: #2f3e38; color: var(--bone); transform: scale(1.06); }
+#entorno .al-cover { height: min(68vh, 700px); }
 
 /* Asesores */
 .al-team {
@@ -261,17 +266,17 @@ section.al-sec.al-sec-apart {
   section.al-sec.al-sec-apart { padding-top: 88px; padding-bottom: 88px; }
   .al-team { grid-template-columns: 1fr 1fr; }
   .al-cover-card {
-    width: min(70vw, 520px);
-    margin-left: calc(min(70vw, 520px) / -2);
+    width: min(78vw, 640px);
+    margin-left: calc(min(78vw, 640px) / -2);
   }
 }
 @media (max-width: 680px) {
   section.al-sec.al-sec-apart { padding-top: 72px; padding-bottom: 72px; }
   .al-cover-head { margin-bottom: 28px; }
-  .al-cover { height: 42vh; min-height: 260px; }
+  .al-cover { height: 54vh; min-height: 370px; }
   .al-cover-card {
-    width: 86vw;
-    margin-left: calc(86vw / -2);
+    width: 88vw;
+    margin-left: calc(88vw / -2);
   }
   .al-cover-nav { width: 44px; height: 44px; margin-top: -22px; }
   .al-cover-prev { left: 2px; }

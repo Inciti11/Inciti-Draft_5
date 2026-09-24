@@ -206,7 +206,7 @@
         if (d > n / 2) d -= n;
         if (d < -n / 2) d += n;
         var abs = Math.abs(d);
-        card.style.setProperty('--x', (d * 58) + '%');
+        card.style.setProperty('--x', (d * 52) + '%');
         card.style.setProperty('--s', abs === 0 ? '1' : abs === 1 ? '.82' : '.68');
         card.style.setProperty('--ry', (d * -16) + 'deg');
         card.style.setProperty('--o', abs > 2 ? '0' : abs === 2 ? '.55' : '1');
@@ -272,6 +272,7 @@
   var legalEn = 'These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts.';
   var legalTargets = document.querySelectorAll('.al-hero, .al-mapwrap, .al-cover-card, .al-gal [data-lb], .al-bleed');
   legalTargets.forEach(function (box) {
+    if (box.closest('#entorno')) return;
     if (box.querySelector(':scope > .al-legal-note')) return;
     var note = document.createElement('span');
     note.className = 'al-legal-note';

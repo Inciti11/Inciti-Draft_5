@@ -39,12 +39,14 @@
 .al-nav.is-menu .al-pill.is-on { background: var(--sand); border-color: var(--sand); color: var(--ink); }
 
 .al-burger {
-  display: block; position: relative; z-index: 1; flex: 0 0 auto;
+  display: block; position: relative; z-index: 8; flex: 0 0 auto;
   width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer;
+  visibility: visible; opacity: 1;
 }
 .al-burger span {
-  position: absolute; left: 10px; display: block; width: 24px; height: 2px;
+  position: absolute; left: 10px; display: block; width: 24px; height: 2.4px;
   background: var(--bone); transform-origin: center;
+  box-shadow: 0 1px 3px rgba(16, 14, 12, .45);
   transition: transform .35s cubic-bezier(.22,.61,.36,1), top .35s cubic-bezier(.22,.61,.36,1), opacity .25s ease, background .3s ease;
 }
 .al-burger span:nth-child(1) { top: 14px; }
