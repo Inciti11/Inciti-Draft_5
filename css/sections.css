@@ -10,11 +10,13 @@
 #arquitectura .al-col {
   gap: 22px;
   justify-content: center;
+  align-items: flex-start;
   padding: 64px 0 64px clamp(28px, 4vw, 72px);
+  text-align: left;
 }
-#arquitectura .al-h2 { font-size: clamp(38px, 4.2vw, 58px); line-height: 1.22; text-align: center; }
-#arquitectura .al-copy { gap: 16px; text-align: center; }
-#arquitectura .al-p { font-size: 17px; line-height: 1.7; }
+#arquitectura .al-h2 { font-size: clamp(38px, 4.2vw, 58px); line-height: 1.22; text-align: left; }
+#arquitectura .al-copy { gap: 16px; text-align: left; }
+#arquitectura .al-p { font-size: 17px; line-height: 1.7; text-align: left; }
 .al-sec-dark { background: var(--ink); color: var(--bone); }
 .al-sec-green { background: var(--green); color: var(--bone); }
 #proyecto { z-index: 2; margin-top: -36px; padding-bottom: 32px; background: var(--bone); border-radius: var(--radius) var(--radius) 0 0; }
