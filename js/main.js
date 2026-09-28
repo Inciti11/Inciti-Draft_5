@@ -345,10 +345,60 @@
     if (!reduce) start();
   });
 
+  /* Carrusel de Arquitectura */
+  document.querySelectorAll('[data-arch-slide]').forEach(function (root) {
+    var cards = Array.prototype.slice.call(root.querySelectorAll('figure'));
+    if (!cards.length) return;
+    var i = 0;
+    var timer = null;
+    var suppressClick = false;
+    var show = function () {
+      cards.forEach(function (card, idx) {
+        card.classList.toggle('is-on', idx === i);
+      });
+    };
+    var go = function (dir) {
+      i = (i + dir + cards.length) % cards.length;
+      show();
+    };
+    var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
+    var start = function () {
+      stop();
+      timer = setInterval(function () { go(1); }, 4500);
+    };
+    var prev = root.querySelector('.al-cover-prev');
+    var next = root.querySelector('.al-cover-next');
+    if (prev) prev.addEventListener('click', function (e) { e.stopPropagation(); go(-1); start(); });
+    if (next) next.addEventListener('click', function (e) { e.stopPropagation(); go(1); start(); });
+    var startX = 0;
+    root.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('.al-cover-nav')) return;
+      startX = e.clientX;
+    });
+    root.addEventListener('pointerup', function (e) {
+      if (e.target.closest('.al-cover-nav')) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 46) {
+        suppressClick = true;
+        go(dx < 0 ? 1 : -1);
+        start();
+      }
+    });
+    root.addEventListener('click', function (e) {
+      if (!suppressClick) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      suppressClick = false;
+    }, true);
+    show();
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) start();
+  });
+
   /* Nota legal en imágenes */
   var legalEs = 'Estas imágenes pueden contener decoración y elementos de apreciación estética que son interpretación del artífice y no comprometen a la sociedad promotora. El proyecto podrá ser modificado por exigencia de las autoridades competentes o por exigencias técnicas o del mercado. Las especificaciones serán las que se establezcan en los contratos de vinculación al proyecto inmobiliario.';
   var legalEn = 'These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts.';
-  var legalTargets = document.querySelectorAll('.al-hero, .ubic__visor, .al-cover-card, .al-gal [data-lb], .al-bleed');
+  var legalTargets = document.querySelectorAll('.al-hero, .ubic__visor, .al-cover-card, .al-gal [data-lb], .al-bleed, .al-arch-carousel figure');
   legalTargets.forEach(function (box) {
     if (box.hasAttribute('data-no-legal')) return;
     if (box.querySelector(':scope > .al-legal-note')) return;
