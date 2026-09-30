@@ -611,8 +611,19 @@ section.al-sec.al-sec-apart {
 }
 @media (max-width: 680px) {
   #planos .al-cover {
-    --ph: max(360px, min(58vh, 520px));
-    height: var(--ph);
+    --cw: 92vw;
+    height: calc(92vw * 791 / 1024 + 32px);
+    min-height: 0;
+  }
+  #planos .al-cover-card {
+    --cw: 92vw;
+    top: 16px;
+    width: 92vw;
+    height: calc(92vw * 791 / 1024);
+    margin-left: calc(92vw / -2);
+  }
+  #planos .al-cover-card img {
+    object-fit: contain;
   }
   section.al-sec.al-sec-apart { padding-top: 72px; padding-bottom: 72px; }
   #amenidades.al-sec.al-sec-apart { padding-top: 12px; }
