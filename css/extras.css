@@ -576,7 +576,13 @@ section.al-sec.al-sec-apart {
   color: var(--green);
   opacity: .55;
 }
-.al-advisor-body { padding: 28px 26px 32px; display: flex; flex-direction: column; gap: 8px; }
+.al-advisor-body {
+  padding: 26px 26px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
 .al-advisor-role {
   font-size: 11px;
   letter-spacing: .22em;
@@ -629,7 +635,11 @@ section.al-sec.al-sec-apart {
   0%, 100% { box-shadow: 0 3px 10px rgba(37, 211, 102, .28); }
   50% { box-shadow: 0 5px 14px rgba(37, 211, 102, .42); }
 }
-.al-advisor-wa {
+@keyframes al-advisor-wa-icon-glow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(37, 211, 102, .35)); }
+  50% { filter: drop-shadow(0 0 6px rgba(37, 211, 102, .9)) drop-shadow(0 0 14px rgba(37, 211, 102, .45)); }
+}
+body.alrio a.al-advisor-wa {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -639,7 +649,7 @@ section.al-sec.al-sec-apart {
   height: 36px;
   padding: 0 16px 0 14px;
   border-radius: var(--btn-radius);
-  border: 1px solid rgba(255, 255, 255, .22);
+  border: 1px solid rgba(255, 255, 255, .28);
   background: #25d366;
   color: #fff;
   text-decoration: none;
@@ -648,19 +658,36 @@ section.al-sec.al-sec-apart {
   animation: al-advisor-wa-glow 3.2s ease-in-out infinite;
   transition: background .22s ease, color .22s ease, border-color .22s ease, box-shadow .22s ease, transform .2s ease;
 }
-.al-advisor-wa svg { width: 20px; height: 20px; display: block; flex-shrink: 0; }
-body.alrio a.al-advisor-wa:hover {
+body.alrio a.al-advisor-wa svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+  transition: filter .22s ease;
+}
+body.alrio a.al-advisor-wa svg path { fill: #fff; }
+body.alrio a.al-advisor-wa:hover,
+body.alrio a.al-advisor-wa:focus-visible {
   background: #fff;
   color: #25d366;
-  border-color: rgba(37, 211, 102, .45);
+  border-color: rgba(37, 211, 102, .5);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(41, 41, 41, .12);
-  animation: none;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, .28);
+  animation: al-advisor-wa-glow 2s ease-in-out infinite;
 }
-body.alrio a.al-advisor-wa:hover svg path { fill: #25d366; }
+body.alrio a.al-advisor-wa:hover svg path,
+body.alrio a.al-advisor-wa:focus-visible svg path { fill: #25d366; }
+body.alrio a.al-advisor-wa:hover svg,
+body.alrio a.al-advisor-wa:focus-visible svg { animation: al-advisor-wa-icon-glow 1.5s ease-in-out infinite; }
 body.alrio a.al-advisor-wa:active {
+  background: #fff;
+  color: #25d366;
   transform: translateY(0) scale(0.97);
-  box-shadow: 0 2px 8px rgba(41, 41, 41, .14);
+  box-shadow: 0 2px 12px rgba(37, 211, 102, .35);
+}
+body.alrio a.al-advisor-wa:active svg path { fill: #25d366; }
+body.alrio a.al-advisor-wa:active svg {
+  animation: al-advisor-wa-icon-glow 1.5s ease-in-out infinite;
 }
 body.alrio a.al-advisor-wa:focus-visible {
   outline: 2px solid rgba(60, 77, 69, .5);
@@ -742,6 +769,9 @@ body.alrio a.al-advisor-wa:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .al-advisor-wa { animation: none; }
+  body.alrio a.al-advisor-wa:hover svg,
+  body.alrio a.al-advisor-wa:focus-visible svg,
+  body.alrio a.al-advisor-wa:active svg { animation: none; filter: none; }
   .al-cover-card { transition: none; }
   .al-wa-msg { transition: none; }
   .al-ico * {
