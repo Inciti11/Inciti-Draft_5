@@ -650,6 +650,22 @@ section.al-sec.al-sec-apart {
     color: rgba(244, 238, 224, .8);
     text-shadow: 0 1px 8px rgba(16, 14, 12, .55);
   }
+  .al-lb-box .al-legal-note {
+    font-size: 6.5px;
+    line-height: 1.22;
+    padding: 10px 8px 5px;
+    letter-spacing: 0;
+    color: rgba(244, 238, 224, .72);
+  }
+  .al-cover-card .al-legal-note,
+  .al-arch-carousel figure .al-legal-note,
+  .al-gal .al-legal-note,
+  .al-bleed .al-legal-note {
+    font-size: 6.5px;
+    line-height: 1.22;
+    padding: 8px 8px 5px;
+    letter-spacing: 0;
+  }
   .al-wa { right: calc(var(--pad) - 10px); bottom: 86px; width: 42px; height: 42px; }
   .al-wa-msg { font-size: 10px; height: 36px; padding: 0 18px 0 14px; right: 34px; }
   .al-wa-btn { width: 42px; height: 42px; }

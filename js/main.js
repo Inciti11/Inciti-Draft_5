@@ -41,15 +41,20 @@
   });
 
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
+    var onReveal = function (entries, observer) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add('is-in');
         showUnblur(e.target);
-        io.unobserve(e.target);
+        observer.unobserve(e.target);
       });
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
+    };
+    var io = new IntersectionObserver(onReveal, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    var ioTall = new IntersectionObserver(onReveal, { threshold: 0.04, rootMargin: '0px 0px 0px 0px' });
+    revealEls.forEach(function (el) {
+      if (el.classList.contains('al-team')) ioTall.observe(el);
+      else io.observe(el);
+    });
   } else {
     revealEls.forEach(function (el) {
       el.classList.add('is-in');

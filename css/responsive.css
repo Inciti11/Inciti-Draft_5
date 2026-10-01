@@ -222,5 +222,6 @@
     mix-blend-mode: lighten;
   }
   .al-footer-credits-logos { display: none; }
-  .al-lb { padding: 18px; }
+  .al-lb { padding: 12px; }
+  .al-lb img { max-height: 78vh; }
 }
