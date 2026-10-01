@@ -3,7 +3,7 @@
      dot:  punto exacto marcado en la imagen, donde late el halo
      zoom: acercamiento (1 = foto a la altura del visor) */
   const lugares = [
-    {n:"Al Río",                  nEn:"Al Río",                  d:"El proyecto",        dEn:"The project",        foco:[75.5,55], dot:[75.7,42.4], zoom:1.35},
+    {n:"ALRÍO",                   nEn:"ALRÍO",                   d:"El proyecto",        dEn:"The project",        foco:[75.5,55], dot:[75.7,42.4], zoom:1.35},
     {n:"Luna del Río",            nEn:"Luna del Río",            d:"A pasos",            dEn:"Steps away",         foco:[16.5,44], dot:[11.7,37.6], zoom:1.7},
     {n:"Estatua de Sofía Vergara",nEn:"Sofía Vergara statue",    d:"A pasos",            dEn:"Steps away",         foco:[16,62],   dot:[22.7,62.4], zoom:1.7},
     {n:"Canchas deportivas",      nEn:"Sports courts",           d:"Al frente",          dEn:"On the waterfront",  foco:[25,74],   dot:[33.3,75.7], zoom:1.7},
