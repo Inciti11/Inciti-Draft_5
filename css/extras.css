@@ -598,6 +598,74 @@ section.al-sec.al-sec-apart {
   line-height: 1.6;
   color: rgba(41, 41, 41, .68);
 }
+.al-advisor-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.al-advisor-tel {
+  color: inherit;
+  font-size: inherit;
+  letter-spacing: .02em;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: rgba(41, 41, 41, .28);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: color .22s ease, text-decoration-color .22s ease, opacity .15s ease;
+}
+.al-advisor-tel:hover {
+  color: var(--green);
+  text-decoration-color: rgba(60, 77, 69, .55);
+}
+.al-advisor-tel:active { opacity: .78; }
+.al-advisor-tel:focus-visible {
+  outline: 2px solid rgba(60, 77, 69, .45);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+@keyframes al-advisor-wa-glow {
+  0%, 100% { box-shadow: 0 3px 10px rgba(37, 211, 102, .28); }
+  50% { box-shadow: 0 5px 14px rgba(37, 211, 102, .42); }
+}
+.al-advisor-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-width: 88px;
+  height: 36px;
+  padding: 0 16px 0 14px;
+  border-radius: var(--btn-radius);
+  border: 1px solid rgba(255, 255, 255, .22);
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, .35);
+  animation: al-advisor-wa-glow 3.2s ease-in-out infinite;
+  transition: background .22s ease, color .22s ease, border-color .22s ease, box-shadow .22s ease, transform .2s ease;
+}
+.al-advisor-wa svg { width: 20px; height: 20px; display: block; flex-shrink: 0; }
+body.alrio a.al-advisor-wa:hover {
+  background: #fff;
+  color: #25d366;
+  border-color: rgba(37, 211, 102, .45);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(41, 41, 41, .12);
+  animation: none;
+}
+body.alrio a.al-advisor-wa:hover svg path { fill: #25d366; }
+body.alrio a.al-advisor-wa:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 2px 8px rgba(41, 41, 41, .14);
+}
+body.alrio a.al-advisor-wa:focus-visible {
+  outline: 2px solid rgba(60, 77, 69, .5);
+  outline-offset: 3px;
+}
 
 @media (max-width: 1000px) {
   section.al-sec.al-sec-apart { padding-top: 88px; padding-bottom: 88px; }
@@ -673,6 +741,7 @@ section.al-sec.al-sec-apart {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .al-advisor-wa { animation: none; }
   .al-cover-card { transition: none; }
   .al-wa-msg { transition: none; }
   .al-ico * {
