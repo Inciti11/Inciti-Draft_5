@@ -270,6 +270,13 @@
   overflow-y: visible;
 }
 .al-wrap-recorridos { padding: 0 var(--pad); }
+#recorridos .al-subhead {
+  justify-content: center;
+  text-align: center;
+}
+#recorridos .al-subhead .al-h2 {
+  width: 100%;
+}
 .al-subhead--tight {
   padding-bottom: 16px;
   margin-bottom: 0;
