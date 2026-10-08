@@ -264,41 +264,105 @@
 }
 .al-h3 { margin: 0; font-family: var(--font-title); font-weight: 400; font-size: clamp(34px, 3.2vw, 48px); letter-spacing: .04em; line-height: 1.24; text-transform: uppercase; color: var(--ink); -webkit-font-smoothing: auto; -webkit-text-stroke: 0.35px currentColor; }
 .al-note { font-family: var(--font-body); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: rgba(41,41,41,.55); }
-.al-sec-recorridos { padding-bottom: 56px; }
-.al-wrap-recorridos { padding: 40px var(--pad) 0; }
-.al-tour-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 2.4vw, 28px);
-  align-items: stretch;
-  margin-top: 28px;
-  --tour-h: min(72vh, 640px);
+.al-sec-recorridos {
+  padding: 20px 0 36px;
+  overflow-x: clip;
+  overflow-y: visible;
 }
-.al-tour-split .al-tour-frame {
+.al-wrap-recorridos { padding: 0 var(--pad); }
+.al-subhead--tight {
+  padding-bottom: 16px;
+  margin-bottom: 0;
+}
+.al-cover-head--tight { margin-bottom: 24px; }
+.al-tour-full { margin-top: 0; }
+.al-tour-full .al-tour-frame {
   position: relative;
   width: 100%;
-  height: var(--tour-h);
-  min-height: 420px;
+  height: min(68vh, 620px);
+  min-height: 400px;
   overflow: hidden;
   background: var(--green);
   border-radius: 20px;
 }
-.al-tour-split .al-tour-carousel {
-  min-height: 420px;
-  height: var(--tour-h);
-  margin: 0;
+.al-recorridos-apart {
+  margin-top: 36px;
+  overflow-x: visible;
+  overflow-y: visible;
 }
-.al-tour-split .al-tour-carousel figure::after {
-  content: "";
+.al-recorridos-apart .al-cover-apart {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 16px calc(50% - 50vw) 0;
+  overflow: visible;
+}
+.al-tour-frame iframe {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  background:
-    linear-gradient(180deg, rgba(16, 14, 12, .22) 0%, transparent 28%),
-    linear-gradient(180deg, transparent 58%, rgba(16, 14, 12, .42) 100%);
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--green);
 }
-.al-tour-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+#recorridos + #planos.al-sec-apart { padding-top: 48px; }
+#asesores.al-sec {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+#asesores .al-cover-head { margin-bottom: 28px; }
+#asesores .al-team { margin-top: 32px; }
+.al-sec-map {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+.al-map-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(22px, 3vw, 32px);
+}
+.al-map-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.al-map-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.al-h3-map {
+  font-size: clamp(22px, 2.2vw, 30px);
+  line-height: 1.2;
+  letter-spacing: .03em;
+}
+.al-map-embed {
+  position: relative;
+  width: 100%;
+  height: min(44vh, 420px);
+  min-height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(60, 77, 69, .12);
+}
+.al-map-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.al-map-actions {
+  margin: 0;
+  text-align: center;
+}
+.al-sec-cta {
+  padding-top: 72px !important;
+  padding-bottom: 72px !important;
+}
+.al-sec-contact {
+  padding-top: 72px;
+  padding-bottom: 88px;
+}
 
 /* apartamentos */
 .al-sec-leaf { position: relative; overflow: hidden; }

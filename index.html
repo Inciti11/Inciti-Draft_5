@@ -477,34 +477,59 @@
 
 <section id="recorridos" class="al-sec-recorridos">
 	<div class="al-wrap al-wrap-recorridos">
-		<div class="al-subhead" data-reveal>
+		<div class="al-subhead al-subhead--tight" data-reveal>
 			<h3 class="al-h3" data-en="360 tours">Recorridos en 360</h3>
 		</div>
-		<div class="al-tour-split" data-reveal>
+		<div class="al-tour-full">
 			<div class="al-tour-frame">
-				<iframe title="Recorridos 360 ALRÍO" src="https://visualid-arq.com/public/360_ALRIO_APTOS/" allowfullscreen allow="fullscreen; gyroscope; accelerometer; xr-spatial-tracking" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<iframe title="Recorridos 360 ALRÍO" src="https://visualid-arq.com/public/360_ALRIO_APTOS/" allowfullscreen allow="fullscreen; gyroscope; accelerometer; xr-spatial-tracking" referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</div>
-			<div class="al-arch-carousel al-tour-carousel" data-arch-slide>
-				<div class="al-arch-stage">
-					<figure class="is-on" data-lb="assets/tour-interior-01.png">
-						<img loading="lazy" src="assets/tour-interior-01.png" alt="Alcoba principal ALRÍO">
-					</figure>
-					<figure data-lb="assets/tour-interior-02.png">
-						<img loading="lazy" src="assets/tour-interior-02.png" alt="Cocina ALRÍO">
-					</figure>
-					<figure data-lb="assets/tour-interior-03.png">
-						<img loading="lazy" src="assets/tour-interior-03.png" alt="Sala y comedor ALRÍO">
-					</figure>
-					<figure data-lb="assets/tour-interior-04.png">
-						<img loading="lazy" src="assets/tour-interior-04.png" alt="Zona social ALRÍO">
-					</figure>
-					<figure data-lb="assets/tour-interior-05.png">
-						<img loading="lazy" src="assets/tour-interior-05.png" alt="Alcoba ALRÍO">
-					</figure>
-				</div>
+		</div>
+		<div class="al-recorridos-apart" data-reveal>
+			<div class="al-subhead al-subhead--tight">
+				<h3 class="al-h3" data-en="Apartments">Apartamentos</h3>
+			</div>
+			<div class="al-cover al-cover-apart" data-coverflow>
 				<button type="button" class="al-cover-nav al-cover-prev" aria-label="Anterior">
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
 				</button>
+				<div class="al-cover-stage">
+					<figure class="al-cover-card" data-lb="assets/tour-interior-01.png">
+						<img loading="lazy" src="assets/tour-interior-01.png" alt="Alcoba principal ALRÍO">
+						<figcaption>
+							<span class="al-cover-name" data-en="Main bedroom">Alcoba principal</span>
+							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
+						</figcaption>
+					</figure>
+					<figure class="al-cover-card" data-lb="assets/tour-interior-02.png">
+						<img loading="lazy" src="assets/tour-interior-02.png" alt="Cocina ALRÍO">
+						<figcaption>
+							<span class="al-cover-name" data-en="Kitchen">Cocina</span>
+							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
+						</figcaption>
+					</figure>
+					<figure class="al-cover-card" data-lb="assets/tour-interior-03.png">
+						<img loading="lazy" src="assets/tour-interior-03.png" alt="Sala y comedor ALRÍO">
+						<figcaption>
+							<span class="al-cover-name" data-en="Living &amp; dining">Sala y comedor</span>
+							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
+						</figcaption>
+					</figure>
+					<figure class="al-cover-card" data-lb="assets/tour-interior-04.png">
+						<img loading="lazy" src="assets/tour-interior-04.png" alt="Zona social ALRÍO">
+						<figcaption>
+							<span class="al-cover-name" data-en="Social area">Zona social</span>
+							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
+						</figcaption>
+					</figure>
+					<figure class="al-cover-card" data-lb="assets/tour-interior-05.png">
+						<img loading="lazy" src="assets/tour-interior-05.png" alt="Alcoba ALRÍO">
+						<figcaption>
+							<span class="al-cover-name" data-en="Bedroom">Alcoba</span>
+							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
+						</figcaption>
+					</figure>
+				</div>
 				<button type="button" class="al-cover-nav al-cover-next" aria-label="Siguiente">
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
 				</button>
@@ -630,8 +655,48 @@
 	</div>
 </section>
 
-<!-- 07 · CTA -->
-<section class="al-sec al-sec-green" style="padding-top: 160px; padding-bottom: 160px;">
+<!-- Ubicación · mapa -->
+<section class="al-sec al-sec-map" id="ubicacion-mapa">
+	<div class="al-wrap">
+		<div class="al-cover-head al-cover-head--tight" data-reveal>
+			<div class="al-eyebrow">
+				<span class="al-num">08</span>
+				<span class="al-lbl" data-en="Location">Ubicación</span>
+			</div>
+			<h2 class="al-h2 al-h2-serif" data-en="Find us on the map">Encuéntranos en el mapa</h2>
+			<p class="al-p al-p-muted" data-en="Gran Malecón del Río · Barranquilla, Colombia">Gran Malecón del Río · Barranquilla, Colombia</p>
+		</div>
+		<div class="al-map-grid" data-reveal>
+			<article class="al-map-card al-mapwrap">
+				<div class="al-map-card-head">
+					<h3 class="al-h3 al-h3-map" data-en="Sales room · Avenida del Río">Sala de ventas Av. del Río</h3>
+					<p class="al-p al-p-muted" data-en="Next to the football pitch">Al lado de la cancha de fútbol</p>
+				</div>
+				<div class="al-map-embed">
+					<iframe title="Sala de ventas Av. del Río — ALRÍO" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps?q=11.01766,-74.790806&amp;hl=es&amp;z=17&amp;t=k&amp;output=embed"></iframe>
+				</div>
+				<p class="al-map-actions">
+					<a class="al-btn-outline" href="https://maps.app.goo.gl/Ewei5V6axxYtDEUNA" target="_blank" rel="noopener noreferrer" data-en="Open in Google Maps">Abrir en Google Maps</a>
+				</p>
+			</article>
+			<article class="al-map-card al-mapwrap">
+				<div class="al-map-card-head">
+					<h3 class="al-h3 al-h3-map" data-en="Sales room · Calle 85">Sala de ventas de la 85</h3>
+					<p class="al-p al-p-muted">Cra. 64 #85, Riomar, Barranquilla, Atlántico</p>
+				</div>
+				<div class="al-map-embed">
+					<iframe title="Sala de ventas Cra. 64 #85 — ALRÍO" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps?q=11.01286,-74.8129951&amp;hl=es&amp;z=17&amp;t=k&amp;output=embed"></iframe>
+				</div>
+				<p class="al-map-actions">
+					<a class="al-btn-outline" href="https://maps.app.goo.gl/BooosHfykEQKitSm8" target="_blank" rel="noopener noreferrer" data-en="Open in Google Maps">Abrir en Google Maps</a>
+				</p>
+			</article>
+		</div>
+	</div>
+</section>
+
+<!-- CTA -->
+<section class="al-sec al-sec-green al-sec-cta">
 	<div class="al-cta" data-reveal>
 		<span class="al-kicker" data-en="Only 79 residences">Solo 79 unidades</span>
 		<h2 data-en="Discover ALRÍO">Descubre ALRÍO</h2>
@@ -640,12 +705,12 @@
 	</div>
 </section>
 
-<!-- 08 · CONTACTO -->
-<section class="al-sec" id="contacto">
+<!-- CONTACTO -->
+<section class="al-sec al-sec-contact" id="contacto">
 	<div class="al-wrap al-contact">
 		<div class="al-col" data-reveal>
 			<div class="al-eyebrow">
-				<span class="al-num">08</span>
+				<span class="al-num">09</span>
 				<span class="al-lbl" data-en="Contact">Contacto</span>
 			</div>
 			<h2 class="al-h2 al-h2-serif" data-en="Let's talk">Hablemos</h2>

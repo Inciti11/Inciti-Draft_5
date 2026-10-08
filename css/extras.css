@@ -111,8 +111,8 @@
 
 /* Coverflow */
 section.al-sec.al-sec-apart {
-  padding-top: 110px;
-  padding-bottom: 110px;
+  padding-top: 72px;
+  padding-bottom: 72px;
   overflow-x: clip;
   overflow-y: visible;
 }

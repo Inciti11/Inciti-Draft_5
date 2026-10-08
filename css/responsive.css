@@ -41,10 +41,12 @@
   .al-gal .al-g-main, .al-gal .al-g-stack, .al-gal .al-g-third { grid-column: auto; height: auto; }
   .al-gal .al-g-main img, .al-gal .al-g-third img { height: 300px; }
   .al-gal .al-g-stack button { height: 220px; }
-  .al-tour-split { grid-template-columns: 1fr; }
-  .al-tour-split .al-tour-frame,
-  .al-tour-split .al-tour-carousel {
-    height: min(70vh, 560px);
+  .al-tour-full .al-tour-frame {
+    height: min(62vh, 520px);
+    min-height: 360px;
+  }
+  .al-recorridos-apart .al-cover-apart {
+    height: min(56vh, 560px);
     min-height: 380px;
   }
   .al-form { grid-template-columns: 1fr; }
@@ -202,10 +204,26 @@
   .al-life-prev { left: 6px; }
   .al-life-next { right: 6px; }
   .al-subhead { flex-direction: column; gap: 10px; }
-  .al-tour-split .al-tour-frame,
-  .al-tour-split .al-tour-carousel {
-    height: min(62vh, 480px);
-    min-height: 320px;
+  .al-tour-full .al-tour-frame {
+    height: min(58vh, 460px);
+    min-height: 300px;
+  }
+  .al-recorridos-apart .al-cover-apart {
+    height: min(54vh, 500px);
+    min-height: 340px;
+  }
+  .al-map-grid { grid-template-columns: 1fr; }
+  .al-map-embed {
+    height: min(48vh, 420px);
+    min-height: 280px;
+  }
+  #asesores.al-sec {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .al-sec-cta {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
   }
   .al-footer-legal { flex-direction: column; gap: 10px; }
   .al-footer-credits {

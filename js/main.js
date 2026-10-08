@@ -284,14 +284,18 @@
     var timer = null;
     var layout = function () {
       var n = cards.length;
+      var apart = root.classList.contains('al-cover-apart');
+      var step = apart ? 44 : 52;
+      var scale1 = apart ? 0.86 : 0.82;
+      var rot = apart ? 13 : 16;
       cards.forEach(function (card, idx) {
         var d = idx - i;
         if (d > n / 2) d -= n;
         if (d < -n / 2) d += n;
         var abs = Math.abs(d);
-        card.style.setProperty('--x', (d * 52) + '%');
-        card.style.setProperty('--s', abs === 0 ? '1' : abs === 1 ? '.82' : '.68');
-        card.style.setProperty('--ry', (d * -16) + 'deg');
+        card.style.setProperty('--x', (d * step) + '%');
+        card.style.setProperty('--s', abs === 0 ? '1' : abs === 1 ? String(scale1) : '.68');
+        card.style.setProperty('--ry', (d * -rot) + 'deg');
         card.style.setProperty('--o', abs > 2 ? '0' : abs === 2 ? '.55' : '1');
         card.style.setProperty('--b', abs === 0 ? '1' : abs === 1 ? '.78' : '.62');
         card.style.setProperty('--z', String(8 - abs));
