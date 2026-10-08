@@ -50,7 +50,7 @@ input, textarea, button, select { font: inherit; color: inherit; }
 .al-arch-carousel[data-reveal],
 .al-mapwrap[data-reveal],
 .al-gal[data-reveal],
-.al-tour[data-reveal],
+.al-tour-split[data-reveal],
 .al-bleed[data-reveal],
 .al-form[data-reveal] {
   opacity: 0;
@@ -61,7 +61,7 @@ input, textarea, button, select { font: inherit; color: inherit; }
 .al-arch-carousel[data-reveal].is-in,
 .al-mapwrap[data-reveal].is-in,
 .al-gal[data-reveal].is-in,
-.al-tour[data-reveal].is-in,
+.al-tour-split[data-reveal].is-in,
 .al-bleed[data-reveal].is-in,
 .al-form[data-reveal].is-in {
   opacity: 1;
@@ -113,7 +113,7 @@ a.al-btn-outline.al-unblur {
   .al-arch-carousel[data-reveal],
   .al-mapwrap[data-reveal],
   .al-gal[data-reveal],
-  .al-tour[data-reveal],
+  .al-tour-split[data-reveal],
   .al-bleed[data-reveal],
   .al-form[data-reveal],
   .al-unblur {
