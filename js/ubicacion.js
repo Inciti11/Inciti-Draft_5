@@ -39,6 +39,14 @@
     if(e.key==='ArrowLeft'){ e.preventDefault(); ir(actual-1); }
   });
 
+  // En móvil el pin debe quedar al centro del visor; en escritorio se usa foco compositivo
+  function esMobil(){
+    return visor.clientWidth / visor.clientHeight <= 1.2;
+  }
+  function objetivo(L){
+    return esMobil() ? L.dot : L.foco;
+  }
+
   // Calcula la posición de cámara para un foco y zoom dados
   function camara(fx,fy,z){
     const W=visor.clientWidth, H=visor.clientHeight;
@@ -54,21 +62,21 @@
     const L=lugares[actual], H=visor.clientHeight;
     capa.style.width=H*ratio+'px'; capa.style.height=H+'px';
     halo.style.left=L.dot[0]+'%'; halo.style.top=L.dot[1]+'%';
-    const destino=camara(L.foco[0],L.foco[1],L.zoom);
+    const tgt=objetivo(L);
+    const destino=camara(tgt[0],tgt[1],L.zoom);
     const quieto=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if(animar && previo && !quieto){
       const desde=getComputedStyle(capa).transform;
       if(anim) anim.cancel();
-      // Distancia del salto: define duración y cuánto se aleja la cámara
-      const dx=L.foco[0]-previo.foco[0], dy=L.foco[1]-previo.foco[1];
+      const prevT=objetivo(previo);
+      const dx=tgt[0]-prevT[0], dy=tgt[1]-prevT[1];
       const dist=Math.hypot(dx,dy);                       // en % de la imagen
       const dur=Math.min(2600, 1100 + dist*28);
       const cuadros=[{transform:desde}];
       if(dist>15){
-        // "Vuelo": se abre un poco en la mitad del recorrido y vuelve a acercarse
         const zMin=Math.min(L.zoom,previo.zoom), alejar=Math.max(1, zMin - Math.min(.55, dist/90));
-        cuadros.push({transform:camara((L.foco[0]+previo.foco[0])/2,(L.foco[1]+previo.foco[1])/2,alejar), offset:.5});
+        cuadros.push({transform:camara((tgt[0]+prevT[0])/2,(tgt[1]+prevT[1])/2,alejar), offset:.5});
       }
       cuadros.push({transform:destino});
       anim=capa.animate(cuadros,{duration:dur, easing:'cubic-bezier(.45,.05,.25,1)'});

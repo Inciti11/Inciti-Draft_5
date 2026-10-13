@@ -250,6 +250,48 @@
     });
   });
 
+  /* Nota legal en imágenes (3 variantes) */
+  var legalCopy = {
+    building: {
+      es: 'Estas imágenes pueden contener decoración y elementos de apreciación estética que son interpretación del artífice y no comprometen a la sociedad promotora. El proyecto podrá ser modificado por exigencia de las autoridades competentes o por exigencias técnicas o del mercado. Las especificaciones serán las que se establezcan en los contratos de vinculación al proyecto inmobiliario. Agosto 2026',
+      en: 'These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts. August 2026'
+    },
+    interior: {
+      es: 'Estas imágenes pueden contener decoración y elementos de apreciación estética que son interpretación del artífice y no comprometen a la sociedad promotora. El proyecto podrá ser modificado por exigencia de las autoridades competentes o por exigencias técnicas o del mercado. Las especificaciones serán las que se establezcan en los contratos de vinculación al proyecto inmobiliario. Octubre 2026',
+      en: 'These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts. October 2026'
+    },
+    entorno: {
+      es: 'Las imágenes publicadas, planos, renders y demás piezas publicitarias son simples representaciones gráficas de diseño no contractuales. Las fachadas, elementos comunes y restantes espacios son orientativas y/o podrán ser objeto de verificación. Pueden variar en su percepción y construcción final, están sujetos a modificación y/o cambios sin previo aviso o consulta, los mismos no constituyen oferta por parte del Promotor y/o Constructor.',
+      en: 'The published images, floor plans, renders and other advertising materials are simple non-contractual design graphic representations. The facades, common elements and remaining spaces are indicative and/or subject to verification. They may vary in perception and final construction, are subject to modification and/or changes without prior notice or consultation, and do not constitute an offer by the Developer and/or Builder.'
+    }
+  };
+  var legalKindFor = function (box) {
+    var tagged = box.getAttribute('data-legal');
+    if (tagged && legalCopy[tagged]) return tagged;
+    if (box.closest('#entorno')) return 'entorno';
+    if (box.closest('.al-cover-apart')) return 'interior';
+    if (box.closest('#amenidades')) return 'entorno';
+    if (box.closest('.al-arch-carousel')) return 'entorno';
+    if (box.classList.contains('al-hero') || box.closest('.al-hero')) return 'building';
+    if (box.classList.contains('ubic__visor') || box.closest('.ubic__visor')) return 'building';
+    if (box.closest('.al-bleed')) return 'entorno';
+    return 'building';
+  };
+  var writeLegalNote = function (noteEl, kind) {
+    var copy = legalCopy[kind];
+    noteEl.dataset.es = copy.es;
+    noteEl.setAttribute('data-en', copy.en);
+    var lang = document.body.getAttribute('data-lang') || 'es';
+    noteEl.textContent = lang === 'en' ? copy.en : copy.es;
+  };
+  var syncLbLegal = function (sourceEl) {
+    var lbRoot = document.getElementById('al-lb');
+    if (!lbRoot || !sourceEl) return;
+    var lbNote = lbRoot.querySelector('.al-lb-box .al-legal-note');
+    if (!lbNote) return;
+    writeLegalNote(lbNote, legalKindFor(sourceEl));
+  };
+
   /* Lightbox de galería */
   var lb = document.getElementById('al-lb');
   var lbImg = document.getElementById('al-lb-img');
@@ -258,6 +300,7 @@
       if (!lb || !lbImg) return;
       lbImg.src = btn.getAttribute('data-lb');
       lbImg.alt = '';
+      syncLbLegal(btn);
       lb.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     });
@@ -404,17 +447,15 @@
     if (!reduce) start();
   });
 
-  /* Nota legal en imágenes */
-  var legalEs = 'Estas imágenes pueden contener decoración y elementos de apreciación estética que son interpretación del artífice y no comprometen a la sociedad promotora. El proyecto podrá ser modificado por exigencia de las autoridades competentes o por exigencias técnicas o del mercado. Las especificaciones serán las que se establezcan en los contratos de vinculación al proyecto inmobiliario.';
-  var legalEn = 'These images may include decoration and aesthetic elements that are the artist’s interpretation and do not bind the developer. The project may be modified by request of the competent authorities or for technical or market reasons. Specifications shall be those set out in the project affiliation contracts.';
-  var legalTargets = document.querySelectorAll('.al-hero, .ubic__visor, .al-cover-card, .al-gal [data-lb], .al-bleed, .al-arch-carousel figure');
+  var legalRoots = '.al-hero, .ubic__visor, .al-cover-card, .al-gal [data-lb], .al-bleed, .al-arch-carousel figure';
+  var legalTargets = document.querySelectorAll(legalRoots);
   legalTargets.forEach(function (box) {
     if (box.hasAttribute('data-no-legal') || box.closest('#planos')) return;
+    if (box.closest(legalRoots) !== box && !box.matches('.al-cover-card, .al-arch-carousel figure, .al-gal [data-lb]')) return;
     if (box.querySelector(':scope > .al-legal-note')) return;
     var note = document.createElement('span');
     note.className = 'al-legal-note';
-    note.setAttribute('data-en', legalEn);
-    note.textContent = legalEs;
+    writeLegalNote(note, legalKindFor(box));
     box.appendChild(note);
   });
 
@@ -448,9 +489,13 @@
     });
   }
   var apply = function (lang) {
-    document.querySelectorAll('[data-en]').forEach(function (el) {
+    document.querySelectorAll('[data-en]:not(.al-legal-note)').forEach(function (el) {
       if (el.dataset.es === undefined) el.dataset.es = el.textContent;
       var next = lang === 'en' ? el.dataset.en : el.dataset.es;
+      if (next && el.textContent !== next) el.textContent = next;
+    });
+    document.querySelectorAll('.al-legal-note[data-en]').forEach(function (el) {
+      var next = lang === 'en' ? el.getAttribute('data-en') : el.dataset.es;
       if (next && el.textContent !== next) el.textContent = next;
     });
     document.documentElement.lang = lang === 'en' ? 'en' : 'es';
