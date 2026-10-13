@@ -6,7 +6,8 @@
   <title>ALRÍO — Una nueva manera de vivir frente al río</title>
   <meta name="description" content="ALRÍO — proyecto residencial exclusivo frente al Gran Malecón del Río, Barranquilla. 79 unidades entre 88 y 149 m².">
   <link rel="icon" href="assets/favicon.png">
-  <link rel="preload" as="image" href="assets/ext-hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/ext-hero-pc.jpg" media="(min-width: 681px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/ext-hero.jpg" media="(max-width: 680px)" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap">
@@ -87,7 +88,8 @@
 <!-- PORTADA (la otra versión está en index.html — portada de pre-lanzamiento) -->
 <!-- PORTADA · LANZAMIENTO -->
 <section class="al-hero" id="top">
-	<img src="assets/ext-hero.jpg" alt="ALRÍO — render del proyecto" width="2048" height="2560" fetchpriority="high" decoding="sync">
+	<img class="al-hero-img al-hero-img--pc" src="assets/ext-hero-pc.jpg" alt="ALRÍO — render del proyecto" width="2560" height="1440" fetchpriority="high" decoding="sync">
+	<img class="al-hero-img al-hero-img--mob" src="assets/ext-hero.jpg" alt="ALRÍO — render del proyecto" width="2048" height="2560" decoding="async">
 	<div class="al-hero-veil"></div>
 	<div class="al-hero-in">
 		<div class="al-hero-body">
@@ -506,6 +508,27 @@
 						<img loading="lazy" src="assets/apt-cocina.jpg" alt="Cocina ALRÍO">
 						<figcaption>
 							<span class="al-cover-name" data-en="Kitchen">Cocina</span>
+							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
+						</figcaption>
+					</figure>
+					<figure class="al-cover-card" data-lb="assets/apt-sala-comedor.jpg">
+						<img loading="lazy" src="assets/apt-sala-comedor.jpg" alt="Sala y comedor ALRÍO">
+						<figcaption>
+							<span class="al-cover-name" data-en="Living &amp; dining">Sala y comedor</span>
+							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
+						</figcaption>
+					</figure>
+					<figure class="al-cover-card" data-lb="assets/apt-sala.jpg">
+						<img loading="lazy" src="assets/apt-sala.jpg" alt="Sala ALRÍO">
+						<figcaption>
+							<span class="al-cover-name" data-en="Living room">Sala</span>
+							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
+						</figcaption>
+					</figure>
+					<figure class="al-cover-card" data-lb="assets/apt-sala-comedor-02.jpg">
+						<img loading="lazy" src="assets/apt-sala-comedor-02.jpg" alt="Sala y comedor ALRÍO">
+						<figcaption>
+							<span class="al-cover-name" data-en="Living &amp; dining">Sala y comedor</span>
 							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
 						</figcaption>
 					</figure>

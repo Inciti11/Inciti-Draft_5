@@ -114,7 +114,13 @@
     padding-top: 0;
     align-items: flex-start;
   }
-  .al-hero > img { object-fit: cover; object-position: 38% 42%; transform: none; }
+  .al-hero-img--pc { display: none !important; }
+  .al-hero-img--mob {
+    display: block !important;
+    object-fit: cover;
+    object-position: 38% 42%;
+    transform: none;
+  }
   .al-hero-veil {
     background:
       linear-gradient(180deg,
