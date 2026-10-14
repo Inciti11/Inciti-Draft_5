@@ -262,6 +262,10 @@ section.al-sec.al-sec-apart {
 #entorno .al-cover-nav { background: var(--green); color: var(--bone); }
 #entorno .al-cover-nav:hover { background: #2f3e38; color: var(--bone); transform: scale(1.06); }
 #entorno .al-cover { height: min(68vh, 700px); }
+#entorno .al-cover-card .al-legal-note,
+.al-arch-carousel figure:not([data-legal="building"]) .al-legal-note {
+  display: none !important;
+}
 
 /* Amenidades · hoja + iconos */
 .al-amen-sheet { margin-bottom: 4px; }

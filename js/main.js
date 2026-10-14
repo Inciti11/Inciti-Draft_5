@@ -284,11 +284,22 @@
     var lang = document.body.getAttribute('data-lang') || 'es';
     noteEl.textContent = lang === 'en' ? copy.en : copy.es;
   };
+  var skipOverlayLegal = function (el) {
+    if (!el) return false;
+    if (el.closest('#entorno')) return true;
+    if (el.closest('.al-arch-carousel') && el.getAttribute('data-legal') !== 'building') return true;
+    return false;
+  };
   var syncLbLegal = function (sourceEl) {
     var lbRoot = document.getElementById('al-lb');
     if (!lbRoot || !sourceEl) return;
     var lbNote = lbRoot.querySelector('.al-lb-box .al-legal-note');
     if (!lbNote) return;
+    if (skipOverlayLegal(sourceEl)) {
+      lbNote.hidden = true;
+      return;
+    }
+    lbNote.hidden = false;
     writeLegalNote(lbNote, legalKindFor(sourceEl));
   };
 
@@ -450,7 +461,8 @@
   var legalRoots = '.al-hero, .ubic__visor, .al-cover-card, .al-gal [data-lb], .al-bleed, .al-arch-carousel figure';
   var legalTargets = document.querySelectorAll(legalRoots);
   legalTargets.forEach(function (box) {
-    if (box.hasAttribute('data-no-legal') || box.closest('#planos')) return;
+    if (box.hasAttribute('data-no-legal') || box.closest('#planos') || box.closest('#entorno')) return;
+    if (box.closest('.al-arch-carousel') && box.getAttribute('data-legal') !== 'building') return;
     if (box.closest(legalRoots) !== box && !box.matches('.al-cover-card, .al-arch-carousel figure, .al-gal [data-lb]')) return;
     if (box.querySelector(':scope > .al-legal-note')) return;
     var note = document.createElement('span');
