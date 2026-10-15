@@ -19,7 +19,15 @@
 #arquitectura .al-p { font-size: 17px; line-height: 1.7; text-align: left; }
 .al-sec-dark { background: var(--ink); color: var(--bone); }
 .al-sec-green { background: var(--green); color: var(--bone); }
-#proyecto { z-index: 2; margin-top: -36px; padding-bottom: 32px; background: var(--bone); border-radius: var(--radius) var(--radius) 0 0; }
+#proyecto {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * var(--hero-seam));
+  padding-bottom: 32px;
+  background: var(--bone);
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+}
 .al-wrap { max-width: 1440px; margin: 0 auto; }
 .al-eyebrow { display: flex; align-items: flex-end; gap: 18px; overflow: visible; }
 .al-eyebrow .al-num {

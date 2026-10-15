@@ -188,7 +188,12 @@
     animation: al-scroll-bounce 1.6s ease-in-out infinite;
   }
   .al-scroll-chevs path { stroke-width: 4.2; }
-  #proyecto { margin-top: -28px; padding-bottom: 20px; border-radius: var(--radius) var(--radius) 0 0; }
+  :root { --hero-seam: 36px; }
+  #proyecto {
+    margin-top: calc(-1 * var(--hero-seam));
+    padding-bottom: 20px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
   #arquitectura .al-col { padding: 40px var(--pad) 4px; }
   .al-arch { padding: 0 10px 10px; }
   .al-arch-carousel {

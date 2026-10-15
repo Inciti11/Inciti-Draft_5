@@ -17,6 +17,8 @@
   --font-title: "Abramo", Georgia, serif;
   --radius: 28px;
   --btn-radius: 999px;
+  /* solape de la 1.ª sección sobre el hero (curva hueso sobre la portada) */
+  --hero-seam: 36px;
 }
 
 * { box-sizing: border-box; }

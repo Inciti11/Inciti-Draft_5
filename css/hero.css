@@ -1,7 +1,8 @@
 /* ALRÍO · portada */
 /* ── HERO ──────────────────────────────────────── */
 .al-hero {
-  position: relative; width: 100%; min-height: 100svh; overflow: hidden;
+  position: relative; z-index: 0;
+  width: 100%; min-height: 100svh; overflow: hidden;
   background: #2a4668 url("../assets/ext-hero-blur.jpg") center / cover no-repeat;
   border-radius: 0;
 }
