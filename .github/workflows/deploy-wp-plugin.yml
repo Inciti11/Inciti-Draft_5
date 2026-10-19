@@ -1,0 +1,37 @@
+# Sube el plugin ALRÍO HTML Landing a WordPress (Hostinger SFTP).
+name: Deploy WordPress plugin
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - "css/**"
+      - "js/**"
+      - "assets/**"
+      - "wordpress/plugin/**"
+      - "scripts/build_wp_plugin.py"
+      - ".github/workflows/deploy-wp-plugin.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.WP_SFTP_HOST != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build plugin
+        run: python3 scripts/build_wp_plugin.py
+
+      - name: Deploy plugin to WordPress
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.WP_SFTP_HOST }}
+          username: ${{ secrets.WP_SFTP_USER }}
+          password: ${{ secrets.WP_SFTP_PASSWORD }}
+          port: ${{ secrets.WP_SFTP_PORT || 65002 }}
+          protocol: ${{ secrets.WP_SFTP_PROTOCOL || 'sftp' }}
+          local-dir: build/alrio-html-page/
+          server-dir: ${{ secrets.WP_SFTP_PLUGIN_PATH }}
+          dangerous-clean-slate: false
