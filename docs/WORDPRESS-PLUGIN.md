@@ -33,12 +33,12 @@ Genera:
 
 | Secret | Ejemplo Hostinger |
 |--------|-------------------|
-| `WP_SFTP_HOST` | hostname FTP |
-| `WP_SFTP_USER` | usuario |
-| `WP_SFTP_PASSWORD` | contraseña |
-| `WP_SFTP_PORT` | `65002` |
-| `WP_SFTP_PROTOCOL` | `sftp` |
-| `WP_SFTP_PLUGIN_PATH` | `.../public_html/wp-content/plugins/alrio-html-page/` |
+| `WP_SFTP_HOST` | IP o hostname FTP (hPanel → FTP Accounts) |
+| `WP_SFTP_USER` | usuario de la cuenta FTP (ej. `u717010559.githubalrio`) |
+| `WP_SFTP_PASSWORD` | contraseña de esa cuenta FTP |
+| `WP_SFTP_PLUGIN_PATH` | `./wp-content/plugins/alrio-html-page/` si la cuenta FTP apunta a `public_html`; si no, ruta completa hasta esa carpeta (termina en `/`) |
+
+Puerto **21** y **FTPS** van fijos en el workflow (`SamKirkland/FTP-Deploy-Action` v4 no admite SFTP). No uses el puerto **65002** ni secretos `WP_SFTP_PORT` / `WP_SFTP_PROTOCOL` (eran para SSH/SFTP de la cuenta principal).
 
 Push a **`main`** (HTML, CSS, JS, assets, plugin) ejecuta el workflow **Deploy WordPress plugin**. Purga caché en Hostinger después.
 

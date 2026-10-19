@@ -1,4 +1,4 @@
-# Sube el plugin ALRÍO HTML Landing a WordPress (Hostinger SFTP).
+# Sube el plugin ALRÍO HTML Landing a WordPress (Hostinger FTPS, cuenta FTP).
 name: Deploy WordPress plugin
 
 on:
@@ -29,8 +29,9 @@ jobs:
           server: ${{ secrets.WP_SFTP_HOST }}
           username: ${{ secrets.WP_SFTP_USER }}
           password: ${{ secrets.WP_SFTP_PASSWORD }}
-          port: ${{ secrets.WP_SFTP_PORT || 65002 }}
-          protocol: ${{ secrets.WP_SFTP_PROTOCOL || 'sftp' }}
+          port: 21
+          protocol: ftps
+          security: loose
           local-dir: build/alrio-html-page/
           server-dir: ${{ secrets.WP_SFTP_PLUGIN_PATH }}
           dangerous-clean-slate: false
