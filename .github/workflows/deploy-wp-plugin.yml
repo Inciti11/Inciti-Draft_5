@@ -17,7 +17,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ secrets.WP_SFTP_HOST != '' }}
     steps:
       - uses: actions/checkout@v4
 
