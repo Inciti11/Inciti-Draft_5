@@ -223,7 +223,11 @@
     height: min(54vh, 500px);
     min-height: 340px;
   }
-  .al-map-grid { grid-template-columns: 1fr; }
+  .al-map-grid {
+    grid-template-columns: 1fr;
+    row-gap: 56px;
+    column-gap: 0;
+  }
   .al-map-embed {
     height: min(48vh, 420px);
     min-height: 280px;
@@ -234,7 +238,7 @@
   }
   .al-sec-cta {
     padding-top: 56px !important;
-    padding-bottom: 56px !important;
+    padding-bottom: calc(56px + var(--footer-seam)) !important;
   }
   .al-footer-legal { flex-direction: column; gap: 10px; }
   .al-footer-credits {

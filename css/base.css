@@ -19,6 +19,8 @@
   --btn-radius: 999px;
   /* solape de la 1.ª sección sobre el hero (curva hueso sobre la portada) */
   --hero-seam: 36px;
+  /* solape del footer oscuro sobre la franja verde del CTA */
+  --footer-seam: 56px;
 }
 
 * { box-sizing: border-box; }
