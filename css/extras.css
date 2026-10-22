@@ -228,6 +228,21 @@ section.al-sec.al-sec-apart {
 }
 .al-cover-name,
 .al-cover-ref { display: block; }
+.al-cover-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.35em 1.1em;
+}
+.al-cover-title-row .al-cover-name,
+.al-cover-title-row .al-cover-apt { display: inline; }
+.al-cover-apt {
+  font-size: 0.95em;
+  letter-spacing: .14em;
+  font-weight: 400;
+  opacity: .95;
+}
 .al-cover-ref {
   margin-top: 6px;
   font-size: 10px;
