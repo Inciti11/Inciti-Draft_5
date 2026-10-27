@@ -308,15 +308,170 @@
 .al-recorridos-apart .al-cover-apart {
   width: 100vw;
   max-width: 100vw;
-  margin: 16px calc(50% - 50vw) 0;
+  margin: 0 calc(50% - 50vw);
   overflow: visible;
-  height: min(72vh, 780px);
-  min-height: 460px;
+  height: min(68vh, 700px);
+  min-height: 440px;
 }
-.al-cover-apart .al-cover-card {
+.al-cover-apart .al-cover-stage {
+  transition:
+    opacity 1.1s cubic-bezier(.22, .61, .36, 1),
+    transform 1.1s cubic-bezier(.22, .61, .36, 1),
+    filter 1.1s cubic-bezier(.22, .61, .36, 1);
+}
+.al-cover-apart.is-apt-switch-out .al-cover-stage {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(16px);
+  transition-duration: 0.55s;
+}
+.al-cover-apart.is-apt-switch-in .al-cover-stage {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(16px);
+}
+.al-cover-apart.is-apt-switch-in.is-apt-switch-in-active .al-cover-stage {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.al-cover-apart.is-apt-switch-out,
+.al-cover-apart.is-apt-switch-in:not(.is-apt-switch-in-active) {
+  pointer-events: none;
+}
+.al-recorridos-apart .al-cover-apt-meta {
+  margin: 0 0 18px;
+  padding: 0 var(--pad);
+}
+.al-cover-apt-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 20px;
+}
+.al-cover-apt-indicator {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition:
+    opacity 0.9s cubic-bezier(.22, .61, .36, 1),
+    filter 0.9s cubic-bezier(.22, .61, .36, 1),
+    transform 0.9s cubic-bezier(.22, .61, .36, 1);
+}
+.al-cover-apart.is-apt-switch-out .al-cover-apt-indicator,
+.al-cover-apart.is-apt-switch-in:not(.is-apt-switch-in-active) .al-cover-apt-indicator {
+  opacity: 0;
+  filter: blur(14px);
+  transform: translateY(14px);
+}
+.al-cover-apt-switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.al-cover-apt-pick {
+  appearance: none;
+  border: 1px solid rgba(16, 14, 12, .22);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+.al-cover-apt-pick:hover {
+  background: rgba(16, 14, 12, .06);
+  border-color: rgba(16, 14, 12, .35);
+}
+.al-cover-apt-pick.is-active {
+  background: rgba(16, 14, 12, .08);
+  border-color: rgba(16, 14, 12, .45);
+}
+.al-cover-apart:focus { outline: none; }
+.al-cover-apart:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
+.al-cover-card--mirror {
+  pointer-events: none;
+}
+.al-recorridos-apart .al-cover-apart .al-cover-card {
   top: 4%;
   height: 92%;
   background: #141816;
+}
+.al-cover-apt-splash {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  opacity: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(16, 14, 12, .55) 0%, rgba(16, 14, 12, .88) 42%, rgba(14, 16, 14, .94) 100%);
+  transition: opacity .35s ease;
+}
+.al-cover-apt-intro.is-on .al-cover-apt-splash.is-fading {
+  opacity: 1;
+  animation: al-cover-apt-splash-out 2.85s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+.al-cover-apt-intro.is-on .al-cover-apt-splash.is-done {
+  opacity: 0;
+}
+.al-cover-apt-intro.is-on .al-cover-apt-splash.is-fading ~ figcaption {
+  opacity: 0;
+}
+.al-cover-apt-intro.is-on .al-cover-apt-splash.is-done ~ figcaption {
+  opacity: 1;
+  transition: opacity .5s ease .05s;
+}
+@keyframes al-cover-apt-splash-out {
+  0%, 28% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.al-cover-divider-caption {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  margin: 0;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--bone);
+  text-transform: uppercase;
+  text-shadow: 0 1px 10px rgba(16, 14, 12, .65);
+}
+.al-cover-divider-caption .al-cover-name {
+  display: block;
+  font-family: var(--font-title);
+  font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 400;
+  letter-spacing: .14em;
+  line-height: 1.2;
+  -webkit-text-stroke: 0.35px currentColor;
+}
+.al-cover-divider-caption .al-cover-ref {
+  display: block;
+  margin-top: 0;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: .12em;
+  font-weight: 300;
+  text-transform: uppercase;
+  opacity: .78;
 }
 .al-cover-apart .al-cover-card img {
   display: block;

@@ -895,6 +895,8 @@ body.alrio a.al-advisor-wa:focus-visible {
   body.alrio a.al-advisor-wa:focus-visible svg,
   body.alrio a.al-advisor-wa:active svg { animation: none; filter: none; }
   .al-cover-card { transition: none; }
+  .al-cover-apt-splash { display: none !important; }
+  .al-cover-apt-intro.is-on figcaption { opacity: 1 !important; }
   .al-wa-msg { transition: none; }
   .al-ico * {
     animation: none !important;

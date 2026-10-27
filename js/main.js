@@ -367,19 +367,75 @@
     if (e.key === 'Escape') { closeLb(); setDrawer(false); }
   });
 
-  /* Carrusel coverflow */
+  /* Carrusel coverflow (amenidades y apartamentos comparten lógica; apart = tighter + overlays) */
   document.querySelectorAll('[data-coverflow]').forEach(function (root) {
-    var cards = Array.prototype.slice.call(root.querySelectorAll('.al-cover-card'));
+    var apart = root.classList.contains('al-cover-apart');
+    var stage = root.querySelector('.al-cover-stage');
+    if (apart && stage) {
+      stage.querySelectorAll('.al-cover-card--mirror').forEach(function (el) { el.remove(); });
+      var ordered = Array.prototype.slice.call(stage.querySelectorAll('.al-cover-card'));
+      ordered.sort(function (a, b) {
+        return parseInt(a.getAttribute('data-apt-seq') || '0', 10) - parseInt(b.getAttribute('data-apt-seq') || '0', 10);
+      });
+      ordered.forEach(function (card) {
+        card.style.removeProperty('transition');
+        stage.appendChild(card);
+      });
+    }
+    var cards = Array.prototype.slice.call(root.querySelectorAll('.al-cover-card:not(.al-cover-card--mirror)'));
     if (!cards.length) return;
+    var apartWrap = apart ? root.closest('.al-recorridos-apart') : null;
+    var indicator = apartWrap ? apartWrap.querySelector('.al-cover-apt-indicator') : null;
+    var aptPicks = apartWrap ? apartWrap.querySelectorAll('.al-cover-apt-pick') : [];
+    var photosPerApt = 4;
+    var selectedApt = 1;
     var i = 0;
+    var prevI = 0;
+    var forceBaseSplash = false;
+    var aptIntroPlayed = { 1: false, 2: false };
     var timer = null;
+    var cardApt = function (card) {
+      var seq = parseInt(card.getAttribute('data-apt-seq') || '0', 10);
+      return Math.floor(seq / photosPerApt) + 1;
+    };
+    var activeCards = function () {
+      if (!apart) return cards;
+      return cards.filter(function (c) { return cardApt(c) === selectedApt; });
+    };
+    var syncAptPickUi = function () {
+      aptPicks.forEach(function (btn) {
+        var on = parseInt(btn.getAttribute('data-apt-pick') || '1', 10) === selectedApt;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      if (apart) {
+        root.setAttribute('aria-label', 'Recorrido Apartamento ' + selectedApt);
+      }
+    };
+    var syncIndicator = function () {
+      if (!indicator) return;
+      indicator.textContent = 'Apto ' + selectedApt + ' · Foto ' + (i + 1) + ' de ' + photosPerApt;
+      indicator.setAttribute('data-en', 'Apt ' + selectedApt + ' · Photo ' + (i + 1) + ' of ' + photosPerApt);
+    };
     var layout = function () {
-      var n = cards.length;
-      var apart = root.classList.contains('al-cover-apart');
+      var active = activeCards();
+      var n = apart ? active.length : cards.length;
       var step = apart ? 44 : 52;
       var scale1 = apart ? 0.86 : 0.82;
       var rot = apart ? 13 : 16;
-      cards.forEach(function (card, idx) {
+      if (apart) syncIndicator();
+      var splashThisLayout = forceBaseSplash;
+      forceBaseSplash = false;
+      cards.forEach(function (card) {
+        if (apart && cardApt(card) !== selectedApt) {
+          card.style.setProperty('--o', '0');
+          card.style.setProperty('--x', '0%');
+          card.style.setProperty('--z', '0');
+          card.classList.remove('is-on');
+          return;
+        }
+        var idx = apart ? active.indexOf(card) : cards.indexOf(card);
+        if (idx < 0) return;
         var d = idx - i;
         if (d > n / 2) d -= n;
         if (d < -n / 2) d += n;
@@ -392,11 +448,87 @@
         card.style.setProperty('--z', String(8 - abs));
         card.style.setProperty('--z3', abs === 0 ? '48px' : abs === 1 ? '0px' : '-70px');
         card.classList.toggle('is-on', d === 0);
+        var splash = card.querySelector('.al-cover-apt-splash');
+        if (!splash) return;
+        splash.classList.remove('is-fading', 'is-done');
+        if (d !== 0) return;
+        var playSplash = false;
+        if (apart && idx === 0) {
+          if (splashThisLayout) playSplash = true;
+          else if (prevI !== i && i === 0) playSplash = true;
+          else if (!aptIntroPlayed[selectedApt]) {
+            playSplash = true;
+            aptIntroPlayed[selectedApt] = true;
+          }
+        }
+        if (playSplash) {
+          void splash.offsetWidth;
+          splash.classList.add('is-fading');
+        } else {
+          splash.classList.add('is-done');
+        }
       });
     };
+    if (apart) {
+      root.querySelectorAll('.al-cover-apt-splash').forEach(function (splash) {
+        splash.addEventListener('animationend', function () {
+          if (splash.classList.contains('is-fading')) {
+            splash.classList.remove('is-fading');
+            splash.classList.add('is-done');
+          }
+        });
+      });
+    }
+    var slideCount = function () {
+      return apart ? activeCards().length : cards.length;
+    };
     var go = function (dir) {
-      i = (i + dir + cards.length) % cards.length;
+      prevI = i;
+      var n = slideCount();
+      i = (i + dir + n) % n;
       layout();
+    };
+    var aptSwitchTimer = null;
+    var applyAptSelection = function (apt) {
+      selectedApt = apt;
+      forceBaseSplash = true;
+      prevI = i;
+      i = 0;
+      syncAptPickUi();
+      layout();
+    };
+    var setSelectedApt = function (apt, whenDone) {
+      apt = parseInt(apt, 10);
+      if (apt !== 1 && apt !== 2) return;
+      if (selectedApt === apt) return;
+      var done = function () { if (whenDone) whenDone(); };
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var stage = root.querySelector('.al-cover-stage');
+      if (!apart || !stage || reduce) {
+        applyAptSelection(apt);
+        done();
+        return;
+      }
+      stop();
+      if (aptSwitchTimer) {
+        clearTimeout(aptSwitchTimer);
+        aptSwitchTimer = null;
+      }
+      root.classList.remove('is-apt-switch-in', 'is-apt-switch-in-active');
+      root.classList.add('is-apt-switch-out');
+      aptSwitchTimer = setTimeout(function () {
+        aptSwitchTimer = null;
+        root.classList.remove('is-apt-switch-out');
+        applyAptSelection(apt);
+        root.classList.add('is-apt-switch-in');
+        void stage.offsetWidth;
+        root.classList.add('is-apt-switch-in-active');
+        aptSwitchTimer = setTimeout(function () {
+          aptSwitchTimer = null;
+          root.classList.remove('is-apt-switch-in', 'is-apt-switch-in-active');
+          done();
+        }, 1150);
+      }, 560);
     };
     var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
     var start = function () {
@@ -407,15 +539,27 @@
     var next = root.querySelector('.al-cover-next');
     if (prev) prev.addEventListener('click', function () { go(-1); start(); });
     if (next) next.addEventListener('click', function () { go(1); start(); });
+    aptPicks.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setSelectedApt(btn.getAttribute('data-apt-pick'), start);
+      });
+    });
+    if (apart) syncAptPickUi();
     root.addEventListener('mouseenter', stop);
     root.addEventListener('mouseleave', start);
+    if (apart) {
+      root.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); start(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(1); start(); }
+      });
+    }
 
     var sx = 0;
     var dx = 0;
     var tracking = false;
     var suppressClick = false;
     root.addEventListener('pointerdown', function (e) {
-      if (e.target.closest('.al-cover-nav')) return;
+      if (e.target.closest('.al-cover-nav') || e.target.closest('.al-cover-apt-pick')) return;
       tracking = true;
       sx = e.clientX;
       dx = 0;

@@ -492,13 +492,28 @@
 			<div class="al-subhead al-subhead--tight">
 				<h2 class="al-h2 al-amen-title" data-en="Apartments">Apartamentos</h2>
 			</div>
-			<div class="al-cover al-cover-apart" data-coverflow>
+			<div class="al-cover-apt-meta" data-reveal>
+				<div class="al-cover-apt-toolbar">
+					<div class="al-cover-apt-switch" role="tablist" aria-label="Elegir apartamento">
+						<button type="button" role="tab" class="al-cover-apt-pick is-active" data-apt-pick="1" aria-selected="true" data-en="Apt 1">Apto 1</button>
+						<button type="button" role="tab" class="al-cover-apt-pick" data-apt-pick="2" aria-selected="false" data-en="Apt 2">Apto 2</button>
+					</div>
+					<p class="al-cover-apt-indicator" aria-live="polite" data-en="Apt 1 · Photo 1 of 4">Apto 1 · Foto 1 de 4</p>
+				</div>
+			</div>
+			<div class="al-cover al-cover-apart" data-coverflow tabindex="0" aria-roledescription="carousel" aria-label="Recorrido Apartamento 1">
 				<button type="button" class="al-cover-nav al-cover-prev" aria-label="Anterior">
 					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
 				</button>
 				<div class="al-cover-stage">
-					<figure class="al-cover-card" data-lb="assets/apt-07-alcoba.png">
+					<figure class="al-cover-card al-cover-apt-intro" data-apt-seq="0" data-lb="assets/apt-07-alcoba.png">
 						<img loading="lazy" src="assets/apt-07-alcoba.png" alt="Alcoba (Apartamento 1)">
+						<div class="al-cover-apt-splash" aria-hidden="true">
+							<p class="al-cover-divider-caption">
+								<span class="al-cover-name" data-en="Apartment 1">Apartamento 1</span>
+								<span class="al-cover-ref" data-en="Interior tour">Recorrido interior</span>
+							</p>
+						</div>
 						<figcaption>
 							<span class="al-cover-title-row">
 								<span class="al-cover-name" data-en="Bedroom">Alcoba</span>
@@ -507,7 +522,7 @@
 							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
 						</figcaption>
 					</figure>
-					<figure class="al-cover-card" data-lb="assets/apt-02-cocina.png">
+					<figure class="al-cover-card" data-apt-seq="1" data-lb="assets/apt-02-cocina.png">
 						<img loading="lazy" src="assets/apt-02-cocina.png" alt="Cocina (Apartamento 1)">
 						<figcaption>
 							<span class="al-cover-title-row">
@@ -517,7 +532,7 @@
 							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
 						</figcaption>
 					</figure>
-					<figure class="al-cover-card" data-lb="assets/apt-06-sala.png">
+					<figure class="al-cover-card" data-apt-seq="2" data-lb="assets/apt-06-sala.png">
 						<img loading="lazy" src="assets/apt-06-sala.png" alt="Sala (Apartamento 1)">
 						<figcaption>
 							<span class="al-cover-title-row">
@@ -527,7 +542,7 @@
 							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
 						</figcaption>
 					</figure>
-					<figure class="al-cover-card" data-lb="assets/apt-08-bano.png">
+					<figure class="al-cover-card" data-apt-seq="3" data-lb="assets/apt-08-bano.png">
 						<img loading="lazy" src="assets/apt-08-bano.png" alt="Baño (Apartamento 1)">
 						<figcaption>
 							<span class="al-cover-title-row">
@@ -537,8 +552,14 @@
 							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
 						</figcaption>
 					</figure>
-					<figure class="al-cover-card" data-lb="assets/apt-01-alcoba.png">
+					<figure class="al-cover-card al-cover-apt-intro" data-apt-seq="4" data-lb="assets/apt-01-alcoba.png">
 						<img loading="lazy" src="assets/apt-01-alcoba.png" alt="Alcoba (Apartamento 2)">
+						<div class="al-cover-apt-splash" aria-hidden="true">
+							<p class="al-cover-divider-caption">
+								<span class="al-cover-name" data-en="Apartment 2">Apartamento 2</span>
+								<span class="al-cover-ref" data-en="Interior tour">Recorrido interior</span>
+							</p>
+						</div>
 						<figcaption>
 							<span class="al-cover-title-row">
 								<span class="al-cover-name" data-en="Bedroom">Alcoba</span>
@@ -547,7 +568,7 @@
 							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
 						</figcaption>
 					</figure>
-					<figure class="al-cover-card" data-lb="assets/apt-03-cocina.png">
+					<figure class="al-cover-card" data-apt-seq="5" data-lb="assets/apt-03-cocina.png">
 						<img loading="lazy" src="assets/apt-03-cocina.png" alt="Cocina (Apartamento 2)">
 						<figcaption>
 							<span class="al-cover-title-row">
@@ -557,7 +578,7 @@
 							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
 						</figcaption>
 					</figure>
-					<figure class="al-cover-card" data-lb="assets/apt-04-sala-comedor.png">
+					<figure class="al-cover-card" data-apt-seq="6" data-lb="assets/apt-04-sala-comedor.png">
 						<img loading="lazy" src="assets/apt-04-sala-comedor.png" alt="Sala y comedor (Apartamento 2)">
 						<figcaption>
 							<span class="al-cover-title-row">
@@ -567,7 +588,7 @@
 							<span class="al-cover-ref" data-en="Reference image">Imagen de referencia</span>
 						</figcaption>
 					</figure>
-					<figure class="al-cover-card" data-lb="assets/apt-05-sala-comedor.png">
+					<figure class="al-cover-card" data-apt-seq="7" data-lb="assets/apt-05-sala-comedor.png">
 						<img loading="lazy" src="assets/apt-05-sala-comedor.png" alt="Sala y comedor (Apartamento 2)">
 						<figcaption>
 							<span class="al-cover-title-row">
