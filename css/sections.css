@@ -520,7 +520,7 @@
   }
   #asesores .al-team {
     margin-top: 14px;
-    max-width: clamp(840px, 88vw, 1080px);
+    max-width: clamp(960px, 94vw, 1200px);
     margin-left: auto;
     margin-right: auto;
     gap: clamp(28px, 3.6vw, 44px);

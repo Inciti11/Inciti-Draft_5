@@ -569,10 +569,13 @@ section.al-sec.al-sec-apart {
 /* Asesores */
 .al-team {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2.2vw, 28px);
   margin-top: 48px;
   width: 100%;
+}
+@media (max-width: 680px) {
+  .al-team { grid-template-columns: 1fr; }
 }
 .al-advisor {
   width: 100%;
@@ -613,10 +616,12 @@ section.al-sec.al-sec-apart {
   object-position: center 18%;
   display: block;
 }
-.al-advisor-img--deisy { object-position: center 16%; }
-.al-advisor-img--ana { object-position: center 14%; }
-.al-advisor-img--blur.al-advisor-img--deisy { object-position: center 16%; }
-.al-advisor-img--blur.al-advisor-img--ana { object-position: center 14%; }
+.al-advisor-img--deisy { object-position: center 22%; }
+.al-advisor-img--ana { object-position: center 20%; }
+.al-advisor-img--ricardo { object-position: center 24%; }
+.al-advisor-img--blur.al-advisor-img--deisy { object-position: center 22%; }
+.al-advisor-img--blur.al-advisor-img--ana { object-position: center 20%; }
+.al-advisor-img--blur.al-advisor-img--ricardo { object-position: center 24%; }
 .al-advisor-img--pc { display: none; }
 @media (min-width: 681px) {
   .al-advisor-img--mob { display: none !important; }
@@ -625,9 +630,10 @@ section.al-sec.al-sec-apart {
     object-fit: cover;
     object-position: center 28%;
   }
-  .al-advisor-img--pc.al-advisor-img--deisy:not(.al-advisor-img--blur) { object-position: center 26%; }
-  .al-advisor-img--pc.al-advisor-img--ana:not(.al-advisor-img--blur) { object-position: center 24%; }
-  .al-advisor-img--blur.al-advisor-img--pc { object-position: center 26%; opacity: .75; }
+  .al-advisor-img--pc.al-advisor-img--deisy:not(.al-advisor-img--blur) { object-position: center 30%; }
+  .al-advisor-img--pc.al-advisor-img--ana:not(.al-advisor-img--blur) { object-position: center 28%; }
+  .al-advisor-img--pc.al-advisor-img--ricardo:not(.al-advisor-img--blur) { object-position: center 32%; }
+  .al-advisor-img--blur.al-advisor-img--pc { object-position: center 28%; opacity: .75; }
 }
 .al-advisor-veil {
   position: absolute;
@@ -837,8 +843,9 @@ body.alrio a.al-advisor-wa:focus-visible {
     object-fit: cover;
     object-position: center 12%;
   }
-  #asesores .al-advisor-img--mob.al-advisor-img--deisy:not(.al-advisor-img--blur) { object-position: center 10%; }
-  #asesores .al-advisor-img--mob.al-advisor-img--ana:not(.al-advisor-img--blur) { object-position: center 8%; }
+  #asesores .al-advisor-img--mob.al-advisor-img--deisy:not(.al-advisor-img--blur) { object-position: center 12%; }
+  #asesores .al-advisor-img--mob.al-advisor-img--ana:not(.al-advisor-img--blur) { object-position: center 10%; }
+  #asesores .al-advisor-img--mob.al-advisor-img--ricardo:not(.al-advisor-img--blur) { object-position: center 14%; }
   #asesores .al-advisor-img--blur {
     opacity: .55;
     filter: blur(24px) saturate(1.05);
