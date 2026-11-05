@@ -121,6 +121,9 @@
     object-position: 38% 42%;
     transform: none;
   }
+  .al-hero--digital .al-hero-veil {
+    display: block;
+  }
   .al-hero-veil {
     background:
       linear-gradient(180deg,

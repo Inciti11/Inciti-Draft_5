@@ -1,21 +1,36 @@
 /* ALRÍO · portada */
 /* ── HERO ──────────────────────────────────────── */
 .al-hero {
-  position: relative; z-index: 0;
-  width: 100%; min-height: 100svh; overflow: hidden;
-  background: #2a4668 url("../assets/ext-hero-blur.jpg") center / cover no-repeat;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #3c4d45;
   border-radius: 0;
 }
 .al-hero-img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  image-rendering: auto;
+  z-index: 1;
 }
 .al-hero-img--pc {
-  object-position: 72% 42%;
+  object-position: 58% 50%;
+}
+.al-hero--digital .al-hero-veil {
+  display: none;
+}
+.al-hero--digital .al-hero-img--pc {
+  object-position: 100% 50%;
 }
 .al-hero-img--mob { display: none; }
 .al-hero-veil {
   position: absolute; inset: 0;
+  z-index: 2;
   background: linear-gradient(90deg,
     rgba(60, 77, 69, .92) 0%,
     rgba(60, 77, 69, .82) 34%,
@@ -24,7 +39,7 @@
     rgba(60, 77, 69, 0) 88%);
 }
 .al-hero-in {
-  position: relative; min-height: 100svh; display: grid; grid-template-rows: 1fr auto;
+  position: relative; z-index: 3; min-height: 100svh; display: grid; grid-template-rows: 1fr auto;
   padding: 120px var(--pad) 86px;
 }
 .al-hero-body {

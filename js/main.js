@@ -370,6 +370,7 @@
   /* Carrusel coverflow (amenidades y apartamentos comparten lógica; apart = tighter + overlays) */
   document.querySelectorAll('[data-coverflow]').forEach(function (root) {
     var apart = root.classList.contains('al-cover-apart');
+    var planos = !!root.closest('#planos');
     var stage = root.querySelector('.al-cover-stage');
     if (apart && stage) {
       stage.querySelectorAll('.al-cover-card--mirror').forEach(function (el) { el.remove(); });
@@ -420,9 +421,9 @@
     var layout = function () {
       var active = activeCards();
       var n = apart ? active.length : cards.length;
-      var step = apart ? 44 : 52;
-      var scale1 = apart ? 0.86 : 0.82;
-      var rot = apart ? 13 : 16;
+      var step = apart ? 44 : (planos ? 46 : 52);
+      var scale1 = apart ? 0.86 : (planos ? 0.88 : 0.82);
+      var rot = apart ? 13 : (planos ? 9 : 16);
       if (apart) syncIndicator();
       var splashThisLayout = forceBaseSplash;
       forceBaseSplash = false;
@@ -444,7 +445,7 @@
         card.style.setProperty('--s', abs === 0 ? '1' : abs === 1 ? String(scale1) : '.68');
         card.style.setProperty('--ry', (d * -rot) + 'deg');
         card.style.setProperty('--o', abs > 2 ? '0' : abs === 2 ? '.55' : '1');
-        card.style.setProperty('--b', abs === 0 ? '1' : abs === 1 ? '.78' : '.62');
+        card.style.setProperty('--b', planos ? '1' : (abs === 0 ? '1' : abs === 1 ? '.78' : '.62'));
         card.style.setProperty('--z', String(8 - abs));
         card.style.setProperty('--z3', abs === 0 ? '48px' : abs === 1 ? '0px' : '-70px');
         card.classList.toggle('is-on', d === 0);

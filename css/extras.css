@@ -177,11 +177,20 @@ section.al-sec.al-sec-apart {
   z-index: 2;
 }
 .al-cover-card.is-on { pointer-events: auto; cursor: pointer; }
+.al-cover-card.is-on {
+  filter: none;
+}
 .al-cover-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.al-cover-card.is-on img {
+  transform: translateZ(0.01px);
 }
 #planos .al-cover {
   --ph: max(420px, min(76vh, 760px));
@@ -189,12 +198,13 @@ section.al-sec.al-sec-apart {
   min-height: 0;
 }
 #planos .al-cover-card {
-  --cw: min(90vw, calc(var(--ph) * 0.84 * 1024 / 791));
+  --cw: min(94vw, calc(var(--ph) * 0.92 * 2048 / 1583));
   background: #F4EEE0;
   width: var(--cw);
   height: 84%;
   margin-left: calc(var(--cw) / -2);
   overflow: hidden;
+  filter: none;
 }
 #planos .al-cover-card img {
   position: absolute;
@@ -202,10 +212,11 @@ section.al-sec.al-sec-apart {
   width: 100%;
   height: 100%;
   max-width: none;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   transform: none;
   background: #F4EEE0;
+  image-rendering: auto;
 }
 #planos .al-cover-card::after,
 #planos .al-cover-card figcaption,
@@ -795,18 +806,15 @@ body.alrio a.al-advisor-wa:focus-visible {
 @media (max-width: 680px) {
   #planos .al-cover {
     --cw: 92vw;
-    height: calc(92vw * 791 / 1024 + 32px);
+    height: calc(92vw * 1583 / 2048 + 32px);
     min-height: 0;
   }
   #planos .al-cover-card {
     --cw: 92vw;
     top: 16px;
     width: 92vw;
-    height: calc(92vw * 791 / 1024);
+    height: calc(92vw * 1583 / 2048);
     margin-left: calc(92vw / -2);
-  }
-  #planos .al-cover-card img {
-    object-fit: contain;
   }
   section.al-sec.al-sec-apart { padding-top: 72px; padding-bottom: 72px; }
   #amenidades.al-sec.al-sec-apart { padding-top: 12px; }
